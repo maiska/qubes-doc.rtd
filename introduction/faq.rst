@@ -431,13 +431,13 @@ For this reason, we don’t think that anyone should place undue trust in
 the live version of this site on the Web. Instead, if you want to obtain
 your own trustworthy copy of this website in a secure way, you should
 clone our `website
-repo <https://github.com/QubesOS/qubesos.github.io>`__, :doc:`verify the PGP
+repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP
 signatures on the commits and/or
-tags </project-security/verifying-signatures.html#how-to-verify-signatures-on-git-repository-tags-and-commits>`
+tags </project-security/verifying-signatures:how-to-verify-signatures-on-git-repository-tags-and-commits>`
 signed by the `doc-signing
 keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__
 (which indicates that the content has undergone
-:doc:`review </developer/general/how-to-edit-the-documentation.html#security>`), then either
+:ref:`review </developer/general/how-to-edit-the-documentation:security>`), then either
 `render the site on your local
 machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__
 or simply read the source, the vast majority of which was `intentionally
