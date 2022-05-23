@@ -431,7 +431,7 @@ For this reason, we don’t think that anyone should place undue trust in
 the live version of this site on the Web. Instead, if you want to obtain
 your own trustworthy copy of this website in a secure way, you should
 clone our `website
-repo <https://github.com/QubesOS/qubesos.github.io>`__, `verify the PGP
+repo <https://github.com/QubesOS/qubesos.github.io>`__, :doc:`verify the PGP
 signatures on the commits and/or
 tags </project-security/verifying-signatures.html#how-to-verify-signatures-on-git-repository-tags-and-commits>`__
 signed by the `doc-signing
