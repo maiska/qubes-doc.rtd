@@ -63,3 +63,5 @@ latex_show_urls ='footnote'
 
 
 locale_dirs = ['../_translated']
+autosectionlabel_prefix_document = True
+
