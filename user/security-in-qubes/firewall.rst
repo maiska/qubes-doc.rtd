@@ -257,12 +257,14 @@ service.
 
 
 
+  - **Note:** The syntax is the same as SSH tunnel handler. The first
+    ``444`` correspond to the localport destination of ``untrusted``,
+    ``@default`` the remote machine and the second ``444`` to the
+    remote machine port.
 
 
-   **Note:** The syntax is the same as SSH tunnel handler. The first ``444``
-   correspond to the localport destination of ``untrusted``,
-   ``@default`` the remote machine and the second ``444`` to the remote
-   machine port.
+
+
 
 The service of ``mytcp-service`` running on port ``444`` is now
 accessible in ``untrusted`` as ``localhost:444``.
@@ -443,8 +445,10 @@ one can be used for ``sys-net`` outside world IP:
 Note the IP addresses you will need, they will be required in the next
 steps.
 
-   **Note:** The vifx.0 interface is the one used by qubes connected to this
-   netvm so it is *not* an outside world interface.
+- **Note:** The vifx.0 interface is the one used by qubes connected to
+  this netvm so it is *not* an outside world interface.
+
+
 
 **2. Route packets from the outside world to the FirewallVM**
 
@@ -463,10 +467,12 @@ each destination qube to ease rules management:
 
 
 
-   **Note:** the name ``custom-dnat-qubeDST`` is arbitrary
+- **Note:** the name ``custom-dnat-qubeDST`` is arbitrary
 
-   **Note:** while we use a DNAT chain for a single qube, it’s totally
-   possible to have a single DNAT chain for multiple qubes
+- **Note:** while we use a DNAT chain for a single qube, it’s totally
+  possible to have a single DNAT chain for multiple qubes
+
+
 
 Second step, code a natting firewall rule to route traffic on the
 outside interface for the service to the sys-firewall VM
@@ -486,8 +492,10 @@ new connections for the service
 
 
 
-   **Note:** If you do not wish to limit the IP addresses connecting to the
-   service, remove ``ip saddr 192.168.x.y/24`` from the rules
+- **Note:** If you do not wish to limit the IP addresses connecting to
+  the service, remove ``ip saddr 192.168.x.y/24`` from the rules
+
+
 
    If you want to expose the service on multiple interfaces, repeat the
    steps 2 and 3 described above, for each interface. Alternatively, you
@@ -591,8 +599,10 @@ new connections for the service
 
 
 
-   **Note:** If you do not wish to limit the IP addresses connecting to the
-   service, remove ``ip saddr 192.168.x.y/24`` from the rules
+- **Note:** If you do not wish to limit the IP addresses connecting to
+  the service, remove ``ip saddr 192.168.x.y/24`` from the rules
+
+
 
 Once you have confirmed that the counters increase, store these commands
 in the script ``/rw/config/qubes-firewall-user-script``

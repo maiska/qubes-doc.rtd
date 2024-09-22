@@ -174,8 +174,13 @@ Installing different VM kernel based on dom0 kernel
 
 It is possible to package a kernel installed in dom0 as a VM kernel.
 This makes it possible to use a VM kernel which is not packaged by Qubes
-team. This includes: * using a Fedora kernel package * using a
-manually compiled kernel
+team. This includes:
+
+- using a Fedora kernel package
+
+- using a manually compiled kernel
+
+
 
 To prepare such a VM kernel, you need to install the
 ``qubes-kernel-vm-support`` package in dom0 and also have matching

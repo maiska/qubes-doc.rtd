@@ -115,7 +115,7 @@ breakdown.
 
 1. In the Windows 10 VM, download from the `XEN website <https://xenproject.org/downloads/windows-pv-drivers/windows-pv-drivers-9-series/windows-pv-drivers-9-0-0/>`__
    the installation kits for Xen bus (``xenbus``) and storage drivers
-   (``xenvbd``) Version 9.0.0 (two files ``xenvbd.tar``and
+   (``xenvbd``) Version 9.0.0 (two files ``xenvbd.tar`` and
    ``xenbus.tar``).
 
 2. Use an archive extractor like `7-zip <https://www.7-zip.org/>`__ to
@@ -142,15 +142,20 @@ breakdown.
          certutil -hashfile C:\qubes-tools-4.0.1.3.exe SHA256
 
 
-   And compare it the value to
-   ``148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1``
-   (**it has to exactly match for security reasons**). If it matches,
-   feel free to continue the installation. If not, repeat the download
-   to make sure it was not corrupted due to a network problem. If keeps
-   on not matching it might be an attacker attempting to do something
-   nasty to your system – Ask for support.
-   **Note**: This is a workaround for installing the qubes windows
-   tools on windows 10 since the standard way is broken.
+
+   - And compare it the value to
+     ``148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1``
+     (**it has to exactly match for security reasons**). If it
+     matches, feel free to continue the installation. If not, repeat
+     the download to make sure it was not corrupted due to a network
+     problem. If keeps on not matching it might be an attacker
+     attempting to do something nasty to your system – Ask for
+     support.
+
+   - **Note**: This is a workaround for installing the qubes windows
+     tools on windows 10 since the standard way is broken.
+
+
 
 7. Install Qubes Windows Tools 4.0.1.3 by starting
    ``qubes-tools-4.0.1.3.exe``, not selecting the
@@ -162,7 +167,7 @@ breakdown.
 8. Shut down Windows and wait until the VM is really stopped,
    i.e. Qubes shows no more activity.
 
-9. On a ``dom0`` terminal write: *(where ``<VMname>`` is the name of your Windows 10 VM)*
+9. On a ``dom0`` terminal write: *(where* ``<VMname>`` *is the name of your Windows 10 VM)*
 
    .. code:: bash
 
@@ -180,8 +185,13 @@ breakdown.
 12. Lastly to enable file copy operations to a Windows 10 VM the
     ``default_user`` property should be set the ``<username>`` that you
     use to login to the Windows VM. This can be done via the following
-    command on a ``dom0`` terminal: *(where ``<VMname>`` is the name of your Windows 10 VM)*
-    ``qvm-prefs <VMname> default_user <username>``
+    command on a ``dom0`` terminal: *(where* ``<VMname>`` *is the name of your Windows 10 VM)*
+
+    .. code:: bash
+
+          qvm-prefs <VMname> default_user <username>
+
+
 
 
 
@@ -608,12 +618,12 @@ Possible configuration values are:
    * - LogDir
      - String
      - Directory where logs are created
-     - c:\Program Files\Invisible Things Lab\Qubes Tools\log
+     - c:\\Program Files\\Invisible Things Lab\\Qubes Tools\log
    * - LogLevel
      - DWORD
      - Log verbosity (see below)
      - 2 (INFO)
-   * - Log Retention
+   * - LogRetention
      - DWORD
      - Maximum age of log files (in seconds), older logs are automatically deleted
      - 604800 (7 days)
@@ -665,13 +675,13 @@ Component-specific settings currently available:
    :align: center
    :header-rows: 1
 
-   * - Co mponent
-     - Se tting
+   * - Component
+     - Setting
      - Type
      - Description
      - Default value
    * - qga
-     - Dis ableC ursor
+     - DisableCursor
      - DWORD
      - Disable cursor in the VM. Useful for integration with Qubes desktop so you don’t see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).
      - 1
@@ -704,8 +714,8 @@ automatically, try to start Windows in safe mode (see above) and 1)
 disable automatic restart on BSOD (Control Panel - System - Advanced
 system settings - Advanced - Startup and recovery), 2) check the system
 event log for BSOD events. If you can, send the ``memory.dmp`` dump file
-from ``c:\Windows``. Xen logs (/var/log/xen/console/guest-*) are also
-useful as they contain pvdrivers diagnostic output.
+from ``c:\Windows``. Xen logs (``/var/log/xen/console/guest-*``) are
+also useful as they contain pvdrivers diagnostic output.
 
 If a specific component is malfunctioning, you can increase its log
 verbosity as explained above to get more troubleshooting information.
@@ -716,25 +726,25 @@ Below is a list of components:
    :align: center
    :header-rows: 1
 
-   * - Com pon ent
+   * - Component
      - Description
-   * - qre xec -ag ent
+   * - qrexec-agent
      - Responsible for most communication with Qubes (dom0 and other domains), secure clipboard, file copying, qrexec services.
-   * - qr exe c-w rap per
+   * - qrexec-wrapper
      - Helper executable that’s responsible for launching qrexec services, handling their I/O and vchan communication.
-   * - q rex ec- cli ent -vm
+   * - qrexec-client-vm
      - Used for communications by the qrexec protocol.
    * - qga
      - Gui agent.
-   * - Qg aWa tch dog
+   * - QgaWatchdog
      - Service that monitors session/desktop changes (logon/logoff/locking/UAC…) and simulates SAS sequence (ctrl-alt-del).
-   * - qu bes db- dae mon
+   * - qubesdb-daemon
      - Service for accessing Qubes configuration database.
-   * - n etw ork -se tup
+   * - network-setup
      - Service that sets up network parameters according to VM’s configuration.
-   * - pr epa re- vol ume
+   * - prepare-volume
      - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
-   * - rel oca te- dir
+   * - relocate-dir
      - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: c:\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
    
 

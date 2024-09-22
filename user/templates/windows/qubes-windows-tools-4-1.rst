@@ -696,12 +696,12 @@ Possible configuration values are:
    * - LogDir
      - String
      - Directory where logs are created
-     - c:\Program Files\Invisible Things Lab\Qubes Tools\log
+     - c:\\Program Files\\Invisible Things Lab\\Qubes Tools\log
    * - LogLevel
      - DWORD
      - Log verbosity (see below)
      - 2 (INFO)
-   * - Log Retention
+   * - LogRetention
      - DWORD
      - Maximum age of log files (in seconds), older logs are automatically deleted
      - 604800 (7 days)
@@ -750,13 +750,13 @@ Component-specific settings currently available:
    :align: center
    :header-rows: 1
 
-   * - Co mponent
-     - Se tting
+   * - Component
+     - Setting
      - Type
      - Description
      - Default value
    * - qga
-     - Dis ableC ursor
+     - DisableCursor
      - DWORD
      - Disable cursor in the VM. Useful for integration with Qubes desktop so you don’t see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).
      - 1

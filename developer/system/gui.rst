@@ -7,9 +7,9 @@ GUI virtualization
 All AppVM X applications connect to local (running in AppVM) Xorg
 servers that use the following “hardware” drivers:
 
--  *``dummyqsb_drv``* - video driver, that paints onto a framebuffer
+-  ``dummyqsb_drv`` - video driver, that paints onto a framebuffer
    located in RAM, not connected to real hardware
--  *``qubes_drv``* - it provides a virtual keyboard and mouse (in fact,
+-  ``qubes_drv`` - it provides a virtual keyboard and mouse (in fact,
    more, see below)
 
 For each AppVM, there is a pair of ``qubes-gui`` (running in AppVM) and

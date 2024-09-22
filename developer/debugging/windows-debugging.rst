@@ -49,11 +49,11 @@ assumes the target VM is named ``target-vm``.
 - Edit ``/usr/share/qubes/templates/libvirt/xen.xml`` to prepare our
   custom config to override just the NIC part of the global template:
 
-  - add ``{% raw %}{% block network %}{% endraw %}`` before
-    ``{% raw %}{% if vm.netvm %}{% endraw %}``
+  - add ``{% block network %}`` before
+    ``{% if vm.netvm %}``
 
-  - add ``{% raw %}{% endblock %}{% endraw %}`` after the matching
-    ``{% raw %}{% endif %}{% endraw %}``
+  - add ``{% endblock %}`` after the matching
+    ``{% endif %}``
 
 
 
@@ -63,10 +63,10 @@ assumes the target VM is named ``target-vm``.
 - Add ``<model type='e1000'/>`` to the ``<interface>`` section.
 
 - Enclose everything within
-  ``{% raw %}{% block network %}{% endraw %}`` +
-  ``{% raw %}{% endblock %}{% endraw %}``.
+  ``{% block network %}`` +
+  ``{% endblock %}``.
 
-- Add ``{% raw %}{% extends 'libvirt/xen.xml' %}{% endraw %}`` at the
+- Add ``{% extends 'libvirt/xen.xml' %}`` at the
   start.
 
 - The final ``target-vm.xml`` should look something like this:
@@ -75,7 +75,7 @@ assumes the target VM is named ``target-vm``.
 
 .. code:: bash
 
-      {% raw %}
+      
       {% extends 'libvirt/xen.xml' %}
       {% block network %}
          <interface type='ethernet'>
@@ -86,7 +86,7 @@ assumes the target VM is named ``target-vm``.
             <model type='e1000' />
          </interface>
       {% endblock %}
-      {% endraw %}
+      
 
 
 

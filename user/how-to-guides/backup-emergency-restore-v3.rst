@@ -58,17 +58,21 @@ and *compressed*.
          (stdin)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
 
 
-   **Note:** The hash values should match. If they do not match, then
-   the backup file may have been tampered with, or there may have been
-   a storage error.
-   **Note:** If your backup was hashed with a message digest algorithm
-   other than ``sha512``, you must substitute the correct message
-   digest command. This information is contained in the
-   ``backup-header`` file (see step 4), however it is not recommended
-   to open this file until its integrity and authenticity has been
-   verified (the current step). A complete list of supported message
-   digest algorithms can be found with
-   ``openssl list-message-digest-algorithms``.
+
+   - **Note:** The hash values should match. If they do not match,
+     then the backup file may have been tampered with, or there may
+     have been a storage error.
+
+   - **Note:** If your backup was hashed with a message digest
+     algorithm other than ``sha512``, you must substitute the correct
+     message digest command. This information is contained in the
+     ``backup-header`` file (see step 4), however it is not
+     recommended to open this file until its integrity and
+     authenticity has been verified (the current step). A complete
+     list of supported message digest algorithms can be found with
+     ``openssl list-message-digest-algorithms``.
+
+
 
 4. Read the ``backup-header``. You’ll need some of this information
    later. The file will look similar to this:
@@ -99,15 +103,19 @@ and *compressed*.
          (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 
 
-   **Note:** The hash values should match. If they do not match, then
-   the backup file may have been tampered with, or there may have been
-   a storage error.
-   **Note:** If your backup was hashed with a message digest algorithm
-   other than ``sha512``, you must substitute the correct message
-   digest command. This information is contained in the
-   ``backup-header`` file (see step 4). A complete list of supported
-   message digest algorithms can be found with
-   ``openssl list-message-digest-algorithms``.
+
+   - **Note:** The hash values should match. If they do not match,
+     then the backup file may have been tampered with, or there may
+     have been a storage error.
+
+   - **Note:** If your backup was hashed with a message digest
+     algorithm other than ``sha512``, you must substitute the correct
+     message digest command. This information is contained in the
+     ``backup-header`` file (see step 4). A complete list of supported
+     message digest algorithms can be found with
+     ``openssl list-message-digest-algorithms``.
+
+
 
 6. Decrypt the ``private.img`` file.
 
@@ -165,15 +173,13 @@ and *compressed*.
 
 10. Success! If you wish to recover data from more than one VM in your
     backup, simply repeat steps 5–9 for each additional VM.
-    **Note:** You may wish to store a copy of these instructions with
-    your Qubes backups in the event that you fail to recall the above
-    procedure while this web page is inaccessible. All Qubes
-    documentation, including this page, is available in plain text
-    format in the following Git repository:
 
-    .. code:: bash
-
-          https://github.com/QubesOS/qubes-doc.git
+    - **Note:** You may wish to store a copy of these instructions with
+      your Qubes backups in the event that you fail to recall the above
+      procedure while this web page is inaccessible. All Qubes
+      documentation, including this page, is available in plain text
+      format in the following Git repository:
+      https://github.com/QubesOS/qubes-doc.git
 
 
 

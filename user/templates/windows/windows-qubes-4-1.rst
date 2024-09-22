@@ -116,9 +116,8 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 PVH limitations precludes from using PVH). This can be done in either of
 two ways:
 
-- Using Qube Manager
-  In order to create the new qube, select the command Qube -> New Qube
-  in the Qube Manager:
+- Using Qube Manager: In order to create the new qube, select the
+  command Qube -> New Qube in the Qube Manager:
 
   - Name: ``WindowsNew``, Color: ``orange`` (for a standalone qubes,
     ``black`` for a template)
@@ -134,27 +133,29 @@ two ways:
 
   - Click “OK”.
 
-  - Settings:
+    - Settings:
 
-    - Basic:
+      - Basic:
 
-      - System storage: 60.0+ GB
-
-
-
-    - Advanced:
-
-      - Include in memory balancing: uncheck
-
-      - Initial memory: 4096+ MB
-
-      - Kernel: ``(none)``
-
-      - Mode: ``HVM``
+        - System storage: 60.0+ GB
 
 
 
-    - Click “Apply”.
+      - Advanced:
+
+        - Include in memory balancing: uncheck
+
+        - Initial memory: 4096+ MB
+
+        - Kernel: ``(none)``
+
+        - Mode: ``HVM``
+
+
+
+      - Click “Apply”.
+
+
 
 
 
@@ -329,23 +330,47 @@ These parameters are set for the following reasons:
       
       **Caution:**       This temporary patch may cease to work if it so pleases Microsoft some time.
 
-.. code:: bash
+- The installation of Windows 11 may require an internet connection to
+  grab a Microsoft ID. This is currently true only for the home
+  addition, but will probably extend to the Pro edition, too. A
+  workaround to bypass the internet connection requirements of the
+  Windows 11 setup has been published that currently works for version
+  21H2 but may be blocked some time in the future by Microsoft:
 
-      The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
-      
-      - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
-      - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
-      - Expand the Task Manager by clicking the “More Details” button, and then find “Network Connection Flow.”
-      - Select this process and then hit the “End Task” button.
-      - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
-      
-      For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
-      
-      - Enter `no@thankyou.com` (or some other senseless address) as the email address and click `Next` when Windows 11 setup prompts you to log into your Microsoft account.
-      - Enter any text you want in the password field and click `Sign in`. If this method works, you'll get a message saying "Oops, something went wrong."
-      - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
-      - Enter the username you want to use and click `Next`.
-      - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+  - When you reach the “Let’s Connect You To A Network” page, type
+    Shift-F10 to open a console window.
+
+  - Here you type ``taskmgr`` to start the Task Manager window so you
+    can see all running processes.
+
+  - Expand the Task Manager by clicking the “More Details” button, and
+    then find “Network Connection Flow.”
+
+  - Select this process and then hit the “End Task” button.
+
+  - Now you can close these newly opened windows and return to the
+    Windows 11 setup, where you will enter local account information.
+
+
+
+- For Windows 11 version 22H2, the following sequence of actions to use
+  a local account instead of a Microsoft account has been published:
+
+  - Enter ``no@thankyou.com`` (or some other senseless address) as the
+    email address and click ``Next`` when Windows 11 setup prompts you
+    to log into your Microsoft account.
+
+  - Enter any text you want in the password field and click
+    ``Sign in``. If this method works, you’ll get a message saying
+    “Oops, something went wrong.”
+
+  - Click ``Next``. A screen appears saying “Who’s going to use this
+    device?” This is the local account creation screen.
+
+  - Enter the username you want to use and click ``Next``.
+
+  - Enter a password and click ``Next``. You can leave the field blank
+    but it’s not recommended.
 
 
 
