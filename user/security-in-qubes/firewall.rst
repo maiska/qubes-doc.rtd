@@ -257,12 +257,10 @@ service.
 
 
 
-  - **Note:** The syntax is the same as SSH tunnel handler. The first
-    ``444`` correspond to the localport destination of ``untrusted``,
-    ``@default`` the remote machine and the second ``444`` to the
-    remote machine port.
-
-
+- **Note:** The syntax is the same as SSH tunnel handler. The first
+  ``444`` correspond to the localport destination of ``untrusted``,
+  ``@default`` the remote machine and the second ``444`` to the remote
+  machine port.
 
 
 
@@ -421,11 +419,13 @@ As an example we can take the use case of qube QubeDest running a web
 server listening on port 443 that we want to expose on our physical
 interface ens6, but only to our local network 192.168.x.y/24.
 
-   **Note:** To have all interfaces available and configured, make sure the
-   3 qubes are up and running
+- **Note:** To have all interfaces available and configured, make sure
+  the 3 qubes are up and running
 
-   **Note:** `Issue #4028 <https://github.com/QubesOS/qubes-issues/issues/4028>`__
-   discusses adding a command to automate exposing the port.
+- **Note:** `Issue #4028 <https://github.com/QubesOS/qubes-issues/issues/4028>`__
+  discusses adding a command to automate exposing the port.
+
+
 
 **1. Identify the IP addresses you will need to use for sys-net, sys-firewall and the destination qube.**
 
@@ -495,11 +495,11 @@ new connections for the service
 - **Note:** If you do not wish to limit the IP addresses connecting to
   the service, remove ``ip saddr 192.168.x.y/24`` from the rules
 
+- If you want to expose the service on multiple interfaces, repeat the
+  steps 2 and 3 described above, for each interface. Alternatively, you
+  can leave out the interface completely.
 
 
-   If you want to expose the service on multiple interfaces, repeat the
-   steps 2 and 3 described above, for each interface. Alternatively, you
-   can leave out the interface completely.
 
 Verify the rules on sys-net firewall correctly match the packets you
 want by looking at its counters, check for the counter lines in the

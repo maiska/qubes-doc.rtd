@@ -499,10 +499,13 @@ steps:
 3. Refresh the Applications list for the app qube. In the Qubes Menu for
    the **app qube*** launch the Qube Settings. Then go to the
    Applications tab and click “Refresh Applications”
-   The refresh will take a few minutes; after it’s complete the Snap app
-   will appear in the app qube’s list of available applications. At this
-   point the snap will be persistent within the app qube and will
-   receive updates when the app qube is running.
+
+   - The refresh will take a few minutes; after it’s complete the Snap
+     app will appear in the app qube’s list of available applications.
+     At this point the snap will be persistent within the app qube and
+     will receive updates when the app qube is running.
+
+
 
 
 

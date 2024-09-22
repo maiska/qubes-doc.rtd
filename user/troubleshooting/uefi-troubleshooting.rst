@@ -33,12 +33,19 @@ with the same parameters.
 
 
 
-**Change xen configuration directly in an iso image** 01. Set up a loop
-device (replacing ``X`` with your ISO’s version name):
-``losetup -P /dev/loop0 Qubes-RX-x86_64.iso`` 02. Mount the loop device:
-``sudo mount /dev/loop0p2 /mnt`` 03. Edit ``EFI/BOOT/BOOTX64.cfg`` to
-add your params to the ``kernel`` configuration key 04. Save your
-changes, unmount and dd to usb device
+**Change xen configuration directly in an iso image**
+
+1. Set up a loop device (replacing ``X`` with your ISO’s version name):
+   ``losetup -P /dev/loop0 Qubes-RX-x86_64.iso``
+
+2. Mount the loop device: ``sudo mount /dev/loop0p2 /mnt``
+
+3. Edit ``EFI/BOOT/BOOTX64.cfg`` to add your params to the ``kernel``
+   configuration key
+
+4. Save your changes, unmount and dd to usb device
+
+
 
 Installation freezes before displaying installer
 ------------------------------------------------

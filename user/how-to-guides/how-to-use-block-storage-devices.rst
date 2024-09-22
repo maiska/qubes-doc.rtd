@@ -118,11 +118,15 @@ don’t see anything that looks like your drive, run
          qvm-block attach work sys-usb:sdb
 
 
-   This will attach the device to the qube as ``/dev/xvdi`` if that name
-   is not already taken by another attached device, or ``/dev/xvdj``,
-   etc.
-   You may also mount one partition at a time by using the same command
-   with the partition number, e.g. ``sdb1``.
+
+   - This will attach the device to the qube as ``/dev/xvdi`` if that
+     name is not already taken by another attached device, or
+     ``/dev/xvdj``, etc.
+
+   - You may also mount one partition at a time by using the same
+     command with the partition number, e.g. ``sdb1``.
+
+
 
 3. The block device is now attached to the qube. If using a default
    qube, you may open the Nautilus file manager in the qube, and your
@@ -141,7 +145,11 @@ don’t see anything that looks like your drive, run
 
 4. When you finish using the block device, click the eject button or
    right-click and select **Unmount**.
-   If you’ve manually mounted a single partition in the above step, use:
+
+   - If you’ve manually mounted a single partition in the above step,
+     use:
+
+
 
    .. code:: bash
 
@@ -254,9 +262,13 @@ loopback device inside the sourceVM.
 2. If you want to use the GUI, you’re done. Click the Device Manager
    |device manager icon| and select the ``loop0``-device to attach it to
    another qube.
-   If you rather use the command line, continue:
-   In dom0, run ``qvm-block`` to display known block devices. The newly
-   created loop device should show up:
+
+   - If you rather use the command line, continue:
+
+   - In dom0, run ``qvm-block`` to display known block devices. The
+     newly created loop device should show up:
+
+
 
    .. code:: bash
 
