@@ -12,7 +12,7 @@ This troubleshooting guide is collection of tips about updating Whonix
 that also pertain to updating the normal Debian package manager. If you
 plan to use Debian heavily, **we highly recommend you install the Whonix templates and use them to update your normal Debian template.**
 
-***Note:** some of the links on this page go to documentation on Whonix’s website*
+**Note: some of the links on this page go to documentation on Whonix’s website**
 
 Updating Error Messages
 -----------------------

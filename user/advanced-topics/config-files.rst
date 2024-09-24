@@ -84,7 +84,7 @@ on the same template. The scripts here all run as root.
         fi
 
 
-  will be executed with arguments ``online vif12.0 vif 10.137.0.100``
+  will be executed with arguments `` online vif12.0 vif 10.137.0.100``
   when starting ``work``. Please note that in case of an HVM, the
   script will be called twice - once with vif_type ``vif``, then with
   vif_type ``vif_ioemu`` (and different interface names). As long as

@@ -122,7 +122,7 @@ Mounting the disk
    * - other_install/root
      - dom0 root
      - The root partition of dom0.
-   * - ot her_install/-private
+   * - other_install/-private
      - VM
      - The /rw partition of the named VM.
    * - other_install/-root

@@ -114,7 +114,7 @@ Command-line interface
 
 .. DANGER::
       
-      **Warning:** Updating with direct commands such as qubes-dom0-update, dnf update, and apt update is not recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the Qubes Update tool or its command-line equivalents, as described below. (By contrast, :doc:`installing </user/how-to-guides/how-to-install-software>`       packages using direct package manager commands is fine.)
+      **Warning:** Updating with direct commands such as `qubes-dom0-update`, `dnf update`, and `apt update` is not recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the **Qubes Update** tool or its command-line equivalents, as described below. (By contrast, :doc:`installing </user/how-to-guides/how-to-install-software>`       packages using direct package manager commands is fine.)
 
 Advanced users may wish to perform updates via the command-line
 interface. The recommended way to do this is by applying the following

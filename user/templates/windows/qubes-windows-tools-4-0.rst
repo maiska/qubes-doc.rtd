@@ -485,7 +485,7 @@ during installation, completion of the process requires two reboots:
 For Windows 10, the user directories have to be moved manually, because
 the automatic transfer during QWT installation is bound to crash due to
 undocumented new features of NTFS, and a system having the directory
-``users``on another disk than ``C:`` will break on Windows update. So
+``users`` on another disk than ``C:`` will break on Windows update. So
 the following steps should be taken:
 
 - The Windows disk manager may be used to add the private volume as
@@ -618,7 +618,7 @@ Possible configuration values are:
    * - LogDir
      - String
      - Directory where logs are created
-     - c:\\Program Files\\Invisible Things Lab\\Qubes Tools\log
+     - c:\\Program Files\\Invisible Things Lab\\Qubes Tools\\log
    * - LogLevel
      - DWORD
      - Log verbosity (see below)

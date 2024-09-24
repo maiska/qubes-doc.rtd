@@ -5,7 +5,7 @@ System requirements
 
 .. warning::
       
-      Notice: The system requirements on this page are necessary, but not sufficient, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting the `resources below <#choosing-hardware>`__       when selecting hardware for Qubes.
+      Notice: The system requirements on this page are *necessary, but not sufficient*, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting the `resources below <#choosing-hardware>`__       when selecting hardware for Qubes.
 
 Minimum
 -------
@@ -135,14 +135,17 @@ Important Notes
   microcode updates, and such systems will still offer significant
   security advantages over conventional operating systems on the same
   hardware.
-  Intel maintains a
-  `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__
-  of end-of-support dates for its processors. However, this list seems
-  to include only processors that are no longer supported or will soon
-  no longer be supported. Many newer Intel processors are missing from
-  this list. To our knowledge, Intel does not announce end-of-support
-  dates for its newer processors in advance, nor does it have a public
-  policy governing how long support will last.
+
+  - Intel maintains a
+    `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__
+    of end-of-support dates for its processors. However, this list
+    seems to include only processors that are no longer supported or
+    will soon no longer be supported. Many newer Intel processors are
+    missing from this list. To our knowledge, Intel does not announce
+    end-of-support dates for its newer processors in advance, nor does
+    it have a public policy governing how long support will last.
+
+
 
 - Intel and AMD handle microcode updates differently, which has
   significant security implications. On Intel platforms, microcode
@@ -163,22 +166,27 @@ Important Notes
      update for the user’s system.
 
 
-  Historically, AMD has often been slow to complete step (1), at least
-  for its client (as opposed to server) platforms. In some cases, AMD
-  has made fixes available for its server platforms very shortly after
-  a security embargo was lifted, but it did not make fixes available
-  for client platforms facing the same vulnerability until weeks or
-  months later. (A “security embargo” is the practice of avoiding
-  public disclosure of a security vulnerability prior to a designated
-  date.) By contrast, Intel has consistently made fixes available for
-  new CPU vulnerabilities across its supported platforms very shortly
-  after security embargoes have been lifted.
-  Step (2) varies by vendor. Many vendors fail to complete step (2) at
-  all, while some others take a very long time to complete it.
-  The bottom line is that Qubes OS **can** run on AMD systems, and the
-  Qubes and Xen security teams do their best to provide security
-  support for AMD systems. However, without the ability to ship
-  microcode updates, there is only so much they can do.
+
+  - Historically, AMD has often been slow to complete step (1), at
+    least for its client (as opposed to server) platforms. In some
+    cases, AMD has made fixes available for its server platforms very
+    shortly after a security embargo was lifted, but it did not make
+    fixes available for client platforms facing the same vulnerability
+    until weeks or months later. (A “security embargo” is the practice
+    of avoiding public disclosure of a security vulnerability prior to
+    a designated date.) By contrast, Intel has consistently made fixes
+    available for new CPU vulnerabilities across its supported
+    platforms very shortly after security embargoes have been lifted.
+
+  - Step (2) varies by vendor. Many vendors fail to complete step (2)
+    at all, while some others take a very long time to complete it.
+
+  - The bottom line is that Qubes OS **can** run on AMD systems, and
+    the Qubes and Xen security teams do their best to provide security
+    support for AMD systems. However, without the ability to ship
+    microcode updates, there is only so much they can do.
+
+
 
 - Qubes **can** be installed on many systems that do not meet the
   recommended requirements. Such systems will still offer significant

@@ -497,7 +497,7 @@ steps:
    When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the app qube. In the Qubes Menu for
-   the **app qube*** launch the Qube Settings. Then go to the
+   the **app qube** launch the Qube Settings. Then go to the
    Applications tab and click “Refresh Applications”
 
    - The refresh will take a few minutes; after it’s complete the Snap
@@ -523,7 +523,7 @@ you typically use all day, such as a chat app.
    launch.
 
 2. List the names of the available desktop shortcuts by running the
-   command ``ls    /usr/share/applications`` and find the exact name of
+   command ``ls /usr/share/applications`` and find the exact name of
    the shortcut to the app you want to autostart:
 
    .. code:: bash

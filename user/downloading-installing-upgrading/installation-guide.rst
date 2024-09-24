@@ -40,7 +40,7 @@ Security tab.
 
 .. warning::
       
-      **Note:** Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. In other words, nested virtualization is not supported. In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
+      **Note:** Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. In other words, *nested virtualization* is not supported. In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
 
 Copying the ISO onto the installation medium
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -292,7 +292,7 @@ must have a least 32 GiB of free space available.
 
 .. warning::
       
-      **Note:** The installation destination cannot be the same as the installation medium. For example, if you’re installing Qubes OS from a USB drive onto a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (**Note:** This may not apply to advanced users who partition their devices appropriately.)
+      **Note:** The installation destination cannot be the same as the installation medium. For example, if you’re installing Qubes OS *from* a USB drive *onto* a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (**Note:** This may not apply to advanced users who partition their devices appropriately.)
 
 Installing an operating system onto a USB drive can be a convenient way
 to try Qubes. However, USB drives are typically much slower than

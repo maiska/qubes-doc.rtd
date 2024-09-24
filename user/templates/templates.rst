@@ -388,8 +388,8 @@ changes in the parent template.
    :header-rows: 1
 
    * - Qube Type
-     - Inheritance1
-     - Persistence2
+     - Inheritance1 :superscript:`1`
+     - Persistence :superscript:`2`
    * - :ref:`template <user/reference/glossary:template>`
      - N/A (templates cannot be based on templates)
      - everything

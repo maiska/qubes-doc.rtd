@@ -10,7 +10,7 @@ geography, cost, and availability.
 
 .. DANGER::
       
-      **Warning:** The Qubes OS Project certifies only that a particular hardware configuration is supported by Qubes OS and is available to purchase with Qubes OS preinstalled. We take no responsibility for any vendor’s manufacturing, shipping, payment, or other practices; nor can we control whether physical hardware is modified (whether maliciously or otherwise) en route to the user.
+      **Warning:** The Qubes OS Project certifies only that a particular hardware *configuration* is *supported* by Qubes OS and is available to purchase with Qubes OS preinstalled. We take no responsibility for any vendor’s manufacturing, shipping, payment, or other practices; nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
 
 You may also be interested in the `community-recommended hardware <https://forum.qubes-os.org/t/5560>`__ list and the `hardware compatibility list (HCL) <https://www.qubes-os.org/hcl/>`__.
 

@@ -255,9 +255,9 @@ Search tips
   etc.).
 
 - Search by closure reason:
-  `*reason:completed* <https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted>`__
+  `reason:completed <https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted>`__
   and
-  `*reason:"not planned"* <https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22>`__.
+  `reason:"not planned" <https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22>`__.
 
 - `Search by project <https://github.com/QubesOS/qubes-issues/projects>`__.
 
@@ -452,8 +452,8 @@ Resolution
 ^^^^^^^^^^
 
 
-In GitHub, an issue can be `closed as either *completed* or
-*not planned* <https://github.blog/changelog/2022-03-10-the-new-github-issues-march-10th-update/#%F0%9F%95%B5%F0%9F%8F%BD%E2%99%80%EF%B8%8F-issue-closed-reasons>`__.
+In GitHub, an issue can be `closed as either "completed" or
+"not planned" <https://github.blog/changelog/2022-03-10-the-new-github-issues-march-10th-update/#%F0%9F%95%B5%F0%9F%8F%BD%E2%99%80%EF%B8%8F-issue-closed-reasons>`__.
 
 Being closed as ``completed`` means that the issue has been fixed (in
 the case of bugs) or done (in the case of enhancements and tasks). More

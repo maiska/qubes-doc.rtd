@@ -117,7 +117,7 @@ release.
      - two weeks
    * - bug fixing
      - two weeks
-   * - current-testing freeze
+   * - ``current-testing`` freeze
      - one week
    
 
