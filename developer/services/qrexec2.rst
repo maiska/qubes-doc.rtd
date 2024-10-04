@@ -364,7 +364,7 @@ Dom0-VM vchan connections:
 .. figure:: /attachment/doc/qrexec2-internals.png
    :alt: qrexec2-internals.png
 
-   qrexec2-internals.png
+
 
 Note that Dom0 never examines the actual data flowing in neither of the
 two vchan connections.

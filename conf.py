@@ -19,7 +19,7 @@ from docutils.parsers.rst import Directive, directives
 # -- Project information -----------------------------------------------------
 
 project = 'Qubes OS'
-copyright = '2023, Qubes OS Project'
+copyright = '2024, Qubes OS Project'
 author = 'Qubes OS Project'
 
 title = "Qubes Docs"

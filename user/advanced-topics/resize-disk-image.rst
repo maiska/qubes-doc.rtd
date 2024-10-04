@@ -34,7 +34,7 @@ increase maximum disk image size.
 .. figure:: /attachment/doc/r4.0-vm-settings-disk-image.png
    :alt: vm-settings-disk-image.png
 
-   vm-settings-disk-image.png
+
 
 In case of standalone qubes and templates, just change the Disk Storage
 settings above. In case of template-based qubes, the private storage

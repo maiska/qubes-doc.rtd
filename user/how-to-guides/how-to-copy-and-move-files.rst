@@ -3,7 +3,7 @@ How to copy and move files
 ==========================
 
 
-*This page is about copying and moving files. If you wish to simply copy and paste text, that can be done more easily using the inter-qube clipboard. See* :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` *. For dom0, see* :doc:`copying from (and to) dom0 </user/how-to-guides/how-to-copy-from-dom0>` *.*
+*This page is about copying and moving files. If you wish to simply copy and paste text, that can be done more easily using the inter-qube clipboard. See * :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` *. For dom0, see * :doc:`copying from (and to) dom0 </user/how-to-guides/how-to-copy-from-dom0>` *.*
 
 Qubes OS supports the secure copying and moving of files and directories
 (folders) between qubes.

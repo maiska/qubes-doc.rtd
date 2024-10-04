@@ -179,7 +179,7 @@ the device again. This is illustrated on the screenshot below:
 .. figure:: /attachment/doc/r2b1-win7-usb-disable.png
    :alt: r2b1-win7-usb-disable.png
 
-   r2b1-win7-usb-disable.png
+
 
 Suspend turns off the screen and gets stuck
 -------------------------------------------

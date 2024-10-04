@@ -167,7 +167,7 @@ red one does not.
 .. figure:: /attachment/doc/ipv6-1.png
    :alt: ipv6-1
 
-   ipv6-1
+
 
 In that case, system uplink connection have native IPv6. But in some
 cases it may not be true. Then some tunneling solution can be used (for
@@ -181,7 +181,7 @@ only there. See diagram below
 .. figure:: /attachment/doc/ipv6-2.png
    :alt: ipv6-2
 
-   ipv6-2
+
 
 Besides enabling IPv6 forwarding, standard Qubes firewall can be used to
 limit what network resources are available to each qube. Currently only

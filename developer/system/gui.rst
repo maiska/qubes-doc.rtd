@@ -112,7 +112,7 @@ gntalloc, including memory shared by another process.
 .. figure:: /attachment/doc/gui.png
    :alt: gui.png
 
-   gui.png
+
 
 Security markers on dom0 windows
 --------------------------------

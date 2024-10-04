@@ -135,17 +135,14 @@ Important Notes
   microcode updates, and such systems will still offer significant
   security advantages over conventional operating systems on the same
   hardware.
-
-  - Intel maintains a
-    `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__
-    of end-of-support dates for its processors. However, this list
-    seems to include only processors that are no longer supported or
-    will soon no longer be supported. Many newer Intel processors are
-    missing from this list. To our knowledge, Intel does not announce
-    end-of-support dates for its newer processors in advance, nor does
-    it have a public policy governing how long support will last.
-
-
+  Intel maintains a
+  `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__
+  of end-of-support dates for its processors. However, this list seems
+  to include only processors that are no longer supported or will soon
+  no longer be supported. Many newer Intel processors are missing from
+  this list. To our knowledge, Intel does not announce end-of-support
+  dates for its newer processors in advance, nor does it have a public
+  policy governing how long support will last.
 
 - Intel and AMD handle microcode updates differently, which has
   significant security implications. On Intel platforms, microcode

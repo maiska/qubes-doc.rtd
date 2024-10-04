@@ -11,7 +11,7 @@ assigned application in its app qube.
 .. figure:: /attachment/doc/r4.0-dom0-menu.png
    :alt: dom0-menu.png”
 
-   dom0-menu.png”
+
 
 To make applications newly installed via the OS’s package manager show
 up in the menu, use the ``qvm-sync-appmenus`` command (Linux qubes do
@@ -25,7 +25,7 @@ to customize which applications are shown:
 .. figure:: /attachment/doc/r4.0-dom0-appmenu-select.png
    :alt: dom0-appmenu-select.png”
 
-   dom0-appmenu-select.png”
+
 
 The above image shows that Windows HVMs are also supported (provided
 that Qubes Tools are installed).

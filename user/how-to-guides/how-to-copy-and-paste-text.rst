@@ -3,7 +3,7 @@ How to copy and paste text
 ==========================
 
 
-*This page is about copying and pasting plain text. If you wish to copy more complex data, such as rich text or images, see* :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>` *. For dom0, see* :doc:`copying from (and to) dom0 </user/how-to-guides/how-to-copy-from-dom0>` *.*
+*This page is about copying and pasting plain text. If you wish to copy more complex data, such as rich text or images, see* :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>` *. For dom0, see * :doc:`copying from (and to) dom0 </user/how-to-guides/how-to-copy-from-dom0>` *.*
 
 Qubes OS features a secure inter-qube clipboard that allows you to copy
 and paste text between qubes.
