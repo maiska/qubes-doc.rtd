@@ -201,12 +201,12 @@ the original app qube, overwriting the original.
 .. figure:: /attachment/doc/r4.0-open-in-dispvm-1.png
    :alt: r4.0-open-in-dispvm-1.png
 
-   r4.0-open-in-dispvm-1.png
+
 
 .. figure:: /attachment/doc/r4.0-open-in-dispvm-2.png
    :alt: r4.0-open-in-dispvm-2.png
 
-   r4.0-open-in-dispvm-2.png
+
 
 Opening a fresh web browser instance in a new disposable
 --------------------------------------------------------
@@ -221,7 +221,7 @@ viewing application the whole disposable will be destroyed.
 .. figure:: /attachment/doc/r4.0-open-in-dispvm-3.png
    :alt: r4.0-open-in-dispvm-3.png
 
-   r4.0-open-in-dispvm-3.png
+
 
 Opening a file in a disposable via command line (from app qube)
 ---------------------------------------------------------------

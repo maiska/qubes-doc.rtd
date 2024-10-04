@@ -215,7 +215,7 @@ properties:
 .. figure:: /attachment/doc/r4.0-manager-networking-config.png
    :alt: r4.0-manager-networking-config.png
 
-   r4.0-manager-networking-config.png
+
 
 Alternatively, one can use the ``qvm-ls -n`` command to obtain the same
 information (IP/netmask/gateway).
@@ -420,7 +420,7 @@ screenshot below:
 .. figure:: /attachment/doc/r2b1-win7-usb-disable.png
    :alt: r2b1-win7-usb-disable.png
 
-   r2b1-win7-usb-disable.png
+
 
 Converting VirtualBox VMs to Qubes HVMs
 ---------------------------------------

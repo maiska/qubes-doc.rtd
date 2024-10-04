@@ -127,7 +127,7 @@ Example test run:
 .. figure:: /attachment/doc/snapshot-tests2.png
    :alt: snapshot-tests2.png
 
-   snapshot-tests2.png
+
 
 Tests are also compatible with nose2 test runner, so you can use this
 instead:
@@ -345,7 +345,7 @@ plots. Here is an example:
 .. figure:: /attachment/doc/openqa-investigator-splitgpg-example.png
    :alt: openqa-investigator-splitgpg-example.png
 
-   openqa-investigator-splitgpg-example.png
+
 
 Some outputs:
 
