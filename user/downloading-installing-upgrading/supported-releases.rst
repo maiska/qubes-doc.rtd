@@ -159,7 +159,7 @@ status of an upstream release on the upstream distribution’s website
      - Fedora
      - Debian
    * - Release 4.2
-     - 39, 40
+     - 40, 41
      - 12
    
 

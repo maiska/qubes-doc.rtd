@@ -27,7 +27,7 @@ Table of contents
 
 
 User Documentation
-^^^^^^^^^^^^^^^^^^
+------------------
 
 Core documentation for Qubes users.
 

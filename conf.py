@@ -33,7 +33,7 @@ release = '0.1'
 html_static_path = ['attachment/doc']
 extensions = [
   'sphinx.ext.autosectionlabel',
-  'sphinxnotes.strike',
+#  'sphinxnotes.strike',
   'sphinx_reredirects'
 ]
 
