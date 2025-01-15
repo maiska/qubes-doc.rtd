@@ -42,7 +42,7 @@ by the Qubes team.
 
 
 Compilation and installation from source
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 
 
 Note that the compilation from source is done in a Fedora based domU
@@ -50,7 +50,7 @@ Note that the compilation from source is done in a Fedora based domU
 to dom0 and then installed through the package manager.
 
 Getting the code
-----------------
+^^^^^^^^^^^^^^^^
 
 
 Clone the i3-qubes repository here:
@@ -71,7 +71,7 @@ If you want to make any changes to the package, this is the time and
 place to do it.
 
 Building
---------
+^^^^^^^^
 
 
 You’ll need to install the build dependencies, which are listed in
@@ -94,7 +94,7 @@ that helps you get the sources and start off the build:
 
 
 Installing
-----------
+^^^^^^^^^^
 
 
 **Warning**: Manually installing software in dom0 is inherently risky,

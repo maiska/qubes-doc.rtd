@@ -162,7 +162,7 @@ Limitations
 - Some files are altered when a qube boots - e.g. ``/etc/hosts``. If
   you try to use bind-dirs on such files you may break your qube in
   unpredictable ways. You can add persistent rules to ``/etc/hosts``
-  using :doc:`/rw/config/rc.local </user/advanced-topics/config-files>`
+  using :doc:`/rw/config/rc.local </user/advanced-topics/config-files>`.
 
 
 

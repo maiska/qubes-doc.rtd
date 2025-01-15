@@ -61,7 +61,7 @@ Features
 - **Open-source** Users are free to use, copy, and modify Qubes OS and :doc:`are encouraged to do so! </introduction/contributing>`
 
 
-   .. note::
+.. note::
 
       **Note:** Given the technical nature of Qubes OS, prior experience with Linux can be helpful.
 

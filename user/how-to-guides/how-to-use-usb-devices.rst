@@ -45,7 +45,7 @@ Click one of those. The USB device will be attached to it. You’re done.
 
 After you finished using the USB-device, you can detach it the same way
 by clicking on the Devices Widget. You will see an entry in bold for
-your device such as **sys-usb:2-5 - 058f_USB_2.0_Camera**. Hover on
+your device such as ``sys-usb:2-5 - 058f_USB_2.0_Camera``. Hover on
 the attached device to display a list of running VMs. The one to which
 your device is connected will have an eject button |eject icon| next to
 it. Click that and your device will be detached.

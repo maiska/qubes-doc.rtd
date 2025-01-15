@@ -833,7 +833,7 @@ MSG_CURSOR
    <td>
 
 Update cursor pointer for a window. Supported cursor IDs are default
-cursor (0) and X Font cursors (with 0x100 bit set).
+cursor (0) and `X Font cursors <https://tronche.com/gui/x/xlib/appendix/b/>`__ (with 0x100 bit set).
 
 .. raw:: html
 

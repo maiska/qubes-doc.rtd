@@ -235,7 +235,7 @@ Installation summary
 
 .. note::
       
-      Did you know? The Qubes OS installer is completely offline. It doesn’t even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
+      **Did you know?** The Qubes OS installer is completely offline. It doesn’t even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
 
 The Installation summary screen allows you to change how the system will
 be installed and configured, including localization settings. At
@@ -338,7 +338,7 @@ internal storage device.
 
 .. note::
       
-      Did you know? By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__      /`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__       to encrypt everything except the /boot partition.
+      **Did you know?** By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__      /`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__       to encrypt everything except the ``/boot`` partition.
 
 As soon as you press **Done**, the installer will ask you to enter a
 passphrase for disk encryption. The passphrase should be complex. Make
