@@ -35,7 +35,7 @@ Components
 .. figure:: /attachment/doc/admin-api-architecture.png
    :alt: Admin API Architecture
 
-   Admin API Architecture
+
 
 A central entity in the Qubes Admin API system is a ``qubesd`` daemon,
 which holds information about all domains in the system and mediates all

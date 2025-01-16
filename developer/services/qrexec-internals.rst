@@ -171,7 +171,7 @@ dom0: request execution of ``cmd`` in domX
 .. figure:: /attachment/doc/qrexec-dom0-vm.png
    :alt: qrexec internals diagram dom0-vm
 
-   qrexec internals diagram dom0-vm
+
 
 - **dom0**: ``qrexec-client`` is invoked in **dom0** as follows:
 
@@ -239,7 +239,7 @@ domX: request execution of service ``admin.Service`` in dom0
 .. figure:: /attachment/doc/qrexec-vm-dom0.png
    :alt: qrexec internals diagram vm-dom0
 
-   qrexec internals diagram vm-dom0
+
 
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 
@@ -341,7 +341,7 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 .. figure:: /attachment/doc/qrexec-vm-vm.png
    :alt: qrexec internals diagram vm-vm
 
-   qrexec internals diagram vm-vm
+
 
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 

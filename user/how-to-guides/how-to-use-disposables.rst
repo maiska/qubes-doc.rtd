@@ -70,7 +70,7 @@ How to create named disposables
 In Qubes 4.1: named disposables can be created under **Application Menu -> Create Qubes VM**, set the qube type to be *DisposableVM*.
 
 In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to
-Named disposable_
+**Named disposable**.
 
 Security
 --------
