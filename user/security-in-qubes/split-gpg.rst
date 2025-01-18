@@ -448,12 +448,12 @@ locations (see below for definitions of these terms):
 
    * - PGP Key(s)
      - VM Name
-   * - sec
-     - vault
-   * - ssb
-     - work-gpg
-   * - pub
-     - work-email
+   * - ``sec``
+     - ``vault``
+   * - ``ssb``
+     - ``work-gpg``
+   * - ``pub``
+     - ``work-email``
    
 
 

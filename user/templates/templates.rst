@@ -388,12 +388,12 @@ changes in the parent template.
    :header-rows: 1
 
    * - Qube Type
-     - Inheritance1 :superscript:`1`
+     - Inheritance :superscript:`1`
      - Persistence :superscript:`2`
    * - :ref:`template <user/reference/glossary:template>`
      - N/A (templates cannot be based on templates)
      - everything
-   * - :ref:`app qubes <user/reference/glossary:app qube>`
+   * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
      - /etc/skel to /home; /usr/local.orig to /usr/local
      - /rw (includes /home, /usr/local, and bind-dirs)
    * - :ref:`disposable <user/reference/glossary:disposable>`
@@ -467,7 +467,7 @@ non-buggy and non-exploitable. We certainly do not assume the latter.
    So, are the templates as trusted as dom0?
 
 Not quite. Dom0 compromise is absolutely fatal, and it leads to Game
-OverTM. However, a compromise of a template affects only a subset of all
+Over :superscript:`TM`. However, a compromise of a template affects only a subset of all
 your app qubes (in case you use more than one template, or also some
 standalones). Also, if your app qubes are network disconnected, even
 though their filesystems might get compromised due to the corresponding

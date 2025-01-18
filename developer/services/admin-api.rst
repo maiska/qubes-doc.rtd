@@ -59,7 +59,7 @@ The API should be implemented as a set of qrexec calls. This is to make
 it easy to set the policy using current mechanism.
 
 
-.. list-table:: i
+.. list-table::
    :widths: 15 8 8 10 20 30
    :align: left
    :header-rows: 1
@@ -185,85 +185,85 @@ it easy to set the policy using current mechanism.
      - `-`
      -
    * - ``admin.vm.property.List``
-     - ``vm``
+     - vm
      - `-`
      - `-` 
      - ``<property>``
      -
    * - ``admin.vm.property.Get`` 
-     - ``vm``
+     - vm
      - property
      - `-`
      - ``default={True|False}`` ``type={str|int|bool|vm|label|list} <value>``
-     -
+     - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character.
    * - ``admin.vm.property.GetAll``
-     - ``vm``
+     - vm
      - `-`
      - `-`
      - ``<property-name> <full-value-as-in-property.Get>``
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
    * - ``admin.vm.property.GetDefault``
-     - ``vm``
+     - vm
      - property
      - `-`
      - ``type={str|int|bool|vm|label|type} <value>``
      - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character
    * - ``admin.vm.property.Help``
-     - ``vm``
+     - vm
      - property
      - `-`
      - ``help``
      -
    * - ``admin.vm.property.HelpRst``
-     - ``vm``
+     - vm
      - property
      - `-`
      - ``help.rst``
      -
    * - ``admin.vm.property.Reset``
-     - ``vm``
+     - vm
      - property
      - `-` 
      - `-`
      -
    * - ``admin.vm.property.Set``
-     - ``vm``
+     - vm
      - property
      - value
      - `-`
      -
    * - ``admin.vm.feature.List``
-     - ``vm``
+     - vm
      - `-`
      - `-`
      - ``<feature>``
      -
    * - ``admin.vm.feature.Get``
-     - ``vm``
+     - vm
      - feature
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithTemplate``
-     - ``vm``
+     - vm
      - feature
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithNetvm``
-     - ``vm``
+     - vm
      - feature
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithAdminVM``
-     - ``vm``
+     - vm
      - feature
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithTemplateAndAdminVM``  
-     - ``vm``
+     - vm
      - feature
      - `-`
      - value
@@ -357,7 +357,7 @@ it easy to set the policy using current mechanism.
      - device-ident
      - `-`
      - ``<device-ident> <properties> description=<desc>``
-     - optional service argument may be used to get info about a single device, optional (device class specific) properties are in ``key=value`` form, `description` must be the last one and is the only one allowed to contain spaces
+     - optional service argument may be used to get info about a single device, optional (device class specific) properties are in ``key=value`` form, ``description`` must be the last one and is the only one allowed to contain spaces
    * - ``admin.pool.List``
      - ``dom0``
      - `-`
@@ -726,7 +726,7 @@ Example backup profile:
    include:
      - work
      - personal
-     - vault
+     - ``vault``
      - banking
 
    # Store the backup on external disk

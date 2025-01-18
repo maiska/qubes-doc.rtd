@@ -55,8 +55,8 @@ When an operation is initiated with a specific target,
 e.g. ``qvm-copy-to-vm other_work_vm some_file`` the policy mechanism
 looks for a row matching ``source_work_vm other_work_vm PERMISSION``. In
 this case, assuming both VMs have the ``work`` tag, the second row would
-match, and the operation would be ``allow``ed without any prompts.
-When an operation is initiated without a specific target,
+match, and the operation would be ``allow``-ed without any prompts. When
+an operation is initiated without a specific target,
 e.g. ``qvm-copy some_file``, the policy mechanism looks for a row
 matching ``source_work_vm @default PERMISSION``. In this case, the first
 row indicates that the user should be prompted for the destination. The

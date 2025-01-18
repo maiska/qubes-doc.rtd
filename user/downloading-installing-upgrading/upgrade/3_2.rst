@@ -64,7 +64,7 @@ Upgrading dom0
 
 5. If the previous step completed successfully, your ``qubes-core-dom0``
    version should be ``3.2.3`` or higher. This can be verified with the
-   command ``yum info     qubes-core-dom0``. If it’s not, repeat the
+   command ``yum info qubes-core-dom0``. If it’s not, repeat the
    previous step with the ``--clean`` option.
 
 6. Update configuration files.

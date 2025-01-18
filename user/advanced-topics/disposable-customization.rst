@@ -32,7 +32,7 @@ itself), you can achieve that with the ``appmenus-dispvm`` feature:
 **Note:** Application shortcuts that existed before setting this feature
 will not be updated automatically. Please go the “Applications” tab in
 the qube’s “Settings” dialog and unselect all existing shortcuts by
-clicking “<<”, then click “OK” and close the dialog. Give it a few
+clicking “«”, then click “OK” and close the dialog. Give it a few
 seconds time and then reopen and re-select all the shortcuts you want to
 see in the menu. See :doc:`this page </user/troubleshooting/app-menu-shortcut-troubleshooting>` for
 background information.

@@ -161,10 +161,15 @@ deny such request. If no policy rule is matched, the action is denied.
 In the target VM, a file in either of the following locations must
 exist, containing the file name of the program that will be invoked, or
 being that program itself – in which case it must have executable
-permission set (``chmod +x``): - ``/etc/qubes-rpc/RPC_ACTION_NAME`` when
-you make it in the template qube; -
-``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an
-app qube.
+permission set (``chmod +x``):
+
+- ``/etc/qubes-rpc/RPC_ACTION_NAME`` when you make it in the template
+  qube;
+
+- ``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an
+  app qube.
+
+
 
 Making an RPC call
 ^^^^^^^^^^^^^^^^^^

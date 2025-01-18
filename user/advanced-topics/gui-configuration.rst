@@ -27,7 +27,7 @@ To increase the minimum size of the video RAM buffer:
       qvm-features dom0 gui-videoram-overhead 0
 
 
-Where ``$WIDTH``× ``$HEIGHT`` is the maximum desktop size that you
+Where ``$WIDTH`` × ``$HEIGHT`` is the maximum desktop size that you
 anticipate needing. For example, if you expect to use a 1080p display
 and a 4k display side-by-side, that is
 ``(1920 + 3840) × 2160 × 4 / 1024 = 48600``, or slightly more than 48
