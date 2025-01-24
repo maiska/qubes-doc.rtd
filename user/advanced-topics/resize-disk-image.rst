@@ -37,9 +37,12 @@ increase maximum disk image size.
 
 
 In case of standalone qubes and templates, just change the Disk Storage
-settings above. In case of template-based qubes, the private storage
-(the /home directory and user files) can be changed in the qube’s own
-settings, but the system root image is :doc:`inherited from the template </introduction/getting-started>`, and so it must be changed in the
+settings above. If the standalone fails to start, temporarily increase
+the ``qrexec_timeout``, `as described here <https://github.com/QubesOS/qubes-issues/issues/9251#issuecomment-2121596415>`__.
+
+In case of template-based qubes, the private storage (the /home
+directory and user files) can be changed in the qube’s own settings, but
+the system root image is :doc:`inherited from the template </introduction/getting-started>`, and so it must be changed in the
 template settings. If you are increasing the disk image size for
 Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or
 later, changing the settings above is all you need to do - in other

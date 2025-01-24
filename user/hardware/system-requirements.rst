@@ -48,11 +48,11 @@ Recommended
 
   - For security, we recommend processors that are recent enough to
     still be receiving microcode updates (see
-    `below <#important-updates>`__ for details).
+    `below <#important-notes>`__ for details).
 
   - AMD processors are not recommended due to inconsistent security
-    support on client platforms (see `below <#important-updates>`__
-    for details).
+    support on client platforms (see `below <#important-notes>`__ for
+    details).
 
 
 

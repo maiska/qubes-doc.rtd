@@ -46,20 +46,24 @@ Notification Area when updates are available.
 However, you can also start the tool manually by selecting it in the
 Applications Menu under “Qubes Tools.” Even if no updates have been
 detected, you can use this tool to check for updates manually at any
-time by selecting “Enable updates for qubes without known available
-updates,” then selecting all desired items from the list and clicking
-“Next.”
+time by selecting all desired items from the list and clicking “Update”.
 
 .. note::
       
       For information about how templates download updates, please see :ref:`Why don’t templates have network access? <user/how-to-guides/how-to-install-software:why don't templates have network access?>`       and the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`      .
 
 By default, most qubes that are connected to the internet will
-periodically check for updates for their parent templates. If updates
-are available, you will receive a notification as described above.
-However, if you have any templates that do *not* have any online child
-qubes, you will *not* receive update notifications for them. Therefore,
-you should regularly update such templates manually instead.
+periodically check for updates for their parent templates. You can check
+the date of the last update check in the “last checked” column. If
+updates are available for any qube, you will receive a notification as
+described above, and in the “Updates available” column you will see
+“YES” for that qube(s). If the update check did not find any new
+updates, “NO” will appear in the column. Respectively, for qubes that
+are no longer supported, “OBSOLETE” will be displayed. However, if you
+have any templates that do *not* have any online child qubes, you will
+*not* receive update notifications for them. By default, after a week,
+if updates for a given qube have not been checked, the value in the
+“Updates available” column will be set to “MAYBE”.
 
 Installing updates
 ------------------
@@ -70,10 +74,16 @@ The standard way to install updates is with the **Qubes Update** tool.
 
 |Qubes Update|
 
-Simply follow the on-screen instructions, and the tool will download and
-install all available updates for you. Note that if you are downloading
-updates over Tor (``sys-whonix``), this can take a very long time,
-especially if there are a lot of updates available.
+You can easily decide which qubes to update by clicking on the checkbox
+in the column header. At startup, only the qubes for which updates are
+known are selected for updating, but clicking on the mentioned checkbox
+will also select all qubes with the “MAYBE” status. It is recommended to
+update all qubes with the statuses “YES” and “MAYBE”.
+
+Then simply follow the on-screen instructions, and the tool will
+download and install all available updates for you. Note that if you are
+downloading updates over Tor (``sys-whonix``), this can take a very long
+time, especially if there are a lot of updates available.
 
 Restarting after updating
 -------------------------
@@ -94,7 +104,9 @@ the updates to take effect:
   updates.
 
 - After updating a template, first shut down the template, then restart
-  all running qubes based on that template.
+  all running qubes based on that template. The updater will try to do
+  this for you automatically in the last step of updating. Remember to
+  save all your data before restarting!
 
 
 
@@ -114,22 +126,16 @@ Command-line interface
 
 .. DANGER::
       
-      **Warning:** Updating with direct commands such as `qubes-dom0-update`, `dnf update`, and `apt update` is not recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the **Qubes Update** tool or its command-line equivalents, as described below. (By contrast, :doc:`installing </user/how-to-guides/how-to-install-software>`       packages using direct package manager commands is fine.)
+      **Warning:** Updating with direct commands such as dnf update, and apt update is not recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the **Qubes Update** tool or its command-line equivalents, as described below. (By contrast, :doc:`installing </user/how-to-guides/how-to-install-software>`       packages using direct package manager commands is fine.)
 
 Advanced users may wish to perform updates via the command-line
-interface. The recommended way to do this is by applying the following
-two Salt states. **Applying these two Salt states is the same as updating via the Qubes Update tool.**
-
-- :ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>`
-
-- :ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`
-
-
-
-In your update qube, a terminal window opens that displays the progress
-of operations and output as it is logged. At the end of the process,
-logs are sent back to dom0. You answer any yes/no prompts in your dom0
-terminal window.
+interface. To update templates and standalones non-interactively, use
+the command ``qubes-vm-update``, and to update dom0, use
+``qubes-dom0-update``. If you want to perform an update with more
+advanced user-configurable options (e.g., custom pre- or post-update
+scripts, custom workarounds), see:
+:ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>` and
+:ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`.
 
 Advanced users may also be interested in learning :doc:`how to enable the testing repos </user/downloading-installing-upgrading/testing>`.
 
@@ -166,8 +172,8 @@ convenience to Qubes users (see the :ref:`supported template releases <user/down
 The one exception to all this is the specific release used for dom0 (not
 to be confused with Qubes OS as a whole), which :ref:`doesn’t have to be upgraded <user/downloading-installing-upgrading/supported-releases:note on dom0 and eol>`.
 
-.. |Qube Updates Available| image:: /attachment/doc/r4.0-qube-updates-available.png
+.. |Qube Updates Available| image:: /attachment/doc/r4.2-qube-updates-available.png
    
 
-.. |Qubes Update| image:: /attachment/doc/r4.0-software-update.png
+.. |Qubes Update| image:: /attachment/doc/r4.2-software-update.png
    

@@ -58,7 +58,7 @@ please follow these steps:
 3. Go
    `here <https://github.com/QubesOS/qubes-issues/issues/new/choose>`__.
 
-4. Select the `type <#type>`__ of issue you want to open.
+4. Select the `type <#types>`__ of issue you want to open.
 
 5. Enter a descriptive title.
 
