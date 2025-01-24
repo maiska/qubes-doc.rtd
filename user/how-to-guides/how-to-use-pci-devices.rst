@@ -59,8 +59,8 @@ attach PCI-devices to a qube.
 1. To reach the settings of any qube either
 
    - Press Alt+F3 to open the application finder, type in the VM name,
-     select the “|appmenu|[VM-name]: Qube Settings” menu entry and
-     press enter or click “Launch”!
+     select the |appmenu| ``[VM-name]: Qube Settings`` menu entry and
+     press enter or click ``Launch``!
 
    - Select the VM in Qube Manager and click the settings-button or
      right-click the VM and select ``Qube settings``.

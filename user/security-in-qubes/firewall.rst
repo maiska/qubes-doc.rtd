@@ -9,7 +9,7 @@ Introduction
 | This page explains use of the firewall in Qubes 4.2, using
   ``nftables``.
 | In Qubes 4.1, all firewall components used ``iptables``. For details
-  of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`.
+  of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`..
 
 
 Understanding firewalling in Qubes
