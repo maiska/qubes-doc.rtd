@@ -12,6 +12,7 @@ redirect_from:
 - /en/help/
 - /en/community/
 - /community/
+redirect_to: https://current-qubes-docrtd.readthedocs.io/doc.html
 ref: 12
 title: Documentation
 ---
