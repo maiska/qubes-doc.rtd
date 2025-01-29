@@ -123,9 +123,12 @@ For every package that is uploaded to a testing repository, a GitHub
 issue is created in the
 `updates-status <https://github.com/QubesOS/updates-status/issues>`__
 repository for tracking purposes. We welcome any kind of feedback on any
-package in any testing repository. Even a simple “thumbs up” or “thumbs
+package in any testing repository. Even a simple |thumbsup| “thumbs up” or |thumbsdown| “thumbs
 down” reaction on the package’s associated issue would help us to decide
 whether the package is ready to be migrated to a stable repository. If
 you :doc:`report a bug </introduction/issue-tracking>` in a package that is in a
 testing repository, please reference the appropriate issue in
 `updates-status <https://github.com/QubesOS/updates-status/issues>`__.
+
+.. |thumbsup| image:: /attachment/doc/like.png
+.. |thumbsdown| image:: /attachment/doc/dislike.png

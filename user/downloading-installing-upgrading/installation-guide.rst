@@ -503,8 +503,8 @@ Get Started
 
 
 Find out :doc:`Getting Started </introduction/getting-started>` with Qubes, check
-out the other :ref:`How-To Guides <index:how-to guides>`, and learn about
-:ref:`Templates <index:templates>`.
+out the other :ref:`How-To Guides <how-to-guides>`, and learn about
+:ref:`Templates <templates>`.
 
 Getting help
 ------------

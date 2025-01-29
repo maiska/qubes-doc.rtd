@@ -194,7 +194,7 @@ Developer Documentation
 
 Core documentation for Qubes developers and advanced users.
 
-.. _developers-general:
+.. _general:
 
 .. toctree::
    :maxdepth: 1
@@ -214,7 +214,7 @@ Core documentation for Qubes developers and advanced users.
    developer/general/devel-books
 
 
-.. _developers-code:
+.. _code:
 
 .. toctree::
    :maxdepth: 1
@@ -226,7 +226,7 @@ Core documentation for Qubes developers and advanced users.
    developer/code/code-signing
 
 
-.. _developers-system:
+.. _system:
 
 .. toctree::
    :maxdepth: 1
@@ -245,7 +245,7 @@ Core documentation for Qubes developers and advanced users.
    developer/system/template-manager
 
 
-.. _developers-services:
+.. _services:
 
 .. toctree::
    :maxdepth: 1
@@ -263,7 +263,7 @@ Core documentation for Qubes developers and advanced users.
    developer/services/qfileexchgd
 
 
-.. _developers-debugging:
+.. _debugging:
 
 .. toctree::
    :maxdepth: 1
@@ -277,7 +277,7 @@ Core documentation for Qubes developers and advanced users.
    developer/debugging/mount-lvm-image
 
 
-.. _developers-building:
+.. _building:
 
 .. toctree::
    :maxdepth: 1
@@ -290,7 +290,7 @@ Core documentation for Qubes developers and advanced users.
    Qubes template configs <https://github.com/QubesOS/qubes-template-configs>
 
 
-.. _developers-releases:
+.. _releases:
 
 .. toctree::
    :maxdepth: 1

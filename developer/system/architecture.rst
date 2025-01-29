@@ -51,7 +51,7 @@ Key architecture features
 (For those interested in the history of the project, :download:`Architecture Spec v0.3 [PDF] </attachment/doc/arch-spec-0.3.pdf>` is the original 2009
 document that started this all. Please note that this document is for
 historical interest only. For the latest information, please see the
-rest of the :ref:`System Documentation <index:system>`.)
+rest of the :ref:`System Documentation <system>`.)
 
 Qubes Core Stack
 ----------------

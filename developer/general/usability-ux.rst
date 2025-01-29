@@ -26,9 +26,7 @@ explore the interface. In this process, they can naturally discover how
 to use the software. Below are some guidelines that will help you design
 a user interface that accomplishes this goal.
 
-.. important::
-      
-      Interfaces Should Not
+|redx| **Interfaces Should Not**
 
 - Require extensive configuration before a user can *begin* doing
   things
@@ -47,9 +45,7 @@ configuration setting that will significantly affect the user’s
 experience, choose a safe and smart default then tuck this setting in an
 ``Advanced Settings`` panel.
 
-.. important::
-      
-      Interfaces Should
+|checkmark| **Interfaces Should**
 
 - Make it easy to discover features and available actions
 
@@ -80,9 +76,7 @@ cases, an interface should aim to make this information easy to
 understand. The following are simple guides to help achieve this - none
 of these are absolute maxims!
 
-.. important::
-      
-      Avoid Acronyms
+|redx| **Avoid Acronyms**
 
 Acronyms are compact and make good names for command line tools. They do
 not make graphical user interfaces more intuitive for non-technical
@@ -104,9 +98,7 @@ understood due to being in common use for over a decade. It is good to
 use these acronyms when the full words like ``Universal Serial Bus`` are
 more likely to confuse users.
 
-.. important::
-      
-      Use Simple Words
+|checkmark| **Use Simple Words**
 
 Use the minimum amount of words needed to be descriptive, but also
 informative. Go with common words that are as widely understood.
@@ -130,9 +122,7 @@ Sometimes, inventing a word such as ``Qube`` to describe a
 ----
 
 
-.. important::
-      
-      Avoid Technical Words
+|redx| **Avoid Technical Words**
 
 Technical words are usually more accurate, but they often *only* make
 sense to technical users and are confusing and unhelpful to
@@ -151,9 +141,7 @@ These are all terms that have at some point showed up in users’
 notification messages. Each term is very specific, but requires the user
 to understand virtualization to interpret.
 
-.. important::
-      
-      Use Common Concepts
+|checkmark| **Use Common Concepts**
 
 Large amounts of the global population have been using computers for one
 or two decades and have formed some mental models of how things work.
@@ -178,9 +166,7 @@ space) or start to form a mental model of something new (Qubes).
 ----
 
 
-.. important::
-      
-      Avoid Inconsistencies
+|redx| **Avoid Inconsistencies**
 
 It is easy to start abbreviating (or making acronyms) of long terms like
 ``Disposable Virtual Machine`` depending on where the term shows up in
@@ -198,9 +184,7 @@ This variation in terms can cause new users to question or second guess
 what the three different variations mean, which can lead to inaction or
 mistakes.
 
-.. important::
-      
-      Make Things Consistent
+|checkmark| **Make Things Consistent**
 
 Always strive to keep things consistent in the interfaces as well as
 documentation and other materials.
@@ -218,9 +202,7 @@ empowered.
 ----
 
 
-.. important::
-      
-      Avoid Duplicate Words
+|redx| **Avoid Duplicate Words**
 
 It is easy to add words like ``Domain`` before items in a list or menu
 in an attempt to be descriptive, such as:
@@ -239,9 +221,7 @@ each item in the list, which makes extra work for the eye in parsing out
 the relevant word like ``work, banking, or personal``. This also affects
 horizontal space on fixed width lines.
 
-.. important::
-      
-      Create Groups & Categories
+|checkmark| **Create Groups & Categories**
 
 It is more efficient to group things under headings instead as this
 allows the eye to easily scan the uniqueness of the items. (As per our
@@ -268,9 +248,7 @@ Lastly, expected (and unexpected) situations often require user actions
 or input. Make resolving these occurences as easy as possible to
 complete the action.
 
-.. important::
-      
-      Don’t Leave Users Stranded
+|redx| **Don’t Leave Users Stranded**
 
 Consider the following notifications:
 
@@ -283,9 +261,7 @@ Consider the following notifications:
 Instead of displaying solvable errors like these and neglecting to
 provide a fix:
 
-.. important::
-      
-      Offer Actionable Solutions
+|checkmark| **Offer Actionable Solutions**
 
 Error messages and limits such as those in the previous example can be
 greatly improved by adding buttons or links to helpful information.
@@ -304,9 +280,7 @@ manageable for users instead of feeling stranded.
 ----
 
 
-.. important::
-      
-      Minimize Repetitive Steps
+|checkmark| **Minimize Repetitive Steps**
 
 There are many cases where a user wants to perform an action on more
 than one file or folder. However in order to do the action, the user
@@ -418,3 +392,6 @@ resources:
 - `Hack Design <https://hackdesign.org/>`__ - online learning program
 
 
+
+.. |checkmark| image:: /attachment/doc/checkmark.png
+.. |redx| image:: /attachment/doc/red_x.png

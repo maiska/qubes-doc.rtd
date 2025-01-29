@@ -235,9 +235,7 @@ certainly be more secure than using one computer with a conventional OS
 for everything, but there are still risks to consider. Briefly, here are
 some of the main pros and cons of this approach relative to Qubes:
 
-.. important::
-      
-      Pros
+|checkmark| **Pros**
 
 - Physical separation doesn’t rely on a hypervisor. (It’s very unlikely
   that an attacker will break out of Qubes’ hypervisor, but if one were
@@ -250,9 +248,7 @@ some of the main pros and cons of this approach relative to Qubes:
 
 
 
-.. important::
-      
-      Cons
+|redx| **Cons**
 
 - Physical separation can be cumbersome and expensive, since we may
   have to obtain and set up a separate physical machine for each
@@ -1359,3 +1355,6 @@ Is there a way to automate tasks for continuous integration or DevOps?
 Yes, Qubes natively supports automation via :doc:`Salt (SaltStack) </user/advanced-topics/salt>`. There is also the unofficial `ansible-qubes toolkit <https://github.com/Rudd-O/ansible-qubes>`__. (**Warning:**
 Since this is an external project that has not been reviewed or endorsed
 by the Qubes team, `allowing it to manage dom0 may be a security risk <https://forum.qubes-os.org/t/19075#dom0-precautions>`__.)
+
+.. |checkmark| image:: /attachment/doc/checkmark.png
+.. |redx| image:: /attachment/doc/red_x.png
