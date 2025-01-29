@@ -534,7 +534,7 @@ signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/m
 (which indicates that the content has undergone
 `review <https://www.qubes-os.org/doc/how-to-edit-the-documentation/#security/>`__), then either
 `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__
-or simply read the source, the vast majority of which was :ref:`intentionally written in Markdown so as to be readable as plain text for this very reason <developer/general/documentation-style-guide:markdown conventions>`. We’ve
+or simply read the source, the vast majority of which was `intentionally written in Markdown so as to be readable as plain text for this very reason <https://www.qubes-os.org/doc/documentation-style-guide/>`__. We’ve
 gone to special effort to set all of this up so that no one has to trust
 the infrastructure and so that the contents of this website are
 maximally available and accessible.
