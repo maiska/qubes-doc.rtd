@@ -36,6 +36,9 @@ New features and improvements since Qubes 4.1
 
 
 
+- New ``qubes-vm-update`` tool
+  (`#7443 <https://github.com/QubesOS/qubes-issues/issues/7443>`__)
+
 - Unified ``grub.cfg`` location for both UEFI and legacy boot
   (`#7985 <https://github.com/QubesOS/qubes-issues/issues/7985>`__)
 
@@ -155,6 +158,14 @@ Notes
     :ref:`Qube configuration interface <developer/debugging/vm-interface:qubes rpc>`.
 
 
+
+- Beginning with Qubes 4.2, the recommended way to update Qubes OS via
+  the command line has changed. Salt is no longer the preferred method,
+  though it is still supported. Instead, ``qubes-dom0-update`` is
+  recommended for updating dom0, and ``qubes-vm-update`` is recommended
+  for updating templates and standalones. (The recommended way to
+  update via the GUI has not changed. The Qubes Update tool is still
+  the preferred method.) For more information, see :doc:`How to update </user/how-to-guides/how-to-update>`.
 
 
 

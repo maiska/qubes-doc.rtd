@@ -118,10 +118,11 @@ Qubes RPC administration
 Policy files
 ^^^^^^^^^^^^
 
-| The dom0 directory ``/etc/qubes/policy.d/`` contains files that set
-  policy for each available RPC action that a VM might call. For
-  example, ``/etc/qubes/policy.d/90-default.policy`` contains the
-  default policy settings.
+| The dom0 directories ``/etc/qubes/policy.d/`` and
+  ``/run/qubes/policy.d/`` contain files that set policy for each
+  available RPC action that a VM might call. For example,
+  ``/etc/qubes/policy.d/90-default.policy`` contains the default policy
+  settings.
 | When making changes to existing policies it is recommended that you
   create a *new* policy file starting with a lower number, like
   ``/etc/qubes/policy.d/30-user.policy``.
@@ -131,7 +132,10 @@ Policy files
   ``/etc/qubes/policy.d/10-open.policy``.
 | Together the contents of these files make up the RPC access policy
   database: the files are merged, with policies in lower number files
-  overriding policies in higher numbered files.
+  overriding policies in higher numbered files. If there are entries in
+  both ``/run/qubes/policy.d/`` and ``/etc/qubes/policy.d/`` with the
+  same name, it isn’t specified which takes precedence, so you should
+  avoid this situation.
 
 
 Policies are defined in lines with the following format:
@@ -151,12 +155,13 @@ request.) Other methods using *tags* and *types* are also available (and
 discussed below).
 
 Whenever a RPC request for an action is received, the domain checks the
-first matching line of the files in ``/etc/qubes/policy.d/`` to
-determine access: whether to allow the request, what VM to redirect the
-execution to, and what user account the program should run under. Note
-that if the request is redirected (``target=`` parameter), policy action
-remains the same – even if there is another rule which would otherwise
-deny such request. If no policy rule is matched, the action is denied.
+first matching line of the files in ``/etc/qubes/policy.d/`` and
+``/run/qubes/policy.d/`` to determine access: whether to allow the
+request, what VM to redirect the execution to, and what user account the
+program should run under. Note that if the request is redirected
+(``target=`` parameter), policy action remains the same – even if there
+is another rule which would otherwise deny such request. If no policy
+rule is matched, the action is denied.
 
 In the target VM, a file in either of the following locations must
 exist, containing the file name of the program that will be invoked, or
@@ -170,6 +175,12 @@ permission set (``chmod +x``):
   app qube.
 
 
+
+Files in ``/run/qubes/policy.d/`` are deleted when the system is
+rebooted. This is useful for temporary policy that contains the name or
+UUID of a disposable VM, which will not be meaningful after the system
+has rebooted. Such policy files can be created manually, but they are
+usually created automatically by a Qrexec call to dom0.
 
 Making an RPC call
 ^^^^^^^^^^^^^^^^^^
