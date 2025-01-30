@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ==========================
 AwesomeWM (window manager)
 ==========================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Qubes-specific features
 -----------------------
