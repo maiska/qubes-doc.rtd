@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ===========================================
 How to make any file persistent (bind-dirs)
 ===========================================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 What are bind-dirs?
 -------------------

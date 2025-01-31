@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =================
 GUI configuration
 =================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Video RAM adjustment for high-resolution displays
 -------------------------------------------------

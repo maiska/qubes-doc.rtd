@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ============
 Config files
 ============
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Qubes-specific VM config files
 ------------------------------

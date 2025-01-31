@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ==========
 GUI domain
 ==========
 
+.. warning::
+
+      This page is intended for advanced users.
 
 On this page, we describe how to set up a `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__. In all the cases, the base
 underlying TemplateVM used is ``Fedora`` with ``XFCE`` flavor to match

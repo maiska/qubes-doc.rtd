@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =================
 Minimal templates
 =================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 The minimal :doc:`templates </user/templates/templates>` are lightweight versions of
 their standard template counterparts. They have only the most vital

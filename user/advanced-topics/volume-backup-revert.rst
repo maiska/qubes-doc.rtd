@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ========================
 Volume backup and revert
 ========================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 With Qubes, it is possible to revert one of a VM’s storage volumes to a
 previous state using the automatic snapshot that is normally saved every

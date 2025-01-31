@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ==========================
 Salt (management software)
 ==========================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Since the Qubes R3.1 release we have included the Salt (also called
 SaltStack) management engine in dom0 as default (with some states

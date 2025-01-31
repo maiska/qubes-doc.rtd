@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =================
 Secondary storage
 =================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Suppose you have a fast but small primary SSD and a large but slow
 secondary HDD. You want to store a subset of your app qubes on the HDD.

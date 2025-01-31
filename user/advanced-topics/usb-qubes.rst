@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =========
 USB qubes
 =========
 
+.. warning::
+
+      This page is intended for advanced users.
 
 A USB qube acts as a secure handler for potentially malicious USB
 devices, preventing them from coming into contact with dom0 (which could

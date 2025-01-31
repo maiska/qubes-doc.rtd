@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ====================
 Standalones and HVMs
 ====================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that is
 created by cloning a :ref:`template <user/reference/glossary:template>`. Unlike

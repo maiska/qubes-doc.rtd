@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =============
 Qubes service
 =============
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Usage documentation is in the ``qvm-service`` man page. There are also
 described predefined services.

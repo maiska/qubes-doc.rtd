@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ===============================
 How to install software in dom0
 ===============================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 **Warning:** Installing software in dom0 is for advanced users only.
 Doing so has the potential to compromise your entire Qubes OS

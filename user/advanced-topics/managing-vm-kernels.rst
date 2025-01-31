@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =====================
 Managing qube kernels
 =====================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 By default, VMs kernels are provided by dom0. (See
 :ref:`here <user/advanced-topics/how-to-install-software-in-dom0:kernel upgrade>` for

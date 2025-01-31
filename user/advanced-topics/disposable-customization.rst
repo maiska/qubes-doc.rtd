@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ========================
 Disposable customization
 ========================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Introduction
 ------------

@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ===============================
 Installing contributed packages
 ===============================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 *This page is for users who wish to install contributed packages. If you want to contribute a package, please see* :doc:`package contributions </developer/general/package-contributions>` *.*
 

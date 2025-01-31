@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ================================
 Testing new releases and updates
 ================================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Testing new Qubes OS releases and updates is one of the most helpful
 ways in which you can :doc:`contribute </introduction/contributing>` to the Qubes

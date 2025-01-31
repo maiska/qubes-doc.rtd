@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 ============
 RPC policies
 ============
 
+.. warning::
+
+      This page is intended for advanced users.
 
 *Qubes OS 4.1 introduced a new qrexec policy system and policy format. Please see* `this article <https://www.qubes-os.org/news/2020/06/22/new-qrexec-policy-system/>`__ *for details.*
 

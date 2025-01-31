@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =========================
 KDE (desktop environment)
 =========================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Installation
 ------------

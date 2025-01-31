@@ -1,11 +1,10 @@
-.. warning::
-
-      This page is intended for advanced users.
-
 =================
 Resize disk image
 =================
 
+.. warning::
+
+      This page is intended for advanced users.
 
 Resizing Disk Images
 --------------------
