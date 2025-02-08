@@ -3,19 +3,15 @@ Source code
 ===========
 
 
-All the Qubes code is kept in Git repositories. We have divided the
-project into several components, each of which has its own separate
-repository, for example:
+All the Qubes code is kept in Git repositories. We have divided the project into several components, each of which has its own separate repository, for example:
 
-- ``core-admin.git`` – The core Qubes infrastructure, responsible for
-  VM management, VM templates, fs sharing, etc.
+- ``core-admin.git`` – The core Qubes infrastructure, responsible for VM management, VM templates, fs sharing, etc.
 
 - ``gui-daemon.git`` – GUI virtualization, Dom0 side.
 
 - ``gui-agent-linux.git`` – GUI virtualization, Linux VM side.
 
-- ``linux-template-builder.git`` – Scripts and other files used to
-  create Qubes template images.
+- ``linux-template-builder.git`` – Scripts and other files used to create Qubes template images.
 
 
 
@@ -37,13 +33,9 @@ e.g.:
 
 
 
-To build Qubes you do not need to download all these repositories. If
-you use :doc:`qubes builder </developer/building/qubes-builder>` you can specify *what*
-you want to build, and download only the repositories needed to build
-that target.
+To build Qubes you do not need to download all these repositories. If you use :doc:`qubes builder </developer/building/qubes-builder>` you can specify *what* you want to build, and download only the repositories needed to build that target.
 
-If you really do want to clone **all** of the repositories, you can use
-these commands:
+If you really do want to clone **all** of the repositories, you can use these commands:
 
 .. code:: bash
 
@@ -66,36 +58,22 @@ How to Send Patches
 -------------------
 
 
-If you want to :ref:`contribute code <introduction/contributing:contributing code>` to the project, there are
-two ways. Whichever method you choose, you must :doc:`sign your code </developer/code/code-signing>` before it can be accepted.
+If you want to :ref:`contribute code <introduction/contributing:contributing code>` to the project, there are two ways. Whichever method you choose, you must :doc:`sign your code </developer/code/code-signing>` before it can be accepted.
 
 - **Preferred**: Use GitHub’s `fork & pull requests <https://guides.github.com/activities/forking/>`__.
-  Opening a pull request on GitHub greatly eases the code review and
-  tracking process. In addition, especially for bigger changes, it’s a
-  good idea to send a message to the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` in order to notify people who do not
-  receive GitHub notifications.
+  Opening a pull request on GitHub greatly eases the code review and tracking process. In addition, especially for bigger changes, it’s a good idea to send a message to the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` in order to notify people who do not receive GitHub notifications.
 
 - Send a patch to the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` (``git format-patch``).
 
-  1. Make all the changes in your working directory, i.e. edit files,
-     move them around (you can use ‘git mv’ for this), etc.
+  1. Make all the changes in your working directory, i.e. edit files, move them around (you can use ‘git mv’ for this), etc.
 
-  2. Add the changes and commit them (``git add``, ``git commit``).
-     Never mix different changes into one commit! Write a good
-     description of the commit. The first line should contain a short
-     summary, and then, if you feel like more explanations are needed,
-     enter an empty new line, and then start the long, detailed
-     description (optional).
+  2. Add the changes and commit them (``git add``, ``git commit``). Never mix different changes into one commit! Write a good description of the commit. The first line should contain a short summary, and then, if you feel like more explanations are needed, enter an empty new line, and then start the long, detailed description (optional).
 
   3. Test your changes NOW: check if RPMs build fine, etc.
 
-  4. Create the patch using ``git format-patch``. This has an advantage
-     over ``git diff``, because the former will also include your
-     commit message, your name and email, so that *your* name will be
-     used as a commit’s author.
+  4. Create the patch using ``git format-patch``. This has an advantage over ``git diff``, because the former will also include your commit message, your name and email, so that *your* name will be used as a commit’s author.
 
-  5. Send your patch to ``qubes-devel``. Start the message subject with
-     ``[PATCH]``.
+  5. Send your patch to ``qubes-devel``. Start the message subject with ``[PATCH]``.
 
 
 

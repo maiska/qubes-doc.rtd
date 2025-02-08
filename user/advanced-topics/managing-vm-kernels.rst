@@ -6,12 +6,9 @@ Managing qube kernels
 
       This page is intended for advanced users.
 
-By default, VMs kernels are provided by dom0. (See
-:ref:`here <user/advanced-topics/how-to-install-software-in-dom0:kernel upgrade>` for
-information about upgrading kernels in dom0.) This means that:
+By default, VMs kernels are provided by dom0. (See :ref:`here <user/advanced-topics/how-to-install-software-in-dom0:kernel upgrade>` for information about upgrading kernels in dom0.) This means that:
 
-1. You can select the kernel version (using GUI VM Settings tool or
-   ``qvm-prefs`` commandline tool);
+1. You can select the kernel version (using GUI VM Settings tool or ``qvm-prefs`` commandline tool);
 
 2. You can modify kernel options (using ``qvm-prefs`` commandline tool);
 
@@ -21,12 +18,9 @@ information about upgrading kernels in dom0.) This means that:
 
 
 
-*Note* In the examples below, although the specific version numbers
-might be old, the commands have been verified on R3.2 and R4.0 with
-debian-9 and fedora-26 templates.
+*Note* In the examples below, although the specific version numbers might be old, the commands have been verified on R3.2 and R4.0 with debian-9 and fedora-26 templates.
 
-To select which kernel a given VM will use, you can either use Qubes
-Manager (VM settings, advanced tab), or the ``qvm-prefs`` tool:
+To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the ``qvm-prefs`` tool:
 
 .. code:: bash
 
@@ -44,8 +38,7 @@ Manager (VM settings, advanced tab), or the ``qvm-prefs`` tool:
       [user@dom0 ~]$ qvm-prefs -s my-appvm kernel default
 
 
-To check/change the default kernel you can either go to “Global
-settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
+To check/change the default kernel you can either go to “Global settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
 
 .. code:: bash
 
@@ -59,8 +52,7 @@ settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
       [user@dom0 ~]$ qubes-prefs -s default-kernel 3.19.fc20
 
 
-To view kernel options, you can use the GUI VM Settings tool; to view
-and change them, use ``qvm-prefs`` commandline tool:
+To view kernel options, you can use the GUI VM Settings tool; to view and change them, use ``qvm-prefs`` commandline tool:
 
 .. code:: bash
 
@@ -73,9 +65,7 @@ Installing different kernel using Qubes kernel package
 ------------------------------------------------------
 
 
-VM kernels are packages by Qubes team in ``kernel-qubes-vm`` packages.
-Generally, the system will keep the three newest available versions. You
-can list them with the ``rpm`` command:
+VM kernels are packages by Qubes team in ``kernel-qubes-vm`` packages. Generally, the system will keep the three newest available versions. You can list them with the ``rpm`` command:
 
 .. code:: bash
 
@@ -85,12 +75,7 @@ can list them with the ``rpm`` command:
       kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
 
 
-If you want a more recent version, you can check the
-``qubes-dom0-unstable`` repository. There is also the
-``kernel-latest-qubes-vm`` package which should provide a more recent
-(non-LTS) kernel, but has received much less testing. As the names
-suggest, keep in mind that those packages may be less stable than the
-default ones.
+If you want a more recent version, you can check the ``qubes-dom0-unstable`` repository. There is also the ``kernel-latest-qubes-vm`` package which should provide a more recent (non-LTS) kernel, but has received much less testing. As the names suggest, keep in mind that those packages may be less stable than the default ones.
 
 To check available versions in the ``qubes-dom0-unstable`` repository:
 
@@ -162,9 +147,7 @@ Installing a new version from ``qubes-dom0-unstable`` repository:
       [user@dom0 ~]$
 
 
-In the above example, it tries to remove the 3.18.10-2.pvops.qubes
-kernel (to keep only three installed), but since some VM uses it, it
-fails. Installation of the new package is unaffected by this event.
+In the above example, it tries to remove the 3.18.10-2.pvops.qubes kernel (to keep only three installed), but since some VM uses it, it fails. Installation of the new package is unaffected by this event.
 
 The newly installed package is set as the default VM kernel.
 
@@ -172,9 +155,7 @@ Installing different VM kernel based on dom0 kernel
 ---------------------------------------------------
 
 
-It is possible to package a kernel installed in dom0 as a VM kernel.
-This makes it possible to use a VM kernel which is not packaged by Qubes
-team. This includes:
+It is possible to package a kernel installed in dom0 as a VM kernel. This makes it possible to use a VM kernel which is not packaged by Qubes team. This includes:
 
 - using a Fedora kernel package
 
@@ -182,11 +163,7 @@ team. This includes:
 
 
 
-To prepare such a VM kernel, you need to install the
-``qubes-kernel-vm-support`` package in dom0 and also have matching
-kernel headers installed (``kernel-devel`` package in the case of a
-Fedora kernel package). You can install requirements using
-``qubes-dom0-update``:
+To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support`` package in dom0 and also have matching kernel headers installed (``kernel-devel`` package in the case of a Fedora kernel package). You can install requirements using ``qubes-dom0-update``:
 
 .. code:: bash
 
@@ -230,10 +207,7 @@ Fedora kernel package). You can install requirements using
       Complete!
 
 
-Then you can call the ``qubes-prepare-vm-kernel`` tool to actually
-package the kernel. The first parameter is kernel version (exactly as
-seen by the kernel), the second one (optional) is short name. This is
-visible in Qubes Manager and the ``qvm-prefs`` tool.
+Then you can call the ``qubes-prepare-vm-kernel`` tool to actually package the kernel. The first parameter is kernel version (exactly as seen by the kernel), the second one (optional) is short name. This is visible in Qubes Manager and the ``qvm-prefs`` tool.
 
 .. code:: bash
 
@@ -250,23 +224,15 @@ Kernel files structure
 ----------------------
 
 
-Kernel for a VM is stored in
-``/var/lib/qubes/vm-kernels/KERNEL_VERSION`` directory
-(``KERNEL_VERSION`` replaced with actual version). Qubes 4.x supports
-the following files there:
+Kernel for a VM is stored in ``/var/lib/qubes/vm-kernels/KERNEL_VERSION`` directory (``KERNEL_VERSION`` replaced with actual version). Qubes 4.x supports the following files there:
 
 - ``vmlinuz`` - kernel binary (may not be a Linux kernel)
 
 - ``initramfs`` - initramfs for the kernel to load
 
-- ``modules.img`` - ext4 filesystem image containing Linux kernel
-  modules (to be mounted at ``/lib/modules``); additionally it should
-  contain a copy of ``vmlinuz`` and ``initramfs`` in its root directory
-  (for loading by qemu inside stubdomain)
+- ``modules.img`` - ext4 filesystem image containing Linux kernel modules (to be mounted at ``/lib/modules``); additionally it should contain a copy of ``vmlinuz`` and ``initramfs`` in its root directory (for loading by qemu inside stubdomain)
 
-- ``default-kernelopts-common.txt`` - default kernel options, in
-  addition to those specified with ``kernelopts`` qube property (can be
-  disabled with ``no-default-kernelopts`` feature)
+- ``default-kernelopts-common.txt`` - default kernel options, in addition to those specified with ``kernelopts`` qube property (can be disabled with ``no-default-kernelopts`` feature)
 
 
 
@@ -276,9 +242,7 @@ Using kernel installed in the VM
 --------------------------------
 
 
-Both debian-9 and fedora-26 templates already have grub and related
-tools preinstalled so if you want to use one of the distribution
-kernels, all you need to do is clone either template to a new one, then:
+Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
 
 .. code:: bash
 
@@ -293,18 +257,9 @@ Installing kernel in Fedora VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Install whatever kernel you want. You need to also ensure you have the
-``kernel-devel`` package for the same kernel version installed.
+Install whatever kernel you want. You need to also ensure you have the ``kernel-devel`` package for the same kernel version installed.
 
-If you are using a distribution kernel package (``kernel`` package), the
-initramfs and kernel modules may be handled automatically. If you are
-using a manually built kernel, you need to handle this on your own. Take
-a look at the ``dkms`` documentation, especially the
-``dkms autoinstall`` command may be useful. If you did not see the
-``kernel`` install rebuild your initramfs, or are using a manually built
-kernel, you will need to rebuild it yourself. Replace the version
-numbers in the example below with the ones appropriate to the kernel you
-are installing:
+If you are using a distribution kernel package (``kernel`` package), the initramfs and kernel modules may be handled automatically. If you are using a manually built kernel, you need to handle this on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
 .. code:: bash
 
@@ -320,11 +275,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 
 
-Finally, you need to create a GRUB configuration. You may want to adjust
-some settings in ``/etc/default/grub``; for example, lower
-``GRUB_TIMEOUT`` to speed up VM startup. Then, you need to generate the
-actual configuration. In Fedora it can be done using the
-``grub2-mkconfig`` tool:
+Finally, you need to create a GRUB configuration. You may want to adjust some settings in ``/etc/default/grub``; for example, lower ``GRUB_TIMEOUT`` to speed up VM startup. Then, you need to generate the actual configuration. In Fedora it can be done using the ``grub2-mkconfig`` tool:
 
 .. code:: bash
 
@@ -344,17 +295,13 @@ Then shutdown the VM.
 
 **Notes:**
 
-- You may also use ``PV`` mode instead of ``HVM`` but this is not
-  recommended for security purposes.
+- You may also use ``PV`` mode instead of ``HVM`` but this is not recommended for security purposes.
 
-- If you require ``PV`` mode, install ``grub2-xen-pvh`` in dom0 and
-  change the template’s kernel to ``pvgrub2-pvh``.
+- If you require ``PV`` mode, install ``grub2-xen-pvh`` in dom0 and change the template’s kernel to ``pvgrub2-pvh``.
 
-- If you require ``PVH`` mode, install ``grub2-xen-pvh`` in dom0 and
-  change the kernel to ``pvgrub2-pvh``.
+- If you require ``PVH`` mode, install ``grub2-xen-pvh`` in dom0 and change the kernel to ``pvgrub2-pvh``.
 
-- To install ``grub2-xen-pvh`` run the command
-  ``sudo qubes-dom0-update pvgrub2-pvh`` in dom0.
+- To install ``grub2-xen-pvh`` run the command ``sudo qubes-dom0-update pvgrub2-pvh`` in dom0.
 
 
 
@@ -366,11 +313,9 @@ Distribution kernel
 ^^^^^^^^^^^^^^^^^^^
 
 
-Apply the following instruction in a Debian template or in a Debian
-standalone.
+Apply the following instruction in a Debian template or in a Debian standalone.
 
-Using a distribution kernel package the initramfs and kernel modules
-should be handled automatically.
+Using a distribution kernel package the initramfs and kernel modules should be handled automatically.
 
 Install distribution kernel image, kernel headers and the grub.
 
@@ -380,12 +325,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 
 
-If you are doing that on a qube based on “Debian Minimal” template, a
-grub gui will popup during the installation, asking you where you want
-to install the grub loader. You must select /dev/xvda (check the box
-using the space bar, and validate your choice with “Enter”.) If this
-popup does not appear during the installation, you must manually setup
-``grub2`` by running:
+If you are doing that on a qube based on “Debian Minimal” template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with “Enter”.) If this popup does not appear during the installation, you must manually setup ``grub2`` by running:
 
 .. code:: bash
 
@@ -393,33 +333,23 @@ popup does not appear during the installation, you must manually setup
 
 
 
-You can safely ignore this error message:
-``grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map``
+You can safely ignore this error message: ``grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map``
 
-You may want to adjust some settings in ``/etc/default/grub`` (or better
-``/etc/default/grub.d``). For example, lower ``GRUB_TIMEOUT`` to speed
-up VM startup. You need to re-run ``sudo update-grub`` after making grub
-configuration changes.
+You may want to adjust some settings in ``/etc/default/grub`` (or better ``/etc/default/grub.d``). For example, lower ``GRUB_TIMEOUT`` to speed up VM startup. You need to re-run ``sudo update-grub`` after making grub configuration changes.
 
 Then shutdown the VM.
 
-Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings
--> Advanced
+Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
 
 Depends on ``Virtualization`` mode setting:
 
-- ``Virtualization`` mode ``PV``: Possible, however use of
-  ``Virtualization`` mode ``PV`` mode is discouraged for security
-  purposes.
+- ``Virtualization`` mode ``PV``: Possible, however use of ``Virtualization`` mode ``PV`` mode is discouraged for security purposes.
 
-  - If you require ``Virtualization`` mode ``PV`` mode, install
-    ``grub2-xen-pvh`` in dom0. This can be done by running command
-    ``sudo qubes-dom0-update pvgrub2-pvh`` in dom0.
+  - If you require ``Virtualization`` mode ``PV`` mode, install ``grub2-xen-pvh`` in dom0. This can be done by running command ``sudo qubes-dom0-update pvgrub2-pvh`` in dom0.
 
 
 
-- ``Virtualization`` mode ``PVH``: Possible. Install ``grub2-xen-pvh``
-  in dom0.
+- ``Virtualization`` mode ``PVH``: Possible. Install ``grub2-xen-pvh`` in dom0.
 
 - ``Virtualization`` mode ``HVM``: Possible.
 
@@ -427,31 +357,25 @@ Depends on ``Virtualization`` mode setting:
 
 The ``Kernel`` setting of the ``Virtualization`` mode setting:
 
-- If ``Virtualization`` is set to ``PVH`` -> ``Kernel`` -> choose
-  ``pvgrub2-pvh`` -> OK
+- If ``Virtualization`` is set to ``PVH`` -> ``Kernel`` -> choose ``pvgrub2-pvh`` -> OK
 
-- If ``Virtualization`` is set to ``PV`` -> ``Kernel`` -> choose
-  ``pvgrub2`` -> OK
+- If ``Virtualization`` is set to ``PV`` -> ``Kernel`` -> choose ``pvgrub2`` -> OK
 
-- If ``Virtualization`` is set to ``HVM`` -> ``Kernel`` -> choose
-  ``none`` -> OK
+- If ``Virtualization`` is set to ``HVM`` -> ``Kernel`` -> choose ``none`` -> OK
 
 
 
 Start the VM.
 
-The process of using Qubes VM kernel with distribution kernel is
-complete.
+The process of using Qubes VM kernel with distribution kernel is complete.
 
 Custom kernel
 ^^^^^^^^^^^^^
 
 
-Any kernel can be installed. Just make sure to install kernel headers as
-well.
+Any kernel can be installed. Just make sure to install kernel headers as well.
 
-If you are building the kernel manually, do this using ``dkms`` and
-``initramfs-tools``.
+If you are building the kernel manually, do this using ``dkms`` and ``initramfs-tools``.
 
 Run DKMS. Replace this with actual kernel version.
 
@@ -504,6 +428,4 @@ Troubleshooting
 ^^^^^^^^^^^^^^^
 
 
-In case of problems, visit the :ref:`VM Troubleshooting guide <user/troubleshooting/vm-troubleshooting:vm kernel troubleshooting>` to learn
-how to access the VM console, view logs and fix a VM kernel
-installation.
+In case of problems, visit the :ref:`VM Troubleshooting guide <user/troubleshooting/vm-troubleshooting:vm kernel troubleshooting>` to learn how to access the VM console, view logs and fix a VM kernel installation.

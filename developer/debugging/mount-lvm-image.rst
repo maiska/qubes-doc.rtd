@@ -3,8 +3,7 @@ How to mount LVM images
 =======================
 
 
-You want to read your LVM image (e.g., there is a problem where you
-can’t start any VMs except dom0).
+You want to read your LVM image (e.g., there is a problem where you can’t start any VMs except dom0).
 
 1: make the image available for qubesdb. From dom0 terminal:
 
@@ -56,5 +55,4 @@ References
 ----------
 
 
-Please consult this issue’s
-`comment <https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625>`__.
+Please consult this issue’s `comment <https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625>`__.

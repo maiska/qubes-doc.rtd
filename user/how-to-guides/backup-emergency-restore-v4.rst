@@ -3,36 +3,17 @@ Emergency backup recovery (v4)
 ==============================
 
 
-This page describes how to perform an emergency restore of a backup
-created on Qubes R4.X (which uses backup format version 4).
+This page describes how to perform an emergency restore of a backup created on Qubes R4.X (which uses backup format version 4).
 
-The Qubes backup system has been designed with emergency disaster
-recovery in mind. No special Qubes-specific tools are required to access
-data backed up by Qubes. In the event a Qubes system is unavailable, you
-can access your data on any GNU/Linux system with the following
-procedure.
+The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
 Required ``scrypt`` Utility
 ---------------------------
 
 
-In Qubes 4.X, backups are encrypted and integrity-protected with
-`scrypt <https://www.tarsnap.com/scrypt.html>`__. You will need a copy
-of this utility in order to access your data. Since ``scrypt`` is not
-pre-installed on every GNU/Linux system, it is strongly recommended that
-you store a copy of it with your backups. If your distribution has
-``scrypt`` packaged (e.g., Debian), you can install the package in the
-standard way using your distribution’s package manager. Otherwise,
-you’ll need to obtain a compiled binary (instructions below) or compile
-the program from source yourself. (Don’t forget to :doc:`verify signatures </project-security/verifying-signatures>` first!) Note that
-versions of ``scrypt`` up to 1.2.0 (inclusive) do not support the ``-P``
-option for easier scripting, which means you’ll need to enter the
-passphrase for each file separately, instead of using
-``echo ... | scrypt``.
+In Qubes 4.X, backups are encrypted and integrity-protected with `scrypt <https://www.tarsnap.com/scrypt.html>`__. You will need a copy of this utility in order to access your data. Since ``scrypt`` is not pre-installed on every GNU/Linux system, it is strongly recommended that you store a copy of it with your backups. If your distribution has ``scrypt`` packaged (e.g., Debian), you can install the package in the standard way using your distribution’s package manager. Otherwise, you’ll need to obtain a compiled binary (instructions below) or compile the program from source yourself. (Don’t forget to :doc:`verify signatures </project-security/verifying-signatures>` first!) Note that versions of ``scrypt`` up to 1.2.0 (inclusive) do not support the ``-P`` option for easier scripting, which means you’ll need to enter the passphrase for each file separately, instead of using ``echo ... | scrypt``.
 
-Here are instructions for obtaining a compiled ``scrypt`` binary. This
-example uses an RPM-based system (Fedora), but the same general
-procedure should work on any GNU/Linux system.
+Here are instructions for obtaining a compiled ``scrypt`` binary. This example uses an RPM-based system (Fedora), but the same general procedure should work on any GNU/Linux system.
 
 1. If you’re not on Qubes 4.X, :ref:`import and authenticate the Release 4 Signing Key <project-security/verifying-signatures:how to import and authenticate release signing keys>`.
 
@@ -65,9 +46,7 @@ procedure should work on any GNU/Linux system.
          scrypt-*.rpm: digests signatures OK
 
 
-   The message ``digests signatures OK`` means that both the digest
-   (i.e., the output of a hash function) and PGP signature verification
-   were successful.
+   The message ``digests signatures OK`` means that both the digest (i.e., the output of a hash function) and PGP signature verification were successful.
 
 4. Install ``rpmdevtools``.
 
@@ -99,8 +78,7 @@ Emergency Recovery Instructions
 -------------------------------
 
 
-**Note:** In the following example, the backup file is both *encrypted*
-and *compressed*.
+**Note:** In the following example, the backup file is both *encrypted* and *compressed*.
 
 1. Untar the main backup file.
 
@@ -119,9 +97,7 @@ and *compressed*.
          dom0-home/dom0user.000.enc
 
 
-   **To extract only specific VMs:** Each VM in the backup file has its
-   path listed in ``qubes.xml.000.enc``. Decrypt it. (In this example,
-   the password is ``password``.)
+   **To extract only specific VMs:** Each VM in the backup file has its path listed in ``qubes.xml.000.enc``. Decrypt it. (In this example, the password is ``password``.)
 
    .. code:: bash
 
@@ -132,9 +108,7 @@ and *compressed*.
          [user@restore ~]$ tar -i -xvf qubes.xml.000
 
 
-   Now that you have the decrypted ``qubes.xml.000`` file, search for
-   the ``backup-path`` property inside of it. With the ``backup-path``,
-   extract only the files necessary for your VM (``vmX``).
+   Now that you have the decrypted ``qubes.xml.000`` file, search for the ``backup-path`` property inside of it. With the ``backup-path``, extract only the files necessary for your VM (``vmX``).
 
    .. code:: bash
 
@@ -143,9 +117,7 @@ and *compressed*.
 
 
 
-2. Set the backup passphrase environment variable. While this isn’t
-   strictly required, it will be handy later and will avoid saving the
-   passphrase in the shell’s history.
+2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
    .. code:: bash
 
@@ -153,9 +125,7 @@ and *compressed*.
 
 
 
-3. Verify the integrity of ``backup-header``. For compatibility reasons,
-   ``backup-header.hmac`` is an encrypted *and integrity protected*
-   version of ``backup-header``.
+3. Verify the integrity of ``backup-header``. For compatibility reasons, ``backup-header.hmac`` is an encrypted *and integrity protected* version of ``backup-header``.
 
    .. code:: bash
 
@@ -166,11 +136,7 @@ and *compressed*.
          Files backup-header and backup-header.verified are identical
 
 
-   **Note:** If this command fails, it may be that the backup was
-   tampered with or is in a different format. In the latter case, look
-   inside ``backup-header`` at the ``version`` field. If it contains a
-   value other than ``version=4``, go to the instructions for that
-   format version:
+   **Note:** If this command fails, it may be that the backup was tampered with or is in a different format. In the latter case, look inside ``backup-header`` at the ``version`` field. If it contains a value other than ``version=4``, go to the instructions for that format version:
 
    - :doc:`Emergency Backup Recovery without Qubes (v2) </user/how-to-guides/backup-emergency-restore-v2>`
 
@@ -199,8 +165,7 @@ and *compressed*.
 
 
 
-6. Verify the integrity of your data, decrypt, decompress, and extract
-   ``private.img``:
+6. Verify the integrity of your data, decrypt, decompress, and extract ``private.img``:
 
    .. code:: bash
 
@@ -212,15 +177,9 @@ and *compressed*.
 
 
 
-   - If this pipeline fails, it is likely that the backup is corrupted
-     or has been tampered with.
+   - If this pipeline fails, it is likely that the backup is corrupted or has been tampered with.
 
-   - **Note:** If your backup was compressed with a program other than
-     ``gzip``, you must substitute the correct compression program in
-     the command above. This information is contained in
-     ``backup-header`` (see step 4). For example, if your backup is
-     compressed with ``bzip2``, use ``bzip2 -d`` instead in the command
-     above.
+   - **Note:** If your backup was compressed with a program other than ``gzip``, you must substitute the correct compression program in the command above. This information is contained in ``backup-header`` (see step 4). For example, if your backup is compressed with ``bzip2``, use ``bzip2 -d`` instead in the command above.
 
 
 
@@ -235,14 +194,9 @@ and *compressed*.
 
 
 
-8. Success! If you wish to recover data from more than one VM in your
-   backup, simply repeat steps 6 and 7 for each additional VM.
+8. Success! If you wish to recover data from more than one VM in your backup, simply repeat steps 6 and 7 for each additional VM.
 
-   - **Note:** You may wish to store a copy of these instructions with
-     your Qubes backups in the event that you fail to recall the above
-     procedure while this web page is inaccessible. All Qubes
-     documentation, including this page, is available in plain text
-     format in the following Git repository:
+   - **Note:** You may wish to store a copy of these instructions with your Qubes backups in the event that you fail to recall the above procedure while this web page is inaccessible. All Qubes documentation, including this page, is available in plain text format in the following Git repository:
      https://github.com/QubesOS/qubes-doc.git
 
 

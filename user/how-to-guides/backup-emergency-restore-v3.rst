@@ -3,17 +3,11 @@ Emergency backup recovery (v3)
 ==============================
 
 
-This page describes how to perform an emergency restore of a backup
-created on Qubes R2 or later (which uses backup format version 3).
+This page describes how to perform an emergency restore of a backup created on Qubes R2 or later (which uses backup format version 3).
 
-The Qubes backup system has been designed with emergency disaster
-recovery in mind. No special Qubes-specific tools are required to access
-data backed up by Qubes. In the event a Qubes system is unavailable, you
-can access your data on any GNU/Linux system with the following
-procedure.
+The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
-**Note:** In the following example, the backup file is both *encrypted*
-and *compressed*.
+**Note:** In the following example, the backup file is both *encrypted* and *compressed*.
 
 1. Untar the main backup file.
 
@@ -37,9 +31,7 @@ and *compressed*.
 
 
 
-2. Set the backup passphrase environment variable. While this isn’t
-   strictly required, it will be handy later and will avoid saving the
-   passphrase in the shell’s history.
+2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
    .. code:: bash
 
@@ -47,8 +39,7 @@ and *compressed*.
 
 
 
-3. Verify the integrity of the ``backup-header`` file, which contains
-   basic information about your backup.
+3. Verify the integrity of the ``backup-header`` file, which contains basic information about your backup.
 
    .. code:: bash
 
@@ -59,23 +50,13 @@ and *compressed*.
 
 
 
-   - **Note:** The hash values should match. If they do not match,
-     then the backup file may have been tampered with, or there may
-     have been a storage error.
+   - **Note:** The hash values should match. If they do not match, then the backup file may have been tampered with, or there may have been a storage error.
 
-   - **Note:** If your backup was hashed with a message digest
-     algorithm other than ``sha512``, you must substitute the correct
-     message digest command. This information is contained in the
-     ``backup-header`` file (see step 4), however it is not
-     recommended to open this file until its integrity and
-     authenticity has been verified (the current step). A complete
-     list of supported message digest algorithms can be found with
-     ``openssl list-message-digest-algorithms``.
+   - **Note:** If your backup was hashed with a message digest algorithm other than ``sha512``, you must substitute the correct message digest command. This information is contained in the ``backup-header`` file (see step 4), however it is not recommended to open this file until its integrity and authenticity has been verified (the current step). A complete list of supported message digest algorithms can be found with ``openssl list-message-digest-algorithms``.
 
 
 
-4. Read the ``backup-header``. You’ll need some of this information
-   later. The file will look similar to this:
+4. Read the ``backup-header``. You’ll need some of this information later. The file will look similar to this:
 
    .. code:: bash
 
@@ -88,11 +69,9 @@ and *compressed*.
          compression-filter=gzip
 
 
-   **Note:** If you see ``version=2`` here, go to :doc:`Emergency Backup Recovery - format version 2 </user/how-to-guides/backup-emergency-restore-v2>`
-   instead.
+   **Note:** If you see ``version=2`` here, go to :doc:`Emergency Backup Recovery - format version 2 </user/how-to-guides/backup-emergency-restore-v2>` instead.
 
-5. Verify the integrity of the ``private.img`` file which houses your
-   data.
+5. Verify the integrity of the ``private.img`` file which houses your data.
 
    .. code:: bash
 
@@ -104,16 +83,9 @@ and *compressed*.
 
 
 
-   - **Note:** The hash values should match. If they do not match,
-     then the backup file may have been tampered with, or there may
-     have been a storage error.
+   - **Note:** The hash values should match. If they do not match, then the backup file may have been tampered with, or there may have been a storage error.
 
-   - **Note:** If your backup was hashed with a message digest
-     algorithm other than ``sha512``, you must substitute the correct
-     message digest command. This information is contained in the
-     ``backup-header`` file (see step 4). A complete list of supported
-     message digest algorithms can be found with
-     ``openssl list-message-digest-algorithms``.
+   - **Note:** If your backup was hashed with a message digest algorithm other than ``sha512``, you must substitute the correct message digest command. This information is contained in the ``backup-header`` file (see step 4). A complete list of supported message digest algorithms can be found with ``openssl list-message-digest-algorithms``.
 
 
 
@@ -124,11 +96,7 @@ and *compressed*.
          [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -out private.img.dec
 
 
-   **Note:** If your backup was encrypted with a cipher algorithm other
-   than ``aes-256-cbc``, you must substitute the correct cipher
-   command. This information is contained in the ``backup-header`` file
-   (see step 4). A complete list of supported cipher algorithms can be
-   found with ``openssl list-cipher-algorithms``.
+   **Note:** If your backup was encrypted with a cipher algorithm other than ``aes-256-cbc``, you must substitute the correct cipher command. This information is contained in the ``backup-header`` file (see step 4). A complete list of supported cipher algorithms can be found with ``openssl list-cipher-algorithms``.
 
 7. Decompress the decrypted ``private.img`` file.
 
@@ -139,10 +107,7 @@ and *compressed*.
          [user@restore vm1]$ gunzip private.img.dec.gz
 
 
-   **Note:** If your backup was compressed with a program other than
-   ``gzip``, you must substitute the correct compression program. This
-   information is contained in the ``backup-header`` file (see step 4).
-   For example, if you used ``bzip2``, then you should do this:
+   **Note:** If your backup was compressed with a program other than ``gzip``, you must substitute the correct compression program. This information is contained in the ``backup-header`` file (see step 4). For example, if you used ``bzip2``, then you should do this:
 
    .. code:: bash
 
@@ -171,14 +136,9 @@ and *compressed*.
 
 
 
-10. Success! If you wish to recover data from more than one VM in your
-    backup, simply repeat steps 5–9 for each additional VM.
+10. Success! If you wish to recover data from more than one VM in your backup, simply repeat steps 5–9 for each additional VM.
 
-    - **Note:** You may wish to store a copy of these instructions with
-      your Qubes backups in the event that you fail to recall the above
-      procedure while this web page is inaccessible. All Qubes
-      documentation, including this page, is available in plain text
-      format in the following Git repository:
+    - **Note:** You may wish to store a copy of these instructions with your Qubes backups in the event that you fail to recall the above procedure while this web page is inaccessible. All Qubes documentation, including this page, is available in plain text format in the following Git repository:
       https://github.com/QubesOS/qubes-doc.git
 
 

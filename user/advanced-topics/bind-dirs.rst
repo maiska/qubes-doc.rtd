@@ -10,31 +10,21 @@ What are bind-dirs?
 -------------------
 
 
-With
-`bind-dirs <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh>`__
-any arbitrary files or folders can be made persistent in app qubes.
+With `bind-dirs <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh>`__ any arbitrary files or folders can be made persistent in app qubes.
 
 What is it useful for?
 ----------------------
 
 
-In an app qube all of the file system comes from the template except
-``/home``, ``/usr/local``, and ``/rw``. This means that changes in the
-rest of the filesystem are lost when the app qube is shutdown. bind-dirs
-provides a mechanism whereby files usually taken from the template can
-be persisted across reboots.
+In an app qube all of the file system comes from the template except ``/home``, ``/usr/local``, and ``/rw``. This means that changes in the rest of the filesystem are lost when the app qube is shutdown. bind-dirs provides a mechanism whereby files usually taken from the template can be persisted across reboots.
 
-For example, in Whonix, Tor’s data dir ``/var/lib/tor`` `has been made persistent <https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5>`__
-in the TemplateBased ProxyVM sys-whonix. In this way sys-whonix can
-benefit from the Tor anonymity feature ‘persistent Tor entry guards’ but
-does not have to be a standalone.
+For example, in Whonix, Tor’s data dir ``/var/lib/tor`` `has been made persistent <https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5>`__ in the TemplateBased ProxyVM sys-whonix. In this way sys-whonix can benefit from the Tor anonymity feature ‘persistent Tor entry guards’ but does not have to be a standalone.
 
 How to use bind-dirs.sh?
 ------------------------
 
 
-In this example, we want to make ``/var/lib/tor`` persistent. Enter all
-of the following commands in your app qube.
+In this example, we want to make ``/var/lib/tor`` persistent. Enter all of the following commands in your app qube.
 
 1. Make sure the directory ``/rw/config/qubes-bind-dirs.d`` exists.
 
@@ -44,8 +34,7 @@ of the following commands in your app qube.
 
 
 
-2. Create the file ``/rw/config/qubes-bind-dirs.d/50_user.conf`` with
-   root permissions, if it doesn’t already exist.
+2. Create the file ``/rw/config/qubes-bind-dirs.d/50_user.conf`` with root permissions, if it doesn’t already exist.
 
    .. code:: bash
 
@@ -53,8 +42,7 @@ of the following commands in your app qube.
 
 
 
-3. Add a line to ``/rw/config/qubes-bind-dirs.d/50_user.conf`` that
-   appends a folder or file to the ``binds`` variable.
+3. Add a line to ``/rw/config/qubes-bind-dirs.d/50_user.conf`` that appends a folder or file to the ``binds`` variable.
 
    .. code:: bash
 
@@ -64,11 +52,7 @@ of the following commands in your app qube.
 
 4. Save.
 
-5. If the directory you wish to make persistent doesn’t exist in the
-   template on which the app qube is based, you’ll need to create the
-   directory (with its full path) under ``/rw/bind-dirs`` in the app
-   qube. For example, if ``/var/lib/tor`` didn’t exist in the template,
-   then you would execute the following command in your app qube:
+5. If the directory you wish to make persistent doesn’t exist in the template on which the app qube is based, you’ll need to create the directory (with its full path) under ``/rw/bind-dirs`` in the app qube. For example, if ``/var/lib/tor`` didn’t exist in the template, then you would execute the following command in your app qube:
 
    .. code:: bash
 
@@ -76,11 +60,7 @@ of the following commands in your app qube.
 
 
 
-6. (optional) If the directory you want to persist across reboots
-   (``/var/lib/tor`` in this case) needs special ownership and
-   permissions, make sure the directory you created just under
-   ``/rw/bind-dirs/`` has the same ones (using the commands ``chown``
-   and ``chmod``, respectively).
+6. (optional) If the directory you want to persist across reboots (``/var/lib/tor`` in this case) needs special ownership and permissions, make sure the directory you created just under ``/rw/bind-dirs/`` has the same ones (using the commands ``chown`` and ``chmod``, respectively).
 
 7. Reboot the app qube.
 
@@ -88,14 +68,9 @@ of the following commands in your app qube.
 
 
 
-From now on, all files in the ``/var/lib/tor`` directory will persist
-across reboots.
+From now on, all files in the ``/var/lib/tor`` directory will persist across reboots.
 
-You can make as many files or folders persist as you want simply by
-making multiple entries in the ``50_user.conf`` file, each on a separate
-line. For example, if you added the file ``/etc/tor/torrc`` to the
-``binds`` variable, any modifications to *that* file would also persist
-across reboots.
+You can make as many files or folders persist as you want simply by making multiple entries in the ``50_user.conf`` file, each on a separate line. For example, if you added the file ``/etc/tor/torrc`` to the ``binds`` variable, any modifications to *that* file would also persist across reboots.
 
 .. code:: bash
 
@@ -110,11 +85,9 @@ Other Configuration Folders
 
 - ``/usr/lib/qubes-bind-dirs.d`` (lowest priority, for packages)
 
-- ``/etc/qubes-bind-dirs.d`` (intermediate priority, for template wide
-  configuration)
+- ``/etc/qubes-bind-dirs.d`` (intermediate priority, for template wide configuration)
 
-- ``/rw/config/qubes-bind-dirs.d`` (highest priority, for per VM
-  configuration)
+- ``/rw/config/qubes-bind-dirs.d`` (highest priority, for per VM configuration)
 
 
 
@@ -122,47 +95,25 @@ How does it work?
 -----------------
 
 
-bind-dirs.sh is called at startup of an app qube, and configuration
-files in the above configuration folders are parsed to build a bash
-array. Files or folders identified in the array are copied to
-``/rw/bind-dirs`` if they do not already exist there, and are then bind
-mounted over the original files/folders.
+bind-dirs.sh is called at startup of an app qube, and configuration files in the above configuration folders are parsed to build a bash array. Files or folders identified in the array are copied to ``/rw/bind-dirs`` if they do not already exist there, and are then bind mounted over the original files/folders.
 
-Creation of the files and folders in ``/rw/bind-dirs`` should be
-automatic the first time the app qube is restarted after configuration.
+Creation of the files and folders in ``/rw/bind-dirs`` should be automatic the first time the app qube is restarted after configuration.
 
-If you want to circumvent this process, you can create the relevant file
-structure under ``/rw/bind-dirs`` and make any changes at the same time
-that you perform the configuration, before reboot. Note that you must
-create the full folder structure under ``/rw/bind-dirs`` - e.g you would
-have to create ``/rw/bind-dirs/var/lib/tor``
+If you want to circumvent this process, you can create the relevant file structure under ``/rw/bind-dirs`` and make any changes at the same time that you perform the configuration, before reboot. Note that you must create the full folder structure under ``/rw/bind-dirs`` - e.g you would have to create ``/rw/bind-dirs/var/lib/tor``
 
 Limitations
 -----------
 
 
-- Files that exist in the template root image cannot be deleted in the
-  app qubes root image using bind-dirs.sh.
+- Files that exist in the template root image cannot be deleted in the app qubes root image using bind-dirs.sh.
 
-- Re-running ``sudo /usr/lib/qubes/init/bind-dirs.sh`` without a
-  previous ``sudo /usr/lib/qubes/init/bind-dirs.sh umount`` does not
-  work.
+- Re-running ``sudo /usr/lib/qubes/init/bind-dirs.sh`` without a previous ``sudo /usr/lib/qubes/init/bind-dirs.sh umount`` does not work.
 
-- Running ``sudo /usr/lib/qubes/init/bind-dirs.sh umount`` after boot
-  (before shutdown) is probably not sane and nothing can be done about
-  that.
+- Running ``sudo /usr/lib/qubes/init/bind-dirs.sh umount`` after boot (before shutdown) is probably not sane and nothing can be done about that.
 
-- Many editors create a temporary file and copy it over the original
-  file. If you have bind mounted an individual file this will break the
-  mount. Any changes you make will not survive a reboot. If you think
-  it likely you will want to edit a file, then either include the
-  parent directory in bind-dirs rather than the file, or perform the
-  file operation on the file in ``/rw/bind-dirs``.
+- Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount. Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs rather than the file, or perform the file operation on the file in ``/rw/bind-dirs``.
 
-- Some files are altered when a qube boots - e.g. ``/etc/hosts``. If
-  you try to use bind-dirs on such files you may break your qube in
-  unpredictable ways. You can add persistent rules to ``/etc/hosts``
-  using :doc:`/rw/config/rc.local </user/advanced-topics/config-files>`.
+- Some files are altered when a qube boots - e.g. ``/etc/hosts``. If you try to use bind-dirs on such files you may break your qube in unpredictable ways. You can add persistent rules to ``/etc/hosts`` using :doc:`/rw/config/rc.local </user/advanced-topics/config-files>`.
 
 
 
@@ -170,14 +121,7 @@ How to remove binds from bind-dirs.sh?
 --------------------------------------
 
 
-``binds`` is actually just a bash variable (an array) and the
-bind-dirs.sh configuration folders are sourced as bash snippets in
-lexical order. Therefore if you wanted to remove an existing entry from
-the ``binds`` array, you could do that by using a lexically higher
-configuration file. For example, if you wanted to make ``/var/lib/tor``
-non-persistent in ``sys-whonix`` without manually editing
-``/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf``, you could use the
-following in:
+``binds`` is actually just a bash variable (an array) and the bind-dirs.sh configuration folders are sourced as bash snippets in lexical order. Therefore if you wanted to remove an existing entry from the ``binds`` array, you could do that by using a lexically higher configuration file. For example, if you wanted to make ``/var/lib/tor`` non-persistent in ``sys-whonix`` without manually editing ``/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf``, you could use the following in:
 
 ``/rw/config/qubes-bind-dirs.d/50_user.conf``
 
@@ -187,9 +131,7 @@ following in:
 
 
 
-(Editing ``/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf`` directly is
-strongly discouraged, since such changes get lost when that file is
-changed in the package on upgrades.)
+(Editing ``/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf`` directly is strongly discouraged, since such changes get lost when that file is changed in the package on upgrades.)
 
 Discussion
 ----------

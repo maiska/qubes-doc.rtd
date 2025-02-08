@@ -6,24 +6,15 @@ Secondary storage
 
       This page is intended for advanced users.
 
-Suppose you have a fast but small primary SSD and a large but slow
-secondary HDD. You want to store a subset of your app qubes on the HDD.
+Suppose you have a fast but small primary SSD and a large but slow secondary HDD. You want to store a subset of your app qubes on the HDD.
 
 Instructions
 ------------
 
 
-Qubes 4.0 is more flexible than earlier versions about placing different
-VMs on different disks. For example, you can keep templates on one disk
-and app qubes on another, without messy symlinks.
+Qubes 4.0 is more flexible than earlier versions about placing different VMs on different disks. For example, you can keep templates on one disk and app qubes on another, without messy symlinks.
 
-These steps assume you have already created a separate `volume group <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/vg_admin#VG_create>`__
-and `thin pool <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/thinly_provisioned_volume_creation>`__
-(not thin volume) for your HDD. See also `this example <https://www.linux.com/blog/how-full-encrypt-your-linux-system-lvm-luks>`__
-if you would like to create an encrypted LVM pool (but note you can use
-a single logical volume if preferred, and to use the ``-T`` option on
-``lvcreate`` to specify it is thin). You can find the commands for this
-example applied to Qubes at the bottom of this R4.0 section.
+These steps assume you have already created a separate `volume group <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/vg_admin#VG_create>`__ and `thin pool <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/thinly_provisioned_volume_creation>`__ (not thin volume) for your HDD. See also `this example <https://www.linux.com/blog/how-full-encrypt-your-linux-system-lvm-luks>`__ if you would like to create an encrypted LVM pool (but note you can use a single logical volume if preferred, and to use the ``-T`` option on ``lvcreate`` to specify it is thin). You can find the commands for this example applied to Qubes at the bottom of this R4.0 section.
 
 First, collect some information in a dom0 terminal:
 
@@ -34,8 +25,7 @@ First, collect some information in a dom0 terminal:
 
 
 
-Take note of the VG and thin pool names for your HDD, then register it
-with Qubes:
+Take note of the VG and thin pool names for your HDD, then register it with Qubes:
 
 .. code:: bash
 
@@ -53,8 +43,7 @@ Now, you can create qubes in that pool:
 
 
 
-It isn’t possible to directly migrate an existing qube to the new pool,
-but you can clone it there, then remove the old one:
+It isn’t possible to directly migrate an existing qube to the new pool, but you can clone it there, then remove the old one:
 
 .. code:: bash
 
@@ -63,9 +52,7 @@ but you can clone it there, then remove the old one:
 
 
 
-If that was a template, or other qube referenced elsewhere (NetVM or
-such), you will need to adjust those references manually after moving.
-For example:
+If that was a template, or other qube referenced elsewhere (NetVM or such), you will need to adjust those references manually after moving. For example:
 
 .. code:: bash
 
@@ -73,18 +60,13 @@ For example:
 
 
 
-In theory, you can still use file-based disk images (“file” pool
-driver), but it lacks some features such as you won’t be able to do
-backups without shutting down the qube.
+In theory, you can still use file-based disk images (“file” pool driver), but it lacks some features such as you won’t be able to do backups without shutting down the qube.
 
 Example HDD setup
 ^^^^^^^^^^^^^^^^^
 
 
-Assuming the secondary hard disk is at /dev/sdb (it will be completely
-erased), you can set it up for encryption by doing in a dom0 terminal
-(use the same passphrase as the main Qubes disk to avoid a second
-password prompt at boot):
+Assuming the secondary hard disk is at /dev/sdb (it will be completely erased), you can set it up for encryption by doing in a dom0 terminal (use the same passphrase as the main Qubes disk to avoid a second password prompt at boot):
 
 .. code:: bash
 
@@ -93,8 +75,7 @@ password prompt at boot):
 
 
 
-Note the device’s UUID (in this example “b209…”), we will use it as its
-luks name for auto-mounting at boot, by doing:
+Note the device’s UUID (in this example “b209…”), we will use it as its luks name for auto-mounting at boot, by doing:
 
 .. code:: bash
 
@@ -102,8 +83,7 @@ luks name for auto-mounting at boot, by doing:
 
 
 
-And adding this line (change both “b209…” for your device’s UUID from
-blkid) to crypttab:
+And adding this line (change both “b209…” for your device’s UUID from blkid) to crypttab:
 
 .. code:: bash
 
@@ -111,9 +91,7 @@ blkid) to crypttab:
 
 
 
-Reboot the computer so the new luks device appears at
-/dev/mapper/luks-b209… and we can then create its pool, by doing this on
-a dom0 terminal (substitute the b209… UUIDs with yours):
+Reboot the computer so the new luks device appears at /dev/mapper/luks-b209… and we can then create its pool, by doing this on a dom0 terminal (substitute the b209… UUIDs with yours):
 
 First create the physical volume
 
@@ -123,10 +101,7 @@ First create the physical volume
 
 
 
-
-
-Then create the LVM volume group, we will use for example “qubes” as the
-:
+Then create the LVM volume group, we will use for example “qubes” as the :
 
 .. code:: bash
 
@@ -142,8 +117,7 @@ And then use “poolhd0” as the (LVM thin pool name):
 
 
 
-Finally we will tell Qubes to add a new pool on the just created thin
-pool
+Finally we will tell Qubes to add a new pool on the just created thin pool
 
 .. code:: bash
 
@@ -151,9 +125,7 @@ pool
 
 
 
-By default VMs will be created on the main Qubes disk (i.e. a small
-SSD), to create them on this secondary HDD do the following on a dom0
-terminal:
+By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary HDD do the following on a dom0 terminal:
 
 .. code:: bash
 

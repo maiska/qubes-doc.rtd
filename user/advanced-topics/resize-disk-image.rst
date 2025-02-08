@@ -10,44 +10,24 @@ Resizing Disk Images
 --------------------
 
 
-By default Qubes uses thin volumes for the disk images. This means that
-space is not actually allocated for the volume until it is used. So a
-2GB private volume with 100M of files will only use 100M. This explains
-how you can have *many* qubes with large private volumes on quite a
-small disk. This is called over provisioning. You should keep an eye on
-the disk-space widget to see how much free space you actually have.
+By default Qubes uses thin volumes for the disk images. This means that space is not actually allocated for the volume until it is used. So a 2GB private volume with 100M of files will only use 100M. This explains how you can have *many* qubes with large private volumes on quite a small disk. This is called over provisioning. You should keep an eye on the disk-space widget to see how much free space you actually have.
 
-It is easy to increase the size of disk images. There are risks attached
-to reducing the size of an image, and in general you should not need to
-do this.
+It is easy to increase the size of disk images. There are risks attached to reducing the size of an image, and in general you should not need to do this.
 
 Increasing the size of Disk Images
 ----------------------------------
 
 
-There are several disk images which can be easily extended, but pay
-attention to the overall consumed space of your sparse/thin disk images.
-In most cases, the GUI tool Qube Settings (available for every qube from
-the Start menu, and also in the Qube Manager) will allow you to easily
-increase maximum disk image size.
+There are several disk images which can be easily extended, but pay attention to the overall consumed space of your sparse/thin disk images. In most cases, the GUI tool Qube Settings (available for every qube from the Start menu, and also in the Qube Manager) will allow you to easily increase maximum disk image size.
 
 .. figure:: /attachment/doc/r4.0-vm-settings-disk-image.png
    :alt: vm-settings-disk-image.png
 
 
 
-In case of standalone qubes and templates, just change the Disk Storage
-settings above. If the standalone fails to start, temporarily increase
-the ``qrexec_timeout``, `as described here <https://github.com/QubesOS/qubes-issues/issues/9251#issuecomment-2121596415>`__.
+In case of standalone qubes and templates, just change the Disk Storage settings above. If the standalone fails to start, temporarily increase the ``qrexec_timeout``, `as described here <https://github.com/QubesOS/qubes-issues/issues/9251#issuecomment-2121596415>`__.
 
-In case of template-based qubes, the private storage (the /home
-directory and user files) can be changed in the qube’s own settings, but
-the system root image is :doc:`inherited from the template </introduction/getting-started>`, and so it must be changed in the
-template settings. If you are increasing the disk image size for
-Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or
-later, changing the settings above is all you need to do - in other
-cases, you may need to do more, according to instructions below. See
-also the OS-specific follow-up instructions below.
+In case of template-based qubes, the private storage (the /home directory and user files) can be changed in the qube’s own settings, but the system root image is :doc:`inherited from the template </introduction/getting-started>`, and so it must be changed in the template settings. If you are increasing the disk image size for Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or later, changing the settings above is all you need to do - in other cases, you may need to do more, according to instructions below. See also the OS-specific follow-up instructions below.
 
 .. _increasing-the-size-of-disk-images-1:
 
@@ -58,9 +38,7 @@ Increasing the size of Disk Images
 
 
 
-Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI
-tool ``qvm-volume``. Maximum size which can be assigned through Qube
-Settings is 1048576 MiB - if you need more, use ``qvm-volume``:
+Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI tool ``qvm-volume``. Maximum size which can be assigned through Qube Settings is 1048576 MiB - if you need more, use ``qvm-volume``:
 
 .. code:: bash
 
@@ -76,13 +54,9 @@ OR
 
 
 
-**Note:** Size is the target size (i.e. 4096MB or 16GB, …), not the size to
-add to the existing disk.
+**Note:** Size is the target size (i.e. 4096MB or 16GB, …), not the size to add to the existing disk.
 
-If you have run out of space for software in your Template, you need to
-increase *root image* of the Template (not private storage!). **Make sure changes in the Template between reboots don’t exceed 10G.** It is
-recommended that you restart (or start and then shutdown, if it is not
-running) the template after resizing the root image.
+If you have run out of space for software in your Template, you need to increase *root image* of the Template (not private storage!). **Make sure changes in the Template between reboots don’t exceed 10G.** It is recommended that you restart (or start and then shutdown, if it is not running) the template after resizing the root image.
 
 If you are **not** using Linux in the qube, you will also need to:
 
@@ -90,8 +64,7 @@ If you are **not** using Linux in the qube, you will also need to:
 
 2. Resize the filesystem using OS appropriate tools.
 
-3. Verify available space in the template using ``df -h`` or OS specific
-   tools.
+3. Verify available space in the template using ``df -h`` or OS specific tools.
 
 4. Shutdown the template.
 
@@ -130,30 +103,17 @@ Linux
 ^^^^^
 
 
-Qubes will automatically grow the filesystem for you on all app qubes
-with Qubes packages installed (which are all app qubes installed from
-templates, cloned from templates etc. - if you have not created an empty
-HVM and installed a Linux distribution in it, without using Qubes
-repositories, you are almost certainly safe). Otherwise, you will see
-that there is unallocated free space at the end of your primary disk.
-You can use standard linux tools like ``fdisk`` and ``resize2fs`` to
-make this space available.
+Qubes will automatically grow the filesystem for you on all app qubes with Qubes packages installed (which are all app qubes installed from templates, cloned from templates etc. - if you have not created an empty HVM and installed a Linux distribution in it, without using Qubes repositories, you are almost certainly safe). Otherwise, you will see that there is unallocated free space at the end of your primary disk. You can use standard linux tools like ``fdisk`` and ``resize2fs`` to make this space available.
 
 Decreasing the size of Disk Images
 ----------------------------------
 
 
-The number shown for “storage max size” does not mean that the storage
-is really using that amount. In most cases you need not worry about the
-size shown. If you have increased the max size, and do not need it, then
-you *can* reduce the allocated size, but there is a risk of data loss.
-Remember you really dont need to do this.
+The number shown for “storage max size” does not mean that the storage is really using that amount. In most cases you need not worry about the size shown. If you have increased the max size, and do not need it, then you *can* reduce the allocated size, but there is a risk of data loss. Remember you really dont need to do this.
 
-You can create a new qube, copy your files in to the new qube, and
-delete the old qube. (Simple and effective.)
+You can create a new qube, copy your files in to the new qube, and delete the old qube. (Simple and effective.)
 
-Or you can take the risk of reducing the size of the disk. For example,
-to reduce the private storage of qube1 to 1GiB: Open a terminal in dom0:
+Or you can take the risk of reducing the size of the disk. For example, to reduce the private storage of qube1 to 1GiB: Open a terminal in dom0:
 
 .. code:: bash
 
@@ -162,5 +122,4 @@ to reduce the private storage of qube1 to 1GiB: Open a terminal in dom0:
 
 
 
-If you have a SSD see `here <https://forum.qubes-os.org/t/19054>`__ for information on using
-fstrim.
+If you have a SSD see `here <https://forum.qubes-os.org/t/19054>`__ for information on using fstrim.

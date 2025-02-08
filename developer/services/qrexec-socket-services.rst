@@ -5,23 +5,15 @@ Qrexec: socket-based services
 
 *This page describes how to implement and use new socket-backed services for qrexec. See* :doc:`qrexec </developer/services/qrexec>` *for general overview of the qrexec framework.*
 
-As of Qubes 4.1, qrexec allows implementing services not only as
-executable files, but also as Unix sockets. This allows Qubes RPC
-requests to be handled by a server running in a VM and listening for
-connections.
+As of Qubes 4.1, qrexec allows implementing services not only as executable files, but also as Unix sockets. This allows Qubes RPC requests to be handled by a server running in a VM and listening for connections.
 
 How it works
 ------------
 
 
-When a Qubes RPC service is invoked, qrexec searches for a file that
-handles it in the qubes-rpc directories (``/etc/qubes-rpc`` or
-``/usr/local/etc/qubes-rpc``). If the file is a Unix socket, qrexec will
-try to connect to it.
+When a Qubes RPC service is invoked, qrexec searches for a file that handles it in the qubes-rpc directories (``/etc/qubes-rpc`` or ``/usr/local/etc/qubes-rpc``). If the file is a Unix socket, qrexec will try to connect to it.
 
-Before passing user input, the socket service will receive a
-null-terminated service descriptor, i.e. the part after ``QUBESRPC``.
-When running in a VM, this is:
+Before passing user input, the socket service will receive a null-terminated service descriptor, i.e. the part after ``QUBESRPC``. When running in a VM, this is:
 
 .. code:: bash
 
@@ -37,26 +29,19 @@ When running in dom0, it is:
 
 
 
-(The target type can be ``name``, in which case target is a domain name,
-or ``keyword``, in which the target is a keyword like ``@dispvm``).
+(The target type can be ``name``, in which case target is a domain name, or ``keyword``, in which the target is a keyword like ``@dispvm``).
 
-Afterwards, data provided by the service’s user (as stdin) is sent into
-the socket, and data received from the socket is sent back to the user
-(as stdout). When the service closes the socket, an exit code of 0 is
-sent back to the user.
+Afterwards, data provided by the service’s user (as stdin) is sent into the socket, and data received from the socket is sent back to the user (as stdout). When the service closes the socket, an exit code of 0 is sent back to the user.
 
 Differences from executable-based services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-From the user point of view, the socket-based service behaves almost
-like an executable-based one. Here are the differences:
+From the user point of view, the socket-based service behaves almost like an executable-based one. Here are the differences:
 
-- There is no stderr (the socket provides only one output stream).
-  Currently, that means stderr will also never be closed on user’s end.
+- There is no stderr (the socket provides only one output stream). Currently, that means stderr will also never be closed on user’s end.
 
-- There is no exit code. When the socket connection is closed, exit
-  code 0 is sent to the user.
+- There is no exit code. When the socket connection is closed, exit code 0 is sent to the user.
 
 
 
@@ -64,47 +49,37 @@ Recommended use
 ---------------
 
 
-Create a program that binds to path *outside* ``/etc/qubes-rpc``, such
-as ``/var/run/my-daemon.sock``. Put a symlink in ``/etc/qubes-rpc``,
-e.g. ``ln -s /var/run/my-daemon.sock /etc/qubes-rpc/qubes.Service``.
+Create a program that binds to path *outside* ``/etc/qubes-rpc``, such as ``/var/run/my-daemon.sock``. Put a symlink in ``/etc/qubes-rpc``, e.g. ``ln -s /var/run/my-daemon.sock /etc/qubes-rpc/qubes.Service``.
 
-If your program handles multiple services, create multiple symlinks. You
-can dispatch based on the service descriptor.
+If your program handles multiple services, create multiple symlinks. You can dispatch based on the service descriptor.
 
 Do not run the program as root.
 
-You can use systemd and socket activation so that the program is started
-only when the service is invoked. See the below example.
+You can use systemd and socket activation so that the program is started only when the service is invoked. See the below example.
 
 Example: ``qrexec-policy-agent``
 --------------------------------
 
 
-``qrexec-policy-agent`` is the program that handles “ask” prompts for
-Qubes RPC calls. It is a good example of an application that:
+``qrexec-policy-agent`` is the program that handles “ask” prompts for Qubes RPC calls. It is a good example of an application that:
 
 - Uses Python and asyncio.
 
 - Runs as a daemon, to save some overhead on starting process.
 
-- Runs as a normal user. This is achieved using user’s instance of
-  systemd.
+- Runs as a normal user. This is achieved using user’s instance of systemd.
 
-- Uses systemd socket activation. This way it can be installed in all
-  VMs, but started only if it’s ever needed.
+- Uses systemd socket activation. This way it can be installed in all VMs, but started only if it’s ever needed.
 
 
 
-See the
-`qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__
-repository for details.
+See the `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository for details.
 
 Systemd unit files
 ^^^^^^^^^^^^^^^^^^
 
 
-**/lib/systemd/user/qubes-qrexec-policy-agent.service**: This is the
-service configuration.
+**/lib/systemd/user/qubes-qrexec-policy-agent.service**: This is the service configuration.
 
 .. code:: bash
 
@@ -123,8 +98,7 @@ service configuration.
 
 
 
-**/lib/systemd/user/qubes-qrexec-policy-agent.socket**: This is the
-socket file that will activate the service.
+**/lib/systemd/user/qubes-qrexec-policy-agent.socket**: This is the socket file that will activate the service.
 
 .. code:: bash
 
@@ -142,11 +116,9 @@ socket file that will activate the service.
 
 
 
-Note the ``ConditionUser`` and ``ConditionGroup`` that ensure that the
-socket and service is started only as the right user
+Note the ``ConditionUser`` and ``ConditionGroup`` that ensure that the socket and service is started only as the right user
 
-Start the socket using ``systemctl --user start``. Enable it using
-``systemctl --user enable``, so that it starts automatically.
+Start the socket using ``systemctl --user start``. Enable it using ``systemctl --user enable``, so that it starts automatically.
 
 .. code:: bash
 
@@ -167,8 +139,7 @@ Link in qubes-rpc
 ^^^^^^^^^^^^^^^^^
 
 
-``qrexec-policy-agent`` will handle a Qubes RPC service called
-``policy.Ask``, so we add a link:
+``qrexec-policy-agent`` will handle a Qubes RPC service called ``policy.Ask``, so we add a link:
 
 .. code:: bash
 
@@ -180,11 +151,7 @@ Python server with socket activation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Socket activation in systemd works by starting our program with the
-socket file already bound at a specific file descriptor. It’s a simple
-mechanism based on a few environment variables, but the canonical way is
-to use the ``sd_listen_fds()`` function from systemd library (or, in our
-case, its Python version).
+Socket activation in systemd works by starting our program with the socket file already bound at a specific file descriptor. It’s a simple mechanism based on a few environment variables, but the canonical way is to use the ``sd_listen_fds()`` function from systemd library (or, in our case, its Python version).
 
 Install the Python systemd library:
 
@@ -263,11 +230,7 @@ Here is the server code:
           main()
 
 
-You can also use ``qrexec/server.py`` from
-`qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__
-repository, which is a variant of the above code - but note that
-currently it’s somewhat more specific (JSON requests and ASCII
-responses; no target handling in service descriptors).
+You can also use ``qrexec/server.py`` from `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository, which is a variant of the above code - but note that currently it’s somewhat more specific (JSON requests and ASCII responses; no target handling in service descriptors).
 
 Using the service
 ^^^^^^^^^^^^^^^^^
@@ -281,8 +244,7 @@ The service is invoked in the same way as a standard Qubes RPC service:
 
 
 
-You can also connect to it locally, but remember to include the service
-descriptor:
+You can also connect to it locally, but remember to include the service descriptor:
 
 .. code:: bash
 
@@ -298,11 +260,9 @@ Further reading
 
 - :doc:`Qrexec internals </developer/services/qrexec-internals>`
 
-- `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__
-  repository - contains the above example
+- `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository - contains the above example
 
-- `systemd.socket <https://www.freedesktop.org/software/systemd/man/systemd.socket.html>`__
-  - socket unit configuration
+- `systemd.socket <https://www.freedesktop.org/software/systemd/man/systemd.socket.html>`__ - socket unit configuration
 
 - `Streams in Python asyncio <https://docs.python.org/3/library/asyncio-stream.html>`__
 

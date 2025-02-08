@@ -5,8 +5,7 @@ Upgrading to R3.2
 
 **Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users** :doc:`back up their systems </user/how-to-guides/how-to-back-up-restore-and-migrate>` **.**
 
-Current Qubes R3.1 systems can be upgraded in-place to the latest R3.2
-by following the procedure below.
+Current Qubes R3.1 systems can be upgraded in-place to the latest R3.2 by following the procedure below.
 
 Upgrading dom0
 --------------
@@ -16,22 +15,15 @@ Upgrading dom0
 
 2. Open a terminal in Dom0. (E.g., Start -> System Settings -> Konsole.)
 
-3. Install ``qubes-release`` package carrying R3.2 repository
-   information.
+3. Install ``qubes-release`` package carrying R3.2 repository information.
 
    .. code:: bash
 
          sudo qubes-dom0-update --releasever=3.2 qubes-release
 
 
-   If you made any manual changes to repository definitions, new
-   definitions will be installed as
-   ``/etc/yum.repos.d/qubes-dom0.repo.rpmnew`` (you’ll see a message
-   about it during package installation). In such a case, you need to
-   manually apply the changes to ``/etc/yum.repos.d/qubes-dom0.repo`` or
-   simply replace it with .rpmnew file.
-   If you are using Debian-based VM as UpdateVM (``sys-firewall`` by
-   default), you need to download few more packages manually, but **do not install them** yet:
+   If you made any manual changes to repository definitions, new definitions will be installed as ``/etc/yum.repos.d/qubes-dom0.repo.rpmnew`` (you’ll see a message about it during package installation). In such a case, you need to manually apply the changes to ``/etc/yum.repos.d/qubes-dom0.repo`` or simply replace it with .rpmnew file.
+   If you are using Debian-based VM as UpdateVM (``sys-firewall`` by default), you need to download few more packages manually, but **do not install them** yet:
 
    .. code:: bash
 
@@ -57,31 +49,19 @@ Upgrading dom0
          sudo qubes-dom0-update
 
 
-   You may wish to disable the screensaver “Lock screen” feature for
-   this step, as during the update XScreensaver may encounter an
-   “Authentication failed” issue, requiring a hard reboot.
-   Alternatively, you may simply move the mouse regularly.
+   You may wish to disable the screensaver “Lock screen” feature for this step, as during the update XScreensaver may encounter an “Authentication failed” issue, requiring a hard reboot. Alternatively, you may simply move the mouse regularly.
 
-5. If the previous step completed successfully, your ``qubes-core-dom0``
-   version should be ``3.2.3`` or higher. This can be verified with the
-   command ``yum info qubes-core-dom0``. If it’s not, repeat the
-   previous step with the ``--clean`` option.
+5. If the previous step completed successfully, your ``qubes-core-dom0`` version should be ``3.2.3`` or higher. This can be verified with the command ``yum info qubes-core-dom0``. If it’s not, repeat the previous step with the ``--clean`` option.
 
 6. Update configuration files.
-   Some of configuration files were saved with ``.rpmnew`` extension as
-   the actual files were modified. During upgrade, you’ll see
-   information about such cases, like:
+   Some of configuration files were saved with ``.rpmnew`` extension as the actual files were modified. During upgrade, you’ll see information about such cases, like:
 
    .. code:: bash
 
          warning: /etc/salt/minion.d/f_defaults.conf created as /etc/salt/minion.d/f_defaults.conf.rpmnew
 
 
-   This will happen for every configuration you have modified manually
-   and for a few that has been modified by Qubes scripts. If you are not
-   sure what to do about them, below is a list of commands to deal with
-   few common cases (either keep the old one, or replace with the new
-   one):
+   This will happen for every configuration you have modified manually and for a few that has been modified by Qubes scripts. If you are not sure what to do about them, below is a list of commands to deal with few common cases (either keep the old one, or replace with the new one):
 
    .. code:: bash
 
@@ -99,43 +79,27 @@ Upgrading dom0
 
 
 
-Please note that if you use :doc:`Anti Evil Maid </user/security-in-qubes/anti-evil-maid>`, it
-won’t be able to unseal the passphrase the first time the system boots
-after performing this in-place upgrade procedure since the Xen, kernel,
-and initramfs binaries will have changed. Once the system boots up
-again, you can reseal your Anti Evil Maid passphrase to the new
-configuration. Please consult the Anti Evil Maid
-:doc:`documentation </user/security-in-qubes/anti-evil-maid>` for instructions on how to do
-that.
+Please note that if you use :doc:`Anti Evil Maid </user/security-in-qubes/anti-evil-maid>`, it won’t be able to unseal the passphrase the first time the system boots after performing this in-place upgrade procedure since the Xen, kernel, and initramfs binaries will have changed. Once the system boots up again, you can reseal your Anti Evil Maid passphrase to the new configuration. Please consult the Anti Evil Maid :doc:`documentation </user/security-in-qubes/anti-evil-maid>` for instructions on how to do that.
 
 At first login after upgrade you may got a message like this:
 
 ``Your saved session type 'kde-plasma' is not valid any more.     Please select a new one, otherwise 'default' will be used.``
 
-This is result of upgrade KDE4 (``kde-plasma``) to KDE5 (``plasma``).
-Simply choose your favorite desktop environment and continue.
+This is result of upgrade KDE4 (``kde-plasma``) to KDE5 (``plasma``). Simply choose your favorite desktop environment and continue.
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
 
-By default, in Qubes R3.1, there are few templates and no standalones.
-However, users are free to create standalones More information on using
-multiple templates, as well as standalones, can be found
-:doc:`here </user/how-to-guides/how-to-install-software>`. The steps described in this section
-should be repeated in **all** the user’s Template and Standalone VMs.
+By default, in Qubes R3.1, there are few templates and no standalones. However, users are free to create standalones More information on using multiple templates, as well as standalones, can be found :doc:`here </user/how-to-guides/how-to-install-software>`. The steps described in this section should be repeated in **all** the user’s Template and Standalone VMs.
 
 Upgrade Fedora templates:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-**Note:** This will only upgrade your Fedora template from Qubes 3.1 to
-Qubes 3.2. This will *not* upgrade your Fedora template from Fedora 23
-to Fedora 24. In order to do that, please see the :ref:`Fedora 23 template upgrade instructions <user/templates/fedora/fedora:upgrading>`.
+**Note:** This will only upgrade your Fedora template from Qubes 3.1 to Qubes 3.2. This will *not* upgrade your Fedora template from Fedora 23 to Fedora 24. In order to do that, please see the :ref:`Fedora 23 template upgrade instructions <user/templates/fedora/fedora:upgrading>`.
 
-1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
-   Manager’s right-click menu, choose “Run Command in VM,” and type
-   ``gnome-terminal`` there.)
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM Manager’s right-click menu, choose “Run Command in VM,” and type ``gnome-terminal`` there.)
 
 2. Install the ``qubes-upgrade-vm`` package:
 
@@ -169,9 +133,7 @@ Upgrade Debian (and Whonix) templates:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
-   Manager’s right-click menu, choose “Run Command in VM,” and type
-   ``gnome-terminal`` there.)
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM Manager’s right-click menu, choose “Run Command in VM,” and type ``gnome-terminal`` there.)
 
 2. Update repository definition:
 

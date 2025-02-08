@@ -3,18 +3,13 @@ Debian templates
 ================
 
 
-The Debian :doc:`template </user/templates/templates>` is an officially
-:ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS.
-This page is about the standard (or “full”) Debian template. For the
-minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page. There is also a `Qubes page on the Debian Wiki <https://wiki.debian.org/Qubes>`__.
+The Debian :doc:`template </user/templates/templates>` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. This page is about the standard (or “full”) Debian template. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page. There is also a `Qubes page on the Debian Wiki <https://wiki.debian.org/Qubes>`__.
 
 Installing
 ----------
 
 
-To :ref:`install <user/templates/templates:installing>` a specific Debian template
-that is not currently installed in your system, use the following
-command in dom0:
+To :ref:`install <user/templates/templates:installing>` a specific Debian template that is not currently installed in your system, use the following command in dom0:
 
 .. code:: bash
 
@@ -22,18 +17,15 @@ command in dom0:
 
 
 
-(Replace ``XX`` with the Debian version number of the template you wish
-to install.)
+(Replace ``XX`` with the Debian version number of the template you wish to install.)
 
-To reinstall a Debian template that is already installed in your system,
-see :doc:`How to Reinstall a template </user/how-to-guides/how-to-reinstall-a-template>`.
+To reinstall a Debian template that is already installed in your system, see :doc:`How to Reinstall a template </user/how-to-guides/how-to-reinstall-a-template>`.
 
 After Installing
 ----------------
 
 
-After installing a fresh Debian template, we recommend performing the
-following steps:
+After installing a fresh Debian template, we recommend performing the following steps:
 
 1. :doc:`Update the template </user/how-to-guides/how-to-install-software>`.
 
@@ -61,15 +53,9 @@ Upgrading
 
 There are two ways to upgrade your template to a new Debian release:
 
-- **Recommended:** `Install a fresh template to replace the existing one. <#installing>`__ **This option may be simpler for less experienced users.** After you install the new template, redo all
-  desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`.
-  You may want to write down the modifications you make to your
-  templates so that you remember what to redo on each fresh install. In
-  the old Debian template, see ``/var/log/dpkg.log`` and
-  ``/var/log/apt/history.log`` for logs of package manager actions.
+- **Recommended:** `Install a fresh template to replace the existing one. <#installing>`__ **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see ``/var/log/dpkg.log`` and ``/var/log/apt/history.log`` for logs of package manager actions.
 
-- **Advanced:** :doc:`Perform an in-place upgrade of an existing Debian template. </user/templates/debian/debian-upgrade>` This option
-  will preserve any modifications you’ve made to the template, **but it may be more complicated for less experienced users.**
+- **Advanced:** :doc:`Perform an in-place upgrade of an existing Debian template. </user/templates/debian/debian-upgrade>` This option will preserve any modifications you’ve made to the template, **but it may be more complicated for less experienced users.**
 
 
 
@@ -83,9 +69,7 @@ Debian 12
 ^^^^^^^^^
 
 
-If you want to use a Debian 12 template for salting Qubes, you **must**
-stop the salt-common and salt-ssh packages from being upgraded. Do this
-by marking these packages on hold *before* updating the template.
+If you want to use a Debian 12 template for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded. Do this by marking these packages on hold *before* updating the template.
 
 .. code:: bash
 
@@ -95,21 +79,15 @@ by marking these packages on hold *before* updating the template.
 
 
 
-This is a `known bug <https://github.com/QubesOS/qubes-issues/issues/9129>`__ in Salt
-which affects version 3006-5.
+This is a `known bug <https://github.com/QubesOS/qubes-issues/issues/9129>`__ in Salt which affects version 3006-5.
 
 Starting services
 ^^^^^^^^^^^^^^^^^
 
 
-The Debian way (generally) is to start daemons if they are installed.
-This means that if you install (say) ssh-server in a template, *all* the
-qubes that use that template will run a ssh server when they start.
-(They will, naturally, all have the same server key.) This may not be
-what you want.
+The Debian way (generally) is to start daemons if they are installed. This means that if you install (say) ssh-server in a template, *all* the qubes that use that template will run a ssh server when they start. (They will, naturally, all have the same server key.) This may not be what you want.
 
-So be very careful when installing software in Templates - if the daemon
-spawns outbound connections then there is a serious security risk.
+So be very careful when installing software in Templates - if the daemon spawns outbound connections then there is a serious security risk.
 
 In general, a reasonable approach would be, (using ssh as example):
 
@@ -127,8 +105,7 @@ In general, a reasonable approach would be, (using ssh as example):
 
 Now the ssh service will **NOT** start in qubes based on this template.
 
-Where you **DO** want the service to run, put this in
-``/rw/config/rc.local``:
+Where you **DO** want the service to run, put this in ``/rw/config/rc.local``:
 
 .. code:: bash
 
@@ -143,14 +120,11 @@ Unattended Upgrades
 ^^^^^^^^^^^^^^^^^^^
 
 
-Some users have noticed that on upgrading to Stretch, the
-``unattended-upgrade`` package is installed.
+Some users have noticed that on upgrading to Stretch, the ``unattended-upgrade`` package is installed.
 
-This package is pulled in as part of a Recommend chain, and can be
-purged.
+This package is pulled in as part of a Recommend chain, and can be purged.
 
-The lesson is that you should carefully look at what is being installed
-to your system, particularly if you run ``dist-upgrade``.
+The lesson is that you should carefully look at what is being installed to your system, particularly if you run ``dist-upgrade``.
 
 Package installation errors in Qubes 4.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -3,15 +3,13 @@ How to contribute
 =================
 
 
-Thank you for your interest in contributing to Qubes! Here are some of
-the many ways in which you can help:
+Thank you for your interest in contributing to Qubes! Here are some of the many ways in which you can help:
 
 - Audit the :doc:`source code </developer/code/source-code>`
 
 - :doc:`Report security issues </project-security/security>`
 
-- :ref:`Send patches <developer/code/source-code:how to send patches>` to fix bugs
-  or implement features
+- :ref:`Send patches <developer/code/source-code:how to send patches>` to fix bugs or implement features
 
 - :doc:`Contribute packages </developer/general/package-contributions>`
 
@@ -23,8 +21,7 @@ the many ways in which you can help:
 
 - Record :doc:`video tours </introduction/video-tours>`
 
-- Create `artwork <https://github.com/QubesOS/qubes-artwork>`__
-  (plymouth themes, installer themes, wallpapers, etc.)
+- Create `artwork <https://github.com/QubesOS/qubes-artwork>`__ (plymouth themes, installer themes, wallpapers, etc.)
 
 - `Write and edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__
 
@@ -44,13 +41,11 @@ the many ways in which you can help:
 
   - Like us on `Facebook <https://www.facebook.com/QubesOS>`__
 
-  - Connect with us on
-    `LinkedIn <https://www.linkedin.com/company/qubes-os/>`__
+  - Connect with us on `LinkedIn <https://www.linkedin.com/company/qubes-os/>`__
 
 
 
-- And last but not least, tell your friends and colleagues about how
-  Qubes can help them secure their digital lives!
+- And last but not least, tell your friends and colleagues about how Qubes can help them secure their digital lives!
 
 
 
@@ -58,10 +53,7 @@ Contributing Code
 -----------------
 
 
-If you’re interested in contributing code, the best starting point is to
-have a look at our `GitHub issues <https://github.com/QubesOS/qubes-issues/issues>`__ to see which
-tasks are the most urgent. You can filter issues depending on your
-interest and experience. For example, here are some common issue labels:
+If you’re interested in contributing code, the best starting point is to have a look at our `GitHub issues <https://github.com/QubesOS/qubes-issues/issues>`__ to see which tasks are the most urgent. You can filter issues depending on your interest and experience. For example, here are some common issue labels:
 
 - `Help wanted <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93>`__
 
@@ -77,8 +69,4 @@ interest and experience. For example, here are some common issue labels:
 
 
 
-Before you engage in an activity that will take you a significant amount
-of time, like implementing a new feature, it’s always good to contact us
-first, preferably via the :ref:`qubes-devel <introduction/support:qubes-devel>`
-mailing list. Once we’ve worked out the details, we’ll be grateful to
-:ref:`receive your patch <developer/code/source-code:how to send patches>`.
+Before you engage in an activity that will take you a significant amount of time, like implementing a new feature, it’s always good to contact us first, preferably via the :ref:`qubes-devel <introduction/support:qubes-devel>` mailing list. Once we’ve worked out the details, we’ll be grateful to :ref:`receive your patch <developer/code/source-code:how to send patches>`.

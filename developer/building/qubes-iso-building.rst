@@ -11,23 +11,16 @@ Build Environment
 -----------------
 
 
-Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with
-the below steps. Other rpm-based operating systems may also work.
-Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not
-test the ``./setup`` script.
+Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below steps. Other rpm-based operating systems may also work. Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the ``./setup`` script.
 
-**Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced
-by default and is blocking the build system. You would get error like
-“can’t create transaction lock on /…/rpm/.rpm.lock (Permission denied)”.
-You can set SeLinux to permissive mode with
+**Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by default and is blocking the build system. You would get error like “can’t create transaction lock on /…/rpm/.rpm.lock (Permission denied)”. You can set SeLinux to permissive mode with
 
 .. code:: bash
 
       sudo setenforce 0
 
 
-In ``dom0``, install the Fedora 36 (or 37) template if you don’t already
-have it.
+In ``dom0``, install the Fedora 36 (or 37) template if you don’t already have it.
 
 .. code:: bash
 
@@ -35,17 +28,9 @@ have it.
 
 
 
-Create a standalone AppVM from the Fedora template. Set private storage
-to at least 60 GB if you will be building only the default templates;
-100 GB or more if you plan on additional. It’s not required, but if you
-allocate additional CPU cores, the build process can utilize them at
-some steps such as the kernel build. Likewise, more memory (up to 16 GB)
-can help. Last, you may want to disable memory balancing, but keep in
-mind the impact on your other qubes.
+Create a standalone AppVM from the Fedora template. Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional. It’s not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build. Likewise, more memory (up to 16 GB) can help. Last, you may want to disable memory balancing, but keep in mind the impact on your other qubes.
 
-Once you’ve built the development AppVM, open a Terminal window to it
-and install the necessary dependencies (see
-:doc:`QubesBuilder </developer/building/qubes-builder>` for more info):
+Once you’ve built the development AppVM, open a Terminal window to it and install the necessary dependencies (see :doc:`QubesBuilder </developer/building/qubes-builder>` for more info):
 
 .. code:: bash
 
@@ -53,8 +38,7 @@ and install the necessary dependencies (see
 
 
 
-Get the necessary keys to verify the sources (run these and other
-commands below as a regular user, not root):
+Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
 
 .. code:: bash
 
@@ -70,15 +54,9 @@ commands below as a regular user, not root):
 
 
 
-**Note** In the above process, we do *not* rely on the security of our
-server (keys.qubes-os.org) nor the connection (ssl, cert) – we only rely
-on you getting the Qubes Master Signing Key fingerprint *somehow* and
-ensuring they match! See :ref:`verifying signatures <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
-for verification sources.
+**Note** In the above process, we do *not* rely on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) – we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensuring they match! See :ref:`verifying signatures <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>` for verification sources.
 
-Now let’s bootstrap the builder. Unfortunately, the builder cannot
-verify itself (the classic Chicken and Egg problem), so we need to
-verify the signature manually:
+Now let’s bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
 .. code:: bash
 
@@ -88,24 +66,15 @@ verify the signature manually:
 
 
 
-**Note** It’s very important to check if the verification message
-contains “Good signature from …” and does not contain “WARNING: This key
-is not certified with a trusted signature!”.
+**Note** It’s very important to check if the verification message contains “Good signature from …” and does not contain “WARNING: This key is not certified with a trusted signature!”.
 
-Assuming the verification went fine, we’re good to go with all the rest
-without ever thinking more about verifying digital signatures on all the
-rest of the components, apart from an additional step if doing a
-non-scripted build. The builder will do that for us for each component,
-every time we build, even for all auxiliary files (e.g. Xen or Linux
-kernel sources).
+Assuming the verification went fine, we’re good to go with all the rest without ever thinking more about verifying digital signatures on all the rest of the components, apart from an additional step if doing a non-scripted build. The builder will do that for us for each component, every time we build, even for all auxiliary files (e.g. Xen or Linux kernel sources).
 
 Build using setup script
 ------------------------
 
 
-Let’s configure the builder first (see
-:ref:`procedure <developer/building/qubes-iso-building:build using manual steps>` at
-bottom if you would prefer to manually configure):
+Let’s configure the builder first (see :ref:`procedure <developer/building/qubes-iso-building:build using manual steps>` at bottom if you would prefer to manually configure):
 
 .. code:: bash
 
@@ -125,8 +94,7 @@ bottom if you would prefer to manually configure):
 
 
 
-Once it completes downloading, re-run ``setup`` to add the Whonix
-templates:
+Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 
 .. code:: bash
 
@@ -145,16 +113,9 @@ Continue the build process with:
 
 
 
-When building the Whonix templates, you will often need to add/update
-the ``WHONIX_TBB_VERSION`` variable in ``builder.conf`` at this stage to
-specify the currently shipping Tor Browser version. See the related note
-under `Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
+When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable in ``builder.conf`` at this stage to specify the currently shipping Tor Browser version. See the related note under `Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
 
-You may also want to add
-``COMPONENTS := $(filter-out gcc,$(COMPONENTS))`` to bypass a multiple
-hour compile step. See
-:ref:`QubesBuilder <developer/building/qubes-builder:use pre-built qubes packages>` for
-more detail.
+You may also want to add ``COMPONENTS := $(filter-out gcc,$(COMPONENTS))`` to bypass a multiple hour compile step. See :ref:`QubesBuilder <developer/building/qubes-builder:use pre-built qubes packages>` for more detail.
 
 Finally, if you are making a test build, use:
 
@@ -165,8 +126,7 @@ Finally, if you are making a test build, use:
 
 
 
-Or for a fully signed build (this requires setting ``SIGN_KEY`` in
-``builder.conf``):
+Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
 .. code:: bash
 
@@ -182,9 +142,7 @@ Build using manual steps
 ------------------------
 
 
-Instead of using ``./setup``, you can manually configure the build. The
-script takes care of a lot of the keyring preparation for us, so we
-first need to set that up.
+Instead of using ``./setup``, you can manually configure the build. The script takes care of a lot of the keyring preparation for us, so we first need to set that up.
 
 If you will be building Whonix templates:
 
@@ -196,9 +154,7 @@ If you will be building Whonix templates:
 
 
 
-**Note:** It’s very important to check the fingerprint displayed against
-multiple sources such as the `Whonix web site <https://www.whonix.org/wiki/Whonix_Signing_Key>`__, etc. It should
-look something like this:
+**Note:** It’s very important to check the fingerprint displayed against multiple sources such as the `Whonix web site <https://www.whonix.org/wiki/Whonix_Signing_Key>`__, etc. It should look something like this:
 
 .. code:: bash
 
@@ -234,8 +190,7 @@ Copy one of the example configurations:
 
 
 
-Edit ``builder.conf``, referring to ``doc/Configuration.md`` for a
-description of all available options.
+Edit ``builder.conf``, referring to ``doc/Configuration.md`` for a description of all available options.
 
 Continue the build process with:
 
@@ -247,10 +202,7 @@ Continue the build process with:
 
 
 
-When building the Whonix templates, you will often need to add/update
-the ``WHONIX_TBB_VERSION`` variable at this stage to specify the
-currently shipping Tor Browser version. See the related note under
-`Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
+When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable at this stage to specify the currently shipping Tor Browser version. See the related note under `Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
 
 Finally, if you are making a test build, use:
 
@@ -261,8 +213,7 @@ Finally, if you are making a test build, use:
 
 
 
-Or for a fully signed build (this requires setting ``SIGN_KEY`` in
-``builder.conf``):
+Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
 .. code:: bash
 

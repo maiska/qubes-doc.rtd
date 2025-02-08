@@ -3,19 +3,11 @@ How to set up a test bench
 ==========================
 
 
-This guide shows how to set up simple test bench that automatically test
-your code you’re about to push. It is written especially for ``core3``
-branch of ``core-admin.git`` repo, but some ideas are universal.
+This guide shows how to set up simple test bench that automatically test your code you’re about to push. It is written especially for ``core3`` branch of ``core-admin.git`` repo, but some ideas are universal.
 
-We will set up a spare machine (bare metal, not a virtual) that will be
-hosting our experimental Dom0. We will communicate with it via Ethernet
-and SSH. This tutorial assumes you are familiar with
-:doc:`QubesBuilder </developer/building/qubes-builder>` and you have it set up and
-running flawlessly.
+We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with :doc:`QubesBuilder </developer/building/qubes-builder>` and you have it set up and running flawlessly.
 
-   **Notice:** This setup intentionally weakens some security properties
-   in the testing system. So make sure you understand the risks and use
-   exclusively for testing.
+   **Notice:** This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
 
 Setting up the Machine
 ----------------------
@@ -25,29 +17,23 @@ Install ISO
 ^^^^^^^^^^^
 
 
-First, do a clean install from the ``.iso`` :doc:`you built </developer/building/qubes-iso-building>` or grabbed elsewhere (for example
-`here <https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601>`__).
+First, do a clean install from the ``.iso`` :doc:`you built </developer/building/qubes-iso-building>` or grabbed elsewhere (for example `here <https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601>`__).
 
 Enabling Network Access in Dom0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Internet access is intentionally disabled by default in dom0. But to
-ease the deployment process we will give it access. The following steps
-should be done in ``dom0``.
+Internet access is intentionally disabled by default in dom0. But to ease the deployment process we will give it access. The following steps should be done in ``dom0``.
 
-   **Note:** the following assume you have only one network card. If you
-   have two, pick one and leave the other attached to ``sys-net``.
+   **Note:** the following assume you have only one network card. If you have two, pick one and leave the other attached to ``sys-net``.
 
 1. Remove the network card (PCI device) from ``sys-net``
 
 2. Restart your computer (for the removal to take effect)
 
-3. Install ``dhcp-client`` and ``openssh-server`` on your testbench’s
-   dom0.
+3. Install ``dhcp-client`` and ``openssh-server`` on your testbench’s dom0.
 
-4. Save the following script in ``/home/user/bin/dom0_network.sh`` and
-   make it executable. It should enable your network card in dom0. *Be sure to adjust the script’s variables to suit your needs.*
+4. Save the following script in ``/home/user/bin/dom0_network.sh`` and make it executable. It should enable your network card in dom0. *Be sure to adjust the script’s variables to suit your needs.*
 
    .. code:: bash
 
@@ -88,13 +74,9 @@ should be done in ``dom0``.
          dhclient
 
 
-5. Configure your DHCP server so your testbench gets static IP and
-   connect your machine to your local network. You should ensure that
-   your testbench can reach the Internet.
+5. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-6. You’ll need to run the above script on every startup. To automate
-   this save the following systemd service
-   ``/etc/systemd/system/dom0-network-direct.service``
+6. You’ll need to run the above script on every startup. To automate this save the following systemd service ``/etc/systemd/system/dom0-network-direct.service``
 
    .. code:: bash
 
@@ -123,28 +105,17 @@ should be done in ``dom0``.
 
 
 
-   **Note:** If you want to install additional software in dom0 and your
-   only network card was assigned to dom0, then *instead* of the usual
-   ``sudo qubes-dom0-update <PACKAGE>`` now you run
-   ``sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>``.
+   **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then *instead* of the usual ``sudo qubes-dom0-update <PACKAGE>`` now you run ``sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>``.
 
 Install Tests and Their Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-A regular Qubes installation isn’t ready to run the full suite of tests.
-For example, in order to run the `Split GPG tests <https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py>`__
-you need to have the ``qubes-gpg-split-tests`` package installed in your
-app qubes.
+A regular Qubes installation isn’t ready to run the full suite of tests. For example, in order to run the `Split GPG tests <https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py>`__ you need to have the ``qubes-gpg-split-tests`` package installed in your app qubes.
 
-Because of the above reason, some additional configurations need to be
-done to your testing environment. This can be done in an automated
-manner with the help of the :doc:`Salt </user/advanced-topics/salt>` configuration that
-provisions the :doc:`automated testing environment </developer/debugging/automated-tests>`.
+Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the :doc:`Salt </user/advanced-topics/salt>` configuration that provisions the :doc:`automated testing environment </developer/debugging/automated-tests>`.
 
-The following commands should work for you, but do keep in mind that the
-provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific
-local testing system. Run the following in ``dom0``:
+The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
 .. code:: bash
 
@@ -182,8 +153,7 @@ SSH
 ^^^
 
 
-Arrange firewall so you can reach the testbench from your ``qubes-dev``
-VM. Generate SSH key in ``qubes-dev``:
+Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
 .. code:: bash
 
@@ -207,19 +177,13 @@ Passwordless SSH Login
 ^^^^^^^^^^^^^^^^^^^^^^
 
 
-To log to your testbench without entering password every time, copy your
-newly generated public key (``id_ecdsa.pub``) to
-``~/.ssh/authorized_keys`` on your testbench. You can do this easily by
-running this command on ``qubes-dev``:
-``ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45`` (substituting
-with the actual username address of your testbench).
+To log to your testbench without entering password every time, copy your newly generated public key (``id_ecdsa.pub``) to ``~/.ssh/authorized_keys`` on your testbench. You can do this easily by running this command on ``qubes-dev``: ``ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45`` (substituting with the actual username address of your testbench).
 
 Scripting
 ^^^^^^^^^
 
 
-This step is optional, but very helpful. Put these scripts somewhere in
-your ``${PATH}``, like ``/usr/local/bin``.
+This step is optional, but very helpful. Put these scripts somewhere in your ``${PATH}``, like ``/usr/local/bin``.
 
 ``qtb-runtests``:
 
@@ -278,14 +242,9 @@ Hooking git
 ^^^^^^^^^^^
 
 
-I (woju) have those two git hooks. They ensure tests are passing (or are
-marked as expected failure) when committing and pushing. For committing
-it is only possible to run tests that may be executed from git repo
-(even if the rest were available, I probably wouldn’t want to do that).
-For pushing, I also install RPM and run tests on testbench.
+I (woju) have those two git hooks. They ensure tests are passing (or are marked as expected failure) when committing and pushing. For committing it is only possible to run tests that may be executed from git repo (even if the rest were available, I probably wouldn’t want to do that). For pushing, I also install RPM and run tests on testbench.
 
-``core-admin/.git/hooks/pre-commit``: (you may retain also the default
-hook, here omitted for readability)
+``core-admin/.git/hooks/pre-commit``: (you may retain also the default hook, here omitted for readability)
 
 .. code:: bash
 

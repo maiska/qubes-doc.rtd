@@ -6,7 +6,7 @@ Qubes R4.0 release schedule
 This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
 
 .. list-table:: 
-   :widths: 15 15 
+   :widths: 88 88 
    :align: center
    :header-rows: 1
 
@@ -14,7 +14,7 @@ This schedule is based on :ref:`Version Scheme <developer/releases/version-schem
      - Stage
    * - 31 Jul 2017
      - 4.0-rc1 release
-   * -  :strike:`28 Aug 2017`   :strike:`11 Sep 2017`     :strike:`9  Oct 2017`  18 Oct 2017
+   * -  :strike:`28 Aug 2017`   :strike:`11 Sep 2017`   :strike:`9 Oct 2017`  18 Oct 2017
      - current-testing freeze before 4.0-rc2
    * -  :strike:`4 Sep 2017`   :strike:`18 Sep 2017`   :strike:`16 Oct 2017`  23 Oct 2017
      - 4.0-rc2 release

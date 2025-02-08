@@ -3,9 +3,7 @@ Upgrade guides
 ==============
 
 
-These guides are for upgrading from one version of Qubes to another. If
-you’re just looking to update your system while staying on the same
-version, see :doc:`how to update </user/how-to-guides/how-to-update>`.
+These guides are for upgrading from one version of Qubes to another. If you’re just looking to update your system while staying on the same version, see :doc:`how to update </user/how-to-guides/how-to-update>`.
 
 .. toctree::
    :maxdepth: 1

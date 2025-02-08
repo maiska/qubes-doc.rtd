@@ -3,8 +3,7 @@ Qubes security pack (qubes-secpack)
 ===================================
 
 
-The **Qubes security pack (qubes-secpack)** is a Git repository that
-contains:
+The **Qubes security pack (qubes-secpack)** is a Git repository that contains:
 
 - `Qubes security bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__
 
@@ -16,13 +15,11 @@ contains:
 
 - `Qubes PGP keys <https://keys.qubes-os.org/keys/>`__
 
-- Security-related information and announcements (e.g., key
-  revocations)
+- Security-related information and announcements (e.g., key revocations)
 
 
 
-While qubes-secpack itself is independent of any particular host, its
-current official location is:
+While qubes-secpack itself is independent of any particular host, its current official location is:
 
 https://github.com/QubesOS/qubes-secpack
 
@@ -30,9 +27,7 @@ How to obtain and authenticate
 ------------------------------
 
 
-The following example demonstrates one method of obtaining the
-qubes-secpack and verifying its authenticity. This requires Git and
-:ref:`OpenPGP software <project-security/verifying-signatures:openpgp software>`.
+The following example demonstrates one method of obtaining the qubes-secpack and verifying its authenticity. This requires Git and :ref:`OpenPGP software <project-security/verifying-signatures:openpgp software>`.
 
 1. Use Git to clone the qubes-secpack repo.
 
@@ -47,8 +42,7 @@ qubes-secpack and verifying its authenticity. This requires Git and
          Checking connectivity... done.
 
 
-2. Import the included PGP keys. See our `PGP key policies <#pgp-key-policies>`__ for important information about these
-   keys.
+2. Import the included PGP keys. See our `PGP key policies <#pgp-key-policies>`__ for important information about these keys.
 
    .. code:: bash
 
@@ -113,36 +107,19 @@ qubes-secpack and verifying its authenticity. This requires Git and
          gpg: Signature made Mon Jan  5 20:13:37 2015 UTC using RSA key ID 1830E06A
          gpg: Good signature from "Marek Marczykowski-Górecki (Qubes security pack) <marmarek@invisiblethingslab.com>"
 
-   The fourth and final lines of output confirm that the two signatures
-   are good.
+   The fourth and final lines of output confirm that the two signatures are good.
 
 
 
-The same procedures can be applied to any directory or file in the
-qubes-secpack. Two methods of verification (signed Git tags and detached
-PGP signatures) are provided to ensure that the system is robust (e.g.,
-against a potential failure in Git tag-based verification) and to give
-users more options to verify the files.
+The same procedures can be applied to any directory or file in the qubes-secpack. Two methods of verification (signed Git tags and detached PGP signatures) are provided to ensure that the system is robust (e.g., against a potential failure in Git tag-based verification) and to give users more options to verify the files.
 
 PGP key policies
 ----------------
 
 
-- **Inclusion criteria.** The qubes-secpack generally includes only
-  those PGP keys used to sign some kind of official project asset, such
-  as Qubes release ISOs (release signing keys), Git tags and commits
-  (code signing, doc signing, and security team keys), and the
-  qubes-secpack’s own files and Git tags (security team keys again).
-  This means that email keys are generally not included, even for
-  official project email addresses. There is one exception to this
-  rule: the official :ref:`Qubes security team <project-security/security:qubes security team>` email address, which is used
-  to report security vulnerabilities in Qubes OS to our security team.
+- **Inclusion criteria.** The qubes-secpack generally includes only those PGP keys used to sign some kind of official project asset, such as Qubes release ISOs (release signing keys), Git tags and commits (code signing, doc signing, and security team keys), and the qubes-secpack’s own files and Git tags (security team keys again). This means that email keys are generally not included, even for official project email addresses. There is one exception to this rule: the official :ref:`Qubes security team <project-security/security:qubes security team>` email address, which is used to report security vulnerabilities in Qubes OS to our security team.
 
-- **Key signing (certification).** Only some keys in the qubes-secpack
-  are signed by the QMSK. Keys that are not signed directly by the QMSK
-  are still signed indirectly by virtue of being included in the
-  qubes-secpack, which is itself signed (via Git tags and/or commits)
-  by keys that are in turn signed by the QMSK.
+- **Key signing (certification).** Only some keys in the qubes-secpack are signed by the QMSK. Keys that are not signed directly by the QMSK are still signed indirectly by virtue of being included in the qubes-secpack, which is itself signed (via Git tags and/or commits) by keys that are in turn signed by the QMSK.
 
 
 
@@ -150,10 +127,7 @@ History and rationale
 ---------------------
 
 
-On 2013-01-05, Joanna Rutkowska announced the qubes-secpack and
-explained its rationale in an
-`email <https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ>`__
-to the Qubes mailing lists:
+On 2013-01-05, Joanna Rutkowska announced the qubes-secpack and explained its rationale in an `email <https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ>`__ to the Qubes mailing lists:
 
 .. code:: bash
 

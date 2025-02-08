@@ -7,34 +7,23 @@ Unit and Integration Tests
 --------------------------
 
 
-Starting with Qubes R3 we use `python unittest <https://docs.python.org/3/library/unittest.html>`__ to perform
-automatic tests of Qubes OS. Despite the name, we use it for both `unit tests <https://en.wikipedia.org/wiki/Unit_tests>`__ and `integration tests <https://en.wikipedia.org/wiki/Integration_tests>`__. The main
-purpose is, of course, to deliver much more stable releases.
+Starting with Qubes R3 we use `python unittest <https://docs.python.org/3/library/unittest.html>`__ to perform automatic tests of Qubes OS. Despite the name, we use it for both `unit tests <https://en.wikipedia.org/wiki/Unit_tests>`__ and `integration tests <https://en.wikipedia.org/wiki/Integration_tests>`__. The main purpose is, of course, to deliver much more stable releases.
 
-The integration tests must be run in dom0, but some unit tests can run
-inside a VM as well.
+The integration tests must be run in dom0, but some unit tests can run inside a VM as well.
 
 Integration & unit testing in dom0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Integration tests are written with the assumption that they will be
-executed on dedicated hardware and must be run in dom0. All other unit
-tests can also be run in dom0.
+Integration tests are written with the assumption that they will be executed on dedicated hardware and must be run in dom0. All other unit tests can also be run in dom0.
 
 **Do not run the tests on installations with important data, because you might lose it.**
 
-All the VMs with a name starting with ``test-`` on the installation are
-removed during the process, and all the tests are recklessly started
-from dom0, even when testing (& possibly breaking) VM components.
+All the VMs with a name starting with ``test-`` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing (& possibly breaking) VM components.
 
-First you need to build all packages that you want to test. Please do
-not mix branches as this will inevitably lead to failures. Then setup
-Qubes OS with these packages installed.
+First you need to build all packages that you want to test. Please do not mix branches as this will inevitably lead to failures. Then setup Qubes OS with these packages installed.
 
-For testing you’ll have to stop the ``qubesd`` service as the tests will
-use its own custom variant of the service:
-``sudo systemctl stop qubesd``
+For testing you’ll have to stop the ``qubesd`` service as the tests will use its own custom variant of the service: ``sudo systemctl stop qubesd``
 
 Don’t forget to start it after testing again.
 
@@ -46,9 +35,7 @@ Alternatively, use the custom Qubes OS test runner:
 
 ``sudo -E python3 -m qubes.tests.run -v``
 
-Our test runner runs mostly the same as the standard one, but it has
-some nice additional features like colored output and not needing the
-“qubes.test” prefix.
+Our test runner runs mostly the same as the standard one, but it has some nice additional features like colored output and not needing the “qubes.test” prefix.
 
 You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
@@ -93,8 +80,7 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
       Example: basic/TC_00_Basic/test_000_create
 
 
-For instance, to run only the tests for the fedora-21 template, you can
-use the ``-l`` option, then filter the list:
+For instance, to run only the tests for the fedora-21 template, you can use the ``-l`` option, then filter the list:
 
 .. code:: bash
 
@@ -129,45 +115,28 @@ Example test run:
 
 
 
-Tests are also compatible with nose2 test runner, so you can use this
-instead:
+Tests are also compatible with nose2 test runner, so you can use this instead:
 
 .. code:: bash
 
       sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
 
-This may be especially useful together with various nose2 plugins to
-store tests results (for example ``nose2.plugins.junitxml``), to ease
-presenting results. This is what we use on
-`OpenQA <https://open.qa/>`__.
+This may be especially useful together with various nose2 plugins to store tests results (for example ``nose2.plugins.junitxml``), to ease presenting results. This is what we use on `OpenQA <https://open.qa/>`__.
 
 Unit testing inside a VM
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Many unit tests will also work inside a VM. However all of the tests
-requiring a dedicated VM to be run (mostly the integration tests) will
-be skipped.
+Many unit tests will also work inside a VM. However all of the tests requiring a dedicated VM to be run (mostly the integration tests) will be skipped.
 
-Whereas integration tests are mostly stored in the
-`qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__
-repository, unit tests can be found in each of the Qubes OS
-repositories.
+Whereas integration tests are mostly stored in the `qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ repository, unit tests can be found in each of the Qubes OS repositories.
 
-To for example run the ``qubes-core-admin`` unit tests, you currently
-have to clone at least
-`qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ and
-its dependency
-`qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec>`__
-repository in the branches that you want to test.
+To for example run the ``qubes-core-admin`` unit tests, you currently have to clone at least `qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ and its dependency `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec>`__ repository in the branches that you want to test.
 
-The below example however will assume that you set up a build
-environment as described in the :doc:`Qubes Builder documentation </developer/building/qubes-builder>`.
+The below example however will assume that you set up a build environment as described in the :doc:`Qubes Builder documentation </developer/building/qubes-builder>`.
 
-Assuming you cloned the ``qubes-builder`` repository to your home
-directory inside a fedora VM, you can use the following commands to run
-the unit tests:
+Assuming you cloned the ``qubes-builder`` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 
 .. code:: bash
 
@@ -186,17 +155,9 @@ To run only the tests related to e.g. ``lvm``, you may use:
 
 ``./run-tests -v $(python3 -m qubes.tests.run -l | grep lvm)``
 
-You can later re-use the created virtual environment including all of
-the via ``pip3`` installed packages with
-``source ~/python35/bin/activate``.
+You can later re-use the created virtual environment including all of the via ``pip3`` installed packages with ``source ~/python35/bin/activate``.
 
-We recommend to run the unit tests with the Python version that the code
-is meant to be run with in dom0 (3.5 was just an example above). For
-instance, the ``release4.0`` (Qubes 4.0) branch is intended to be run
-with Python 3.5 whereas the Qubes 4.1 branch (``master`` as of 2020-07)
-is intended to be run with Python 3.7 or higher. You can always check
-your dom0 installation for the Python version of the current stable
-branch.
+We recommend to run the unit tests with the Python version that the code is meant to be run with in dom0 (3.5 was just an example above). For instance, the ``release4.0`` (Qubes 4.0) branch is intended to be run with Python 3.5 whereas the Qubes 4.1 branch (``master`` as of 2020-07) is intended to be run with Python 3.7 or higher. You can always check your dom0 installation for the Python version of the current stable branch.
 
 Tests configuration
 ^^^^^^^^^^^^^^^^^^^
@@ -204,18 +165,13 @@ Tests configuration
 
 Test runs can be altered using environment variables:
 
-- ``DEFAULT_LVM_POOL`` - LVM thin pool to use for tests, in
-  ``VolumeGroup/ThinPool`` format
+- ``DEFAULT_LVM_POOL`` - LVM thin pool to use for tests, in ``VolumeGroup/ThinPool`` format
 
-- ``QUBES_TEST_PCIDEV`` - PCI device to be used in PCI passthrough
-  tests (for example sound card)
+- ``QUBES_TEST_PCIDEV`` - PCI device to be used in PCI passthrough tests (for example sound card)
 
-- ``QUBES_TEST_TEMPLATES`` - space separated list of templates to run
-  tests on; if not set, all installed templates are tested
+- ``QUBES_TEST_TEMPLATES`` - space separated list of templates to run tests on; if not set, all installed templates are tested
 
-- ``QUBES_TEST_LOAD_ALL`` - load all tests (including tests for all
-  templates) when relevant test modules are imported; this needs to be
-  set for test runners not supporting `load_tests protocol <https://docs.python.org/3/library/unittest.html#load-tests-protocol>`__
+- ``QUBES_TEST_LOAD_ALL`` - load all tests (including tests for all templates) when relevant test modules are imported; this needs to be set for test runners not supporting `load_tests protocol <https://docs.python.org/3/library/unittest.html#load-tests-protocol>`__
 
 
 
@@ -223,18 +179,13 @@ Adding a new test to core-admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-After adding a new unit test to
-`core-admin/qubes/tests <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests>`__
-you’ll have to include it in
-`core-admin/qubes/tests/__init__.py <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`__
+After adding a new unit test to `core-admin/qubes/tests <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests>`__ you’ll have to include it in `core-admin/qubes/tests/__init__.py <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`__
 
 Editing ``__init__.py``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
-You’ll also need to add your test at the bottom of the ``__init__.py``
-file, in the method ``def load_tests``, in the for loop with
-``modname``. Again, given the hypothetical ``example.py`` test:
+You’ll also need to add your test at the bottom of the ``__init__.py`` file, in the method ``def load_tests``, in the for loop with ``modname``. Again, given the hypothetical ``example.py`` test:
 
 .. code:: python
 
@@ -254,14 +205,7 @@ Testing PyQt applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-When testing (Py)QT applications, it’s useful to create a separate
-QApplication object for each test. But QT framework does not allow
-multiple QApplication objects in the same process at the same time. This
-means it’s critical to reliably cleanup the previous instance before
-creating a new one. This turns out to be a non-trivial task, especially
-if *any* test uses the event loop. Failure to perform proper cleanup in
-many cases results in SEGV. Below you can find steps for the proper
-cleanup:
+When testing (Py)QT applications, it’s useful to create a separate QApplication object for each test. But QT framework does not allow multiple QApplication objects in the same process at the same time. This means it’s critical to reliably cleanup the previous instance before creating a new one. This turns out to be a non-trivial task, especially if *any* test uses the event loop. Failure to perform proper cleanup in many cases results in SEGV. Below you can find steps for the proper cleanup:
 
 .. code:: python
 
@@ -312,35 +256,19 @@ Automated tests with openQA
 ---------------------------
 
 
-**URL:** https://openqa.qubes-os.org/ **Tests:**
-https://github.com/marmarek/openqa-tests-qubesos
+**URL:** https://openqa.qubes-os.org/ **Tests:** https://github.com/marmarek/openqa-tests-qubesos
 
-Manually testing Qubes OS and its installation is a time-consuming
-process. We use `OpenQA <https://open.qa/>`__ to automate this process.
-It works by installing Qubes in KVM and interacting with it as a user
-would, including simulating mouse clicks and keyboard presses. Then, it
-checks the output to see whether various tests were passed, e.g. by
-comparing the virtual screen output to screenshots of a successful
-installation.
+Manually testing Qubes OS and its installation is a time-consuming process. We use `OpenQA <https://open.qa/>`__ to automate this process. It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses. Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
-Using openQA to automatically test the Qubes installation process works
-as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and
-QEMU are new enough and the hardware has VT-x and EPT. KVM also supports
-nested virtualization, so HVM should theoretically work. In practice,
-however, either Xen or QEMU crashes when this is attempted. Nonetheless,
-PV works well, which is sufficient for automated installation testing.
+Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT. KVM also supports nested virtualization, so HVM should theoretically work. In practice, however, either Xen or QEMU crashes when this is attempted. Nonetheless, PV works well, which is sufficient for automated installation testing.
 
-Thanks to present and past donors who have provided the infrastructure
-for Qubes’ openQA system with hardware that meets these requirements.
+Thanks to present and past donors who have provided the infrastructure for Qubes’ openQA system with hardware that meets these requirements.
 
 Looking for patterns in tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In order to better visualize patterns in tests the
-`openqa_investigator <https://github.com/QubesOS/openqa-tests-qubesos/blob/master/utils/openqa_investigator.py>`__
-script can be used. It feeds off of the openQA test data to make graph
-plots. Here is an example:
+In order to better visualize patterns in tests the `openqa_investigator <https://github.com/QubesOS/openqa-tests-qubesos/blob/master/utils/openqa_investigator.py>`__ script can be used. It feeds off of the openQA test data to make graph plots. Here is an example:
 
 .. figure:: /attachment/doc/openqa-investigator-splitgpg-example.png
    :alt: openqa-investigator-splitgpg-example.png
@@ -365,5 +293,4 @@ Some filters:
 
 
 
-Check out the script’s help with
-``python3 openqa_investigator.py --help`` to see all available options.
+Check out the script’s help with ``python3 openqa_investigator.py --help`` to see all available options.

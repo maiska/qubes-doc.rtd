@@ -3,21 +3,15 @@ Developing Qubes OS GUI tools
 =============================
 
 
-In order to avoid installing Qubes OS frontend tools you are working on
-in your own ``dom0`` or just to test them with less problems, you can
-use the mock Qubes object from the ``qubesadmin`` package.
+In order to avoid installing Qubes OS frontend tools you are working on in your own ``dom0`` or just to test them with less problems, you can use the mock Qubes object from the ``qubesadmin`` package.
 
 Running programs using mock Qubes object
 ----------------------------------------
 
 
-Where you would normally provide the Qubes object, use the
-``qubesadmin.tests.mock_app`` package and one of the mock Qubes objects
-from it.
+Where you would normally provide the Qubes object, use the ``qubesadmin.tests.mock_app`` package and one of the mock Qubes objects from it.
 
-For example, the following code can be used to run the ``qui-domains``
-tool using the mock Qubes object (this code would replace the initial
-part of the main function):
+For example, the following code can be used to run the ``qui-domains`` tool using the mock Qubes object (this code would replace the initial part of the main function):
 
 .. code:: python
 
@@ -36,8 +30,7 @@ part of the main function):
           # continue as normal
 
 
-To run a mocked program without installing it in a qube, remember to
-extend PYTHONPATH appropriately, for example:
+To run a mocked program without installing it in a qube, remember to extend PYTHONPATH appropriately, for example:
 
 .. code:: bash
 
@@ -46,22 +39,15 @@ extend PYTHONPATH appropriately, for example:
 
 The mock object does not provide events (yet).
 
-**Note:** in order to see all qubes-relevant icons (like VM icons), install
-the ``qubes-artwork`` package.
+**Note:** in order to see all qubes-relevant icons (like VM icons), install the ``qubes-artwork`` package.
 
 How does it actually work
 -------------------------
 
 
-The mock Qubes object has a collection of expected Qubes RPC calls and
-the responses that a real system would provide. Writing these calls
-manually is a bit tedious, given that most frontend tools query a lot of
-qube properties. For example, on a medium-sized system, initializing
-Qube Manager involves about 300 separate RPC calls.
+The mock Qubes object has a collection of expected Qubes RPC calls and the responses that a real system would provide. Writing these calls manually is a bit tedious, given that most frontend tools query a lot of qube properties. For example, on a medium-sized system, initializing Qube Manager involves about 300 separate RPC calls.
 
-If you need more calls, you can add them to the mock object using the
-following syntax (the following example adds listing available vm
-kernels):
+If you need more calls, you can add them to the mock object using the following syntax (the following example adds listing available vm kernels):
 
 .. code:: python
 
@@ -69,8 +55,7 @@ kernels):
           b'0\x006.1.57-1.fc37\n6.1.43-1.fc37\ncustom_kernel\n'
 
 
-If error should be thrown, you need to provide the error code and name,
-for example:
+If error should be thrown, you need to provide the error code and name, for example:
 
 .. code:: python
 
@@ -86,14 +71,11 @@ Available mocks
 
 Three mocks are available in the ``mock_app`` file:
 
-- MockQubes, an extremely bare-bones Qubes testing instance, with just
-  dom0, sys-net, and one template (fedora-36).
+- MockQubes, an extremely bare-bones Qubes testing instance, with just dom0, sys-net, and one template (fedora-36).
 
-- MockQubesComplete, a more complex setup |Qubes Manager running
-  MockQubesComplete|
+- MockQubesComplete, a more complex setup |Qubes Manager running MockQubesComplete|
 
-- MockQubesWhonix, the setup above extended with several Whonix-related
-  qubes
+- MockQubesWhonix, the setup above extended with several Whonix-related qubes
 
 
 
@@ -101,9 +83,7 @@ Extending the mock Qubes object
 -------------------------------
 
 
-To collect information to modify this script, you can use the wrapper
-function to wrap and output all qubesd calls used by a program running
-on a live qubes instance.
+To collect information to modify this script, you can use the wrapper function to wrap and output all qubesd calls used by a program running on a live qubes instance.
 
 .. code:: python
 
@@ -117,9 +97,7 @@ Writing tests
 -------------
 
 
-The same mock Qubes can also be used to write tests. You can use the
-wrappers above to check which calls are made when certain actions are
-performed, and add them to the mock objects in the following way:
+The same mock Qubes can also be used to write tests. You can use the wrappers above to check which calls are made when certain actions are performed, and add them to the mock objects in the following way:
 
 .. code:: python
 
@@ -131,12 +109,9 @@ performed, and add them to the mock objects in the following way:
           basics_handler.save()
 
 
-If the call is made correctly, the test will continue successfully; if
-an unexpected call is made, the test will fail.
+If the call is made correctly, the test will continue successfully; if an unexpected call is made, the test will fail.
 
-Caution: the mock Qubes object does not react to changes like a normal
-Qubes object does. Further queries to the test object will continue to
-return initial values.
+Caution: the mock Qubes object does not react to changes like a normal Qubes object does. Further queries to the test object will continue to return initial values.
 
 .. |Qubes Manager running MockQubesComplete| image:: /attachment/doc/doc-mock-app-ex1.png
    

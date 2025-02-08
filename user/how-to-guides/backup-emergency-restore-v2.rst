@@ -3,17 +3,11 @@ Emergency backup recovery (v2)
 ==============================
 
 
-This page describes how to perform emergency restore of backup created
-on Qubes R2 Beta3 or earlier (which uses backup format 2).
+This page describes how to perform emergency restore of backup created on Qubes R2 Beta3 or earlier (which uses backup format 2).
 
-The Qubes backup system has been designed with emergency disaster
-recovery in mind. No special Qubes-specific tools are required to access
-data backed up by Qubes. In the event a Qubes system is unavailable, you
-can access your data on any GNU/Linux system with the following
-procedure.
+The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
-**Note:** In the following example, the backup file is assumed to be
-both encrypted and compressed.
+**Note:** In the following example, the backup file is assumed to be both encrypted and compressed.
 
 1. Untar the main backup file.
 
@@ -37,9 +31,7 @@ both encrypted and compressed.
 
 
 
-2. Set the backup passphrase environment variable. While this isn’t
-   strictly required, it will be handy later and will avoid saving the
-   passphrase in the shell’s history.
+2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
    .. code:: bash
 
@@ -47,8 +39,7 @@ both encrypted and compressed.
 
 
 
-3. Verify the integrity of the ``private.img`` file which houses your
-   data.
+3. Verify the integrity of the ``private.img`` file which houses your data.
 
    .. code:: bash
 
@@ -62,14 +53,9 @@ both encrypted and compressed.
 
 
 
-**Note:** The hash values should match. If they do not match, then the
-backup file may have been tampered with, or there may have been a
-storage error.
+**Note:** The hash values should match. If they do not match, then the backup file may have been tampered with, or there may have been a storage error.
 
-**Note:** If your backup was hashed with a message digest algorithm
-other than ``sha512``, you must substitute the correct message digest
-command. A complete list of supported message digest algorithms can be
-found with ``openssl list-message-digest-algorithms``.
+**Note:** If your backup was hashed with a message digest algorithm other than ``sha512``, you must substitute the correct message digest command. A complete list of supported message digest algorithms can be found with ``openssl list-message-digest-algorithms``.
 
 4. Decrypt the ``private.img`` file.
 
@@ -94,10 +80,7 @@ found with ``openssl list-message-digest-algorithms``.
 
 
 
-**Note:** If your backup was encrypted with a cipher algorithm other
-than ``aes-256-cbc``, you must substitute the correct cipher command. A
-complete list of supported cipher algorithms can be found with
-``openssl   list-cipher-algorithms``.
+**Note:** If your backup was encrypted with a cipher algorithm other than ``aes-256-cbc``, you must substitute the correct cipher command. A complete list of supported cipher algorithms can be found with ``openssl   list-cipher-algorithms``.
 
 5. Decompress the decrypted ``private.img`` file.
 
@@ -112,8 +95,7 @@ complete list of supported cipher algorithms can be found with
 
 
 
-**Note:** If your backup was compressed with a program other than
-``gzip``, you must substitute the correct compression program.
+**Note:** If your backup was compressed with a program other than ``gzip``, you must substitute the correct compression program.
 
 6. Untar the decrypted and decompressed ``private.img`` file.
 
@@ -138,9 +120,7 @@ complete list of supported cipher algorithms can be found with
 
    2. ``chmod +x new-volume-script``.
 
-   3. ``tar --new-volume-script=./new-volume-script -xvf private.img.dec.000``.
-      (The ``--new-volume-script`` option enables multi-volume
-      untaring.)
+   3. ``tar --new-volume-script=./new-volume-script -xvf private.img.dec.000``. (The ``--new-volume-script`` option enables multi-volume untaring.)
 
 
 
@@ -159,8 +139,4 @@ complete list of supported cipher algorithms can be found with
 
 
 
-**Note:** You may wish to store a plain text copy of these instructions
-with your Qubes backups in the event that you fail to recall the above
-procedure while this web page is inaccessible. You may obtain a
-plaintext version of this file in Git repository housing all the
-documentation on `Github <https://github.com/QubesOS/qubes-doc.git>`__
+**Note:** You may wish to store a plain text copy of these instructions with your Qubes backups in the event that you fail to recall the above procedure while this web page is inaccessible. You may obtain a plaintext version of this file in Git repository housing all the documentation on `Github <https://github.com/QubesOS/qubes-doc.git>`__

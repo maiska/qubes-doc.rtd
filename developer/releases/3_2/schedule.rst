@@ -6,7 +6,7 @@ Qubes R3.2 release schedule
 This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
 
 .. list-table:: 
-   :widths: 15 15 
+   :widths: 38 38 
    :align: center
    :header-rows: 1
 

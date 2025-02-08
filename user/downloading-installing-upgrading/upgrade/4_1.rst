@@ -3,37 +3,27 @@ How to upgrade to Qubes 4.1
 ===========================
 
 
-This page explains how to upgrade from Qubes 4.0 to Qubes 4.1. There are
-two ways to upgrade: a clean installation or an in-place upgrade. In
-general, a clean installation is simpler and less error-prone, but an
-in-place upgrade allows you to preserve your customizations.
+This page explains how to upgrade from Qubes 4.0 to Qubes 4.1. There are two ways to upgrade: a clean installation or an in-place upgrade. In general, a clean installation is simpler and less error-prone, but an in-place upgrade allows you to preserve your customizations.
 
 Back up
 -------
 
 
-Before attempting either an in-place upgrade or a clean installation, we
-strongly recommend that you first :doc:`back up your system </user/how-to-guides/how-to-back-up-restore-and-migrate>` so that you don’t
-lose any data.
+Before attempting either an in-place upgrade or a clean installation, we strongly recommend that you first :doc:`back up your system </user/how-to-guides/how-to-back-up-restore-and-migrate>` so that you don’t lose any data.
 
 Clean installation
 ------------------
 
 
-If you would prefer to perform a clean installation rather than
-upgrading in-place:
+If you would prefer to perform a clean installation rather than upgrading in-place:
 
-1. Create a
-   :ref:`backup <user/how-to-guides/how-to-back-up-restore-and-migrate:creating a backup>`
-   of your current installation.
+1. Create a :ref:`backup <user/how-to-guides/how-to-back-up-restore-and-migrate:creating a backup>` of your current installation.
 
 2. `Download <https://www.qubes-os.org/downloads/>`__ the latest 4.1 release.
 
-3. Follow the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>` to
-   install Qubes 4.1.
+3. Follow the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>` to install Qubes 4.1.
 
-4. :ref:`Restore from your backup <user/how-to-guides/how-to-back-up-restore-and-migrate:restoring from a backup>`
-   on your new 4.1 installation.
+4. :ref:`Restore from your backup <user/how-to-guides/how-to-back-up-restore-and-migrate:restoring from a backup>` on your new 4.1 installation.
 
 
 
@@ -41,18 +31,11 @@ In-place upgrade
 ----------------
 
 
-**Warning:** It is not possible to upgrade directly from releases
-earlier than 4.0. If you’re still on an earlier release, please either
-perform a `clean installation of 4.1 <#clean-installation>`__ or
-:doc:`upgrade to 4.0 </user/downloading-installing-upgrading/upgrade/4_0>` first.
+**Warning:** It is not possible to upgrade directly from releases earlier than 4.0. If you’re still on an earlier release, please either perform a `clean installation of 4.1 <#clean-installation>`__ or :doc:`upgrade to 4.0 </user/downloading-installing-upgrading/upgrade/4_0>` first.
 
-The upgrade may take several hours, and will download several gigabytes
-of data.
+The upgrade may take several hours, and will download several gigabytes of data.
 
-In place upgrade is a complex operation. For this reason, we provide a
-``qubes-dist-upgrade`` tool to handle all the necessary steps
-automatically. You can install it with the following command in the dom0
-terminal:
+In place upgrade is a complex operation. For this reason, we provide a ``qubes-dist-upgrade`` tool to handle all the necessary steps automatically. You can install it with the following command in the dom0 terminal:
 
 .. code:: bash
 
@@ -60,10 +43,7 @@ terminal:
 
 
 
-The upgrade consists of seven stages — six before restarting the system
-— labeled “STAGE 0” through “STAGE 5” in the options list below. The
-seventh stage is rebuilding the application and features lists, which
-you can start with the ``--resync-appmenus-features`` option.
+The upgrade consists of seven stages — six before restarting the system — labeled “STAGE 0” through “STAGE 5” in the options list below. The seventh stage is rebuilding the application and features lists, which you can start with the ``--resync-appmenus-features`` option.
 
 Full list of options can be obtained with ``qubes-dist-upgrade --help``:
 
@@ -108,14 +88,11 @@ After installing the tool, upgrade can be performed all at once with:
 
 
 
-Optionally, an ``--assumeyes`` (or ``-y``) option can be used to
-automatically accept all the actions without confirmation.
+Optionally, an ``--assumeyes`` (or ``-y``) option can be used to automatically accept all the actions without confirmation.
 
-Alternatively, each upgrade stage can be started separately (see the
-list of options above).
+Alternatively, each upgrade stage can be started separately (see the list of options above).
 
-After completing “STAGE 0” through “STAGE 5”, restart the system. Then
-perform the final step:
+After completing “STAGE 0” through “STAGE 5”, restart the system. Then perform the final step:
 
 .. code:: bash
 
@@ -129,30 +106,18 @@ Known issues
 ^^^^^^^^^^^^
 
 
-1. The script does not convert LUKS1 to LUKS2 disk encryption format
-   (fresh Qubes 4.1 install uses LUKS2 for disk encryption, while
-   earlier versions use LUKS1).
+1. The script does not convert LUKS1 to LUKS2 disk encryption format (fresh Qubes 4.1 install uses LUKS2 for disk encryption, while earlier versions use LUKS1).
 
-2. Early Qubes 4.0 pre-releases (before R4.0-rc2) made ``/boot/efi``
-   partition only 200MB, which is too small for R4.1. In case of such
-   partition layout, clean installation is necessary.
+2. Early Qubes 4.0 pre-releases (before R4.0-rc2) made ``/boot/efi`` partition only 200MB, which is too small for R4.1. In case of such partition layout, clean installation is necessary.
 
-3. If user has created some custom qrexec policy entries, they may not
-   be correctly handled in R4.1, resulting in denying all the calls. It
-   is advised to verify if there are not qrexec policy errors in the log
-   after the system restart - using ``journalctl -b`` command.
+3. If user has created some custom qrexec policy entries, they may not be correctly handled in R4.1, resulting in denying all the calls. It is advised to verify if there are not qrexec policy errors in the log after the system restart - using ``journalctl -b`` command.
 
 
 
-If any early upgrade stage fails, the ``qubes-dist-upgrade`` tool will
-try to restore previous system state. After fixing an issue, the tool
-can be started again, to retry the operation. If a later stage (number 3
-or later) fails, the tool may not be able to rollback the changes. But
-it may still be possible to retry the upgrade.
+If any early upgrade stage fails, the ``qubes-dist-upgrade`` tool will try to restore previous system state. After fixing an issue, the tool can be started again, to retry the operation. If a later stage (number 3 or later) fails, the tool may not be able to rollback the changes. But it may still be possible to retry the upgrade.
 
 Update
 ------
 
 
-After upgrading or performing a clean installation, we strongly
-recommend :doc:`updating your system </user/how-to-guides/how-to-update>`.
+After upgrading or performing a clean installation, we strongly recommend :doc:`updating your system </user/how-to-guides/how-to-update>`.

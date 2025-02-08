@@ -3,37 +3,19 @@ Windows debugging
 =================
 
 
-Debugging Windows code can be tricky in a virtualized environment. The
-guide below assumes Qubes 4.2 and Windows 7 or later VMs.
+Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Qubes 4.2 and Windows 7 or later VMs.
 
-User-mode debugging is usually straightforward if it can be done on one
-machine. Just duplicate your normal debugging environment in the VM.
+User-mode debugging is usually straightforward if it can be done on one machine. Just duplicate your normal debugging environment in the VM.
 
-Things get complicated if you need to perform kernel debugging or
-troubleshoot problems that only manifest on system boot, user logoff or
-similar. For that you need two Windows VMs: the *host* and the *target*.
-The *host* will contain the debugger, your source code and private
-symbols. The *target* will run the code being debugged. We will use
-kernel debugging over network which is supported from Windows 7 onwards.
-The main caveat is that Windows kernel supports only specific network
-adapters for this, and the default one in Qubes won’t work.
+Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain the debugger, your source code and private symbols. The *target* will run the code being debugged. We will use kernel debugging over network which is supported from Windows 7 onwards. The main caveat is that Windows kernel supports only specific network adapters for this, and the default one in Qubes won’t work.
 
 Important note
 --------------
 
 
-- Do not install Xen network PV drivers in the target VM. Network
-  kernel debugging needs a specific type of NIC or it won’t work, the
-  network PV drivers interfere with that.
+- Do not install Xen network PV drivers in the target VM. Network kernel debugging needs a specific type of NIC or it won’t work, the network PV drivers interfere with that.
 
-- If you have kernel debugging active when the Xen PV drivers are being
-  installed, make sure to disable it before rebooting
-  (``bcdedit /set debug off``). You can re-enable debugging after the
-  reboot. The OS won’t boot otherwise. I’m not sure what’s the exact
-  cause. I know that busparams for the debugging NIC change when PV
-  drivers are installed (see later), but even changing that accordingly
-  in the debug settings doesn’t help – so it’s best to disable debug
-  for this one reboot.
+- If you have kernel debugging active when the Xen PV drivers are being installed, make sure to disable it before rebooting (``bcdedit /set debug off``). You can re-enable debugging after the reboot. The OS won’t boot otherwise. I’m not sure what’s the exact cause. I know that busparams for the debugging NIC change when PV drivers are installed (see later), but even changing that accordingly in the debug settings doesn’t help – so it’s best to disable debug for this one reboot.
 
 
 
@@ -41,33 +23,23 @@ Modifying the NIC of the target VM
 ----------------------------------
 
 
-You will need to create a custom libvirt config for the target VM. See
-`the documentation <https://dev.qubes-os.org/projects/core-admin/en/latest/libvirt.html>`__
-for overview of how libvirt templates work in Qubes. The following
-assumes the target VM is named ``target-vm``.
+You will need to create a custom libvirt config for the target VM. See `the documentation <https://dev.qubes-os.org/projects/core-admin/en/latest/libvirt.html>`__ for overview of how libvirt templates work in Qubes. The following assumes the target VM is named ``target-vm``.
 
-- Edit ``/usr/share/qubes/templates/libvirt/xen.xml`` to prepare our
-  custom config to override just the NIC part of the global template:
+- Edit ``/usr/share/qubes/templates/libvirt/xen.xml`` to prepare our custom config to override just the NIC part of the global template:
 
-  - add ``{% block network %}`` before
-    ``{% if vm.netvm %}``
+  - add ``{% block network %}`` before ``{% if vm.netvm %}``
 
-  - add ``{% endblock %}`` after the matching
-    ``{% endif %}``
+  - add ``{% endblock %}`` after the matching ``{% endif %}``
 
 
 
-- Copy ``/usr/share/qubes/templates/libvirt/devices/net.xml`` to
-  ``/etc/qubes/templates/libvirt/xen/by-name/target-vm.xml``.
+- Copy ``/usr/share/qubes/templates/libvirt/devices/net.xml`` to ``/etc/qubes/templates/libvirt/xen/by-name/target-vm.xml``.
 
 - Add ``<model type='e1000'/>`` to the ``<interface>`` section.
 
-- Enclose everything within
-  ``{% block network %}`` +
-  ``{% endblock %}``.
+- Enclose everything within ``{% block network %}`` + ``{% endblock %}``.
 
-- Add ``{% extends 'libvirt/xen.xml' %}`` at the
-  start.
+- Add ``{% extends 'libvirt/xen.xml' %}`` at the start.
 
 - The final ``target-vm.xml`` should look something like this:
 
@@ -90,8 +62,7 @@ assumes the target VM is named ``target-vm``.
 
 
 
-- Start ``target-vm`` and verify in the device manager that a “Intel
-  PRO/1000 MT” adapter is present.
+- Start ``target-vm`` and verify in the device manager that a “Intel PRO/1000 MT” adapter is present.
 
 
 
@@ -103,21 +74,17 @@ Host and target preparation
 
 - Copy the ``Debuggers`` directory from Windows SDK to ``target-vm``.
 
-- In both ``host-vm`` and ``target-vm`` switch the windows network to
-  private (it tends to be public by default).
+- In both ``host-vm`` and ``target-vm`` switch the windows network to private (it tends to be public by default).
 
-- Either turn off the windows firewall or enable all ICMP-in rules in
-  both VMs.
+- Either turn off the windows firewall or enable all ICMP-in rules in both VMs.
 
-- In ``firewall-vm`` edit ``/rw/config/qubes-firewall-user-script`` to
-  connect both Windows VMs, add:
+- In ``firewall-vm`` edit ``/rw/config/qubes-firewall-user-script`` to connect both Windows VMs, add:
 
   - ``iptables -I FORWARD 2 -s <target-vm-ip> -d <host-vm-ip> -j ACCEPT``
 
   - ``iptables -I FORWARD 2 -s <host-vm-ip> -d <target-vm-ip> -j ACCEPT``
 
-  - run ``/rw/config/qubes-firewall-user-script`` so the changes take
-    effect immediately
+  - run ``/rw/config/qubes-firewall-user-script`` so the changes take effect immediately
 
 
 
@@ -129,8 +96,7 @@ Host and target preparation
 
   - ``cd sdk\Debuggers\x64``
 
-  - ``kdnet`` should show that the NIC is supported, note the
-    busparams:
+  - ``kdnet`` should show that the NIC is supported, note the busparams:
 
     .. code:: bash
 
@@ -141,17 +107,13 @@ Host and target preparation
 
   - ``bcdedit /debug on``
 
-  - ``bcdedit /dbgsettings net hostip:<host-vm-ip> port:50000 key:1.1.1.1``
-    (you can customize the key)
+  - ``bcdedit /dbgsettings net hostip:<host-vm-ip> port:50000 key:1.1.1.1`` (you can customize the key)
 
-  - ``bcdedit /set "{dbgsettings}" busparams x.y.z`` (use the
-    busparams ``kdnet`` has shown earlier)
+  - ``bcdedit /set "{dbgsettings}" busparams x.y.z`` (use the busparams ``kdnet`` has shown earlier)
 
 
 
-- In ``host-vm`` start WinDbg:
-  ``windbg -k net:port=50000,key=1.1.1.1``. It will listen for target’s
-  connection.
+- In ``host-vm`` start WinDbg: ``windbg -k net:port=50000,key=1.1.1.1``. It will listen for target’s connection.
 
 - Reboot ``target-vm``, debugging should start:
 
