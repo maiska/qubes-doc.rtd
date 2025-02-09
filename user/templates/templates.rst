@@ -280,10 +280,10 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
      - N/A (templates cannot be based on templates)
      - everything
    * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
-     - /etc/skel to /home; /usr/local.orig to /usr/local
-     - /rw (includes /home, /usr/local, and bind-dirs)
+     - ``/etc/skel`` to ``/home``; ``/usr/local.orig`` to ``/usr/local``
+     - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
    * - disposable
-     - /rw (includes /home, /usr/local, and bind-dirs)
+     - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
      - nothing
    
 

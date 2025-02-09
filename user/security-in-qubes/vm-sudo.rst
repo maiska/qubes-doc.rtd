@@ -56,9 +56,10 @@ The background to passswordless root access is summarised in this statement, tha
 
 
 The core of this statement continues to reflect the views of the Qubes developers.
-| Passwordless root is provided by the ``qubes-core-agent-passwordless-root`` package.
-| Details of the implementation are :doc:`here </developer/system/vm-sudo>`.
 
+Passwordless root is provided by the ``qubes-core-agent-passwordless-root`` package.
+
+Details of the implementation are :doc:`here </developer/system/vm-sudo>`.
 
 :doc:`Minimal templates </user/templates/minimal-templates>`, which are intended for use by advanced users, do not have this package installed by default.
 

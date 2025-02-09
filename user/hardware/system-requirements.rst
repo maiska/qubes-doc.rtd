@@ -98,7 +98,10 @@ Important Notes
 - **Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).**
 
 - There is a class of security vulnerabilities that can be fixed only by microcode updates. If your computer or the CPU in it no longer receives microcode updates (e.g., because it is too old), it may not be possible for some of these vulnerabilities to be mitigated on your system, leaving you vulnerable. For this reason, we recommend using Qubes OS on systems that are still receiving microcode updates. Nonetheless, Qubes OS **can** run on systems that no longer receive microcode updates, and such systems will still offer significant security advantages over conventional operating systems on the same hardware.
-  Intel maintains a `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__ of end-of-support dates for its processors. However, this list seems to include only processors that are no longer supported or will soon no longer be supported. Many newer Intel processors are missing from this list. To our knowledge, Intel does not announce end-of-support dates for its newer processors in advance, nor does it have a public policy governing how long support will last.
+
+  - Intel maintains a `list <https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html>`__ of end-of-support dates for its processors. However, this list seems to include only processors that are no longer supported or will soon no longer be supported. Many newer Intel processors are missing from this list. To our knowledge, Intel does not announce end-of-support dates for its newer processors in advance, nor does it have a public policy governing how long support will last.
+
+
 
 - Intel and AMD handle microcode updates differently, which has significant security implications. On Intel platforms, microcode updates can typically be loaded from the operating system. This allows the Qubes security team to respond rapidly to new vulnerabilities by shipping microcode updates alongside other security updates directly to users. By contrast, on AMD client (as opposed to server) platforms, microcode updates are typically shipped only as part of system firmware and generally cannot be loaded from the operating system. This means that AMD users typically must wait for:
 
