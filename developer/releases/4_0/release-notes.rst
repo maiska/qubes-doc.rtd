@@ -7,7 +7,7 @@ New features since 3.2
 ----------------------
 
 
-- Core management scripts rewrite with better structure and extensibility, `API documentation <https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/>`__
+- Core management scripts rewrite with better structure and extensibility, `API documentation <https://web.archive.org/web/20230128102821/https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/>`__
 
 - `Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__ allowing strictly controlled managing from non-dom0
 

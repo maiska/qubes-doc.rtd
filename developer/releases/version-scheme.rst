@@ -17,7 +17,7 @@ Qubes distributions and products
 --------------------------------
 
 
-We intend to make it easy to make a remix of Qubes, targeting another hypervisor or isolation provider. We may also create commercial products intended for specific circumstances. There is one distinguished distribution called **Qubes OS**. All source code for it is available for download under a :doc:`free and open-source license </developer/code/license>` and is openly developed on `GitHub <https://github.com/QubesOS>`__ and our `mailing lists <https://www.qubes-os.org/support/>`__. The rest of this document discusses Qubes OS. Another remix may have its own version series.
+We intend to make it easy to make a remix of Qubes, targeting another hypervisor or isolation provider. We may also create commercial products intended for specific circumstances. There is one distinguished distribution called **Qubes OS**. All source code for it is available for download under a :doc:`free and open-source license </developer/code/license>` and is openly developed on `GitHub <https://github.com/QubesOS>`__ and our :doc:`mailing lists </introduction/support>`. The rest of this document discusses Qubes OS. Another remix may have its own version series.
 
 Release versioning
 ------------------
@@ -25,7 +25,7 @@ Release versioning
 
 Qubes OS as a whole is released from time to time. When preparing a new release, we decide on the ``<major>.<minor>`` numbers (e.g., ``3.0``, which is short for ``3.0.0``). We then publish the first release candidate, e.g., ``3.0.0-rc1``. When we feel that enough progress has been made, we’ll release ``3.0.0-rc2`` and so on. All these versions (which are not yet releases) are considered unstable and are not intended for production use. You are welcome to :doc:`help us test </user/downloading-installing-upgrading/testing>` these versions.
 
-When enough progress has been made, we announce the first stable release, e.g. ``3.0.0``. This is not only a version but an actual release. It is considered stable, and we commit to supporting it according to our :doc:`support schedule </user/downloading-installing-upgrading/supported-releases>`. Core components are branched at this moment, and bug fixes are backported from the master branch. Please see :doc:`help, support, mailing lists, and forum </introduction/support>` for places to ask questions about stable releases. No major features or interface incompatibilities are to be included in this release. We release bug fixes as patch releases (``3.0.1``, ``3.0.2``, and so on), while backward-compatible enhancements and new features are introduced in the next minor release (e.g., ``3.1``). Any backward-incompatible changes are introduced in the next major release (e.g., ``4.0``).
+When enough progress has been made, we announce the first stable release, e.g. ``3.0.0``. This is not only a version but an actual release. It is considered stable, and we commit to supporting it according to our :doc:`support schedule </user/downloading-installing-upgrading/supported-releases>`. Core components are branched at this moment, and bug fixes are backported from the main branch. Please see :doc:`help, support, mailing lists, and forum </introduction/support>` for places to ask questions about stable releases. No major features or interface incompatibilities are to be included in this release. We release bug fixes as patch releases (``3.0.1``, ``3.0.2``, and so on), while backward-compatible enhancements and new features are introduced in the next minor release (e.g., ``3.1``). Any backward-incompatible changes are introduced in the next major release (e.g., ``4.0``).
 
 Please see :doc:`issue tracking </introduction/issue-tracking>` for information about how releases are handled in the issue tracker.
 
@@ -93,7 +93,7 @@ Git tags and branches
 
 We mark each component version in the repository by tag containing ``v<version>``. Likewise, each Qubes OS release is marked by ``R<release>`` tag.
 
-At the release of some release we create branches named like ``release2``. Only bug fixes and compatible improvements are backported to these branches. These branches should compile. All new development is done in ``master`` branch. This branch is totally unsupported and may not even compile depending on maintainer of repository.
+At the release of some release we create branches named like ``release2``. Only bug fixes and compatible improvements are backported to these branches. These branches should compile. All new development is done in ``main`` branch. This branch is totally unsupported and may not even compile depending on maintainer of repository.
 
 All version and release tags should be made and signed by someone from ITL staff. Public keys are included in ``qubes-builder`` and available at https://keys.qubes-os.org/keys/.
 

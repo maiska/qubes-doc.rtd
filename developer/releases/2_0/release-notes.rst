@@ -97,7 +97,7 @@ From Qubes R1 to R2 beta1
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-If you’re already running Qubes Release 1, you don’t need to reinstall, it’s just enough to update the packages in your Dom0 and the template VM(s). This procedure is described :doc:`here? </user/downloading-installing-upgrading/upgrade/2>`.
+If you’re already running Qubes Release 1, you don’t need to reinstall, it’s just enough to update the packages in your Dom0 and the template VM(s). This procedure is described :doc:`here </user/downloading-installing-upgrading/upgrade/2>`.
 
 From Qubes R1 or R2 Beta 1 to R2 beta2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

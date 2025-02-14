@@ -415,7 +415,7 @@ others.
    Tails Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/tails-troubleshooting.md>
 
 
-.. _external-ubilding-guides:
+.. _external-building-guides:
 
 .. toctree::
    :maxdepth: 1
