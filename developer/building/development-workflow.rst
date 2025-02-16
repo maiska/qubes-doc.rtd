@@ -26,7 +26,7 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 
 You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo on github.
 
-When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using ``git tag -s``). Finally, send a letter to the Qubes listserv describing the changes and including the link to your repository. You can also create pull request on github. Don’t forget to include your public PGP key you use to sign your tags.
+When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using ``git tag -s``). Finally, send a letter to the Qubes the :ref:`qubes-devel <introduction/support:qubes-devel>` mailing list describing the changes and including the link to your repository. You can also create pull request on github. Don’t forget to include your public PGP key you use to sign your tags.
 
 Kernel-specific notes
 ^^^^^^^^^^^^^^^^^^^^^

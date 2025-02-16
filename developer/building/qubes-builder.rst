@@ -159,7 +159,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 4. **Make your modifications here**
 
-5. Build the Qubes ``make qubes`` actually is just meta target which builds all required components in correct order. The list of components is configured in builder.conf. You can also check the current value at the end of ``make      help``, or using ``make build-info``.
+5. Build the Qubes ``make qubes`` actually is just meta target which builds all required components in correct order. The list of components is configured in builder.conf. You can also check the current value at the end of ``make help``, or using ``make build-info``.
 
 6. ``get-sources`` is already done, so continue with the next one. You can skip ``sign-all`` if you’ve disabled signing
 

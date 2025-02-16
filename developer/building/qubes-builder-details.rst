@@ -55,7 +55,7 @@ Variables for Windows build:
 
 - ``WIN_OUTPUT_HEADERS`` Directory (relative to ``WIN_SOURCE_SUBDIRS`` element) with public headers of the package - for use in other components.
 
-- ``WIN_OUTPUT_LIBS`` Directory (relative to ``WIN_SOURCE_SUBDIRS`` element) with libraries (both DLL and implib) of the package - for use in other components. Note that :doc:`QubesBuilder </developer/building/qubes-builder>` will copy files specified as *$(WIN_OUTPUT_LIBS)/*/** to match WDK directory layout (*<specified directory>/<arch directory>/<actual libraries>*), so you in mingw build you need to place libraries in some additional subdirectory.
+- ``WIN_OUTPUT_LIBS`` Directory (relative to ``WIN_SOURCE_SUBDIRS`` element) with libraries (both DLL and implib) of the package - for use in other components. Note that :doc:`QubesBuilder </developer/building/qubes-builder>` will copy files specified as *$(WIN_OUTPUT_LIBS)/\*/\** to match WDK directory layout (*<specified directory>/<arch directory>/<actual libraries>*), so you in mingw build you need to place libraries in some additional subdirectory.
 
 - ``WIN_BUILD_DEPS`` List of components required to build this one. :doc:`QubesBuilder </developer/building/qubes-builder>` will copy files specified with ``WIN_OUTPUT_HEADERS`` and ``WIN_OUTPUT_LIBS`` of those components to some directory and provide its path with ``QUBES_INCLUDES`` and ``QUBES_LIBS`` variables. Use those variables in your build scripts (*sources* or *Makefile* - depending on selected compiler). You can assume that the variables are always set and directories always exists, even if empty.
 
