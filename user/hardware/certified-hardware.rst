@@ -19,6 +19,14 @@ Qubes-certified computers are certified for a :doc:`major release </developer/re
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
+NovaCustom V54 Series 14.0 inch coreboot laptop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+|Photo of the NovaCustom V54 Series 14.0 inch coreboot laptop|
+
+The `NovaCustom V54 Series 14.0 inch coreboot laptop <https://novacustom.com/product/v54-series/>`__ is certified for Qubes OS Release 4.
+
 NitroPad V56
 ^^^^^^^^^^^^
 
@@ -156,6 +164,9 @@ To have hardware certified, the vendor must:
 It is the vendor’s responsibility to ensure the hardware they wish to have certified can run Qubes OS, at the very least the latest stable version. This could be done by consulting the `Hardware Compatibility List <https://www.qubes-os.org/hcl/>`__ or trying to install it themselves before shipping any units to us. While we are willing to troubleshoot simple issues, we will need to charge a consulting fee for more in-depth work.
 
 If you are interested in having your hardware certified, please `contact us <mailto:business@qubes-os.org>`__.
+
+.. |Photo of the NovaCustom V54 Series 14.0 inch coreboot laptop| image:: /attachment/site/novacustom-v54-series.png
+   :target: https://novacustom.com/product/v54-series/
 
 .. |Photo of the NitroPad V56| image:: /attachment/site/nitropad-v56.png
    :target: https://shop.nitrokey.com/shop/nitropad-v56-684

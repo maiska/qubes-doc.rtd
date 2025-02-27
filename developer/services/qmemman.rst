@@ -9,7 +9,7 @@ Rationale
 
 Traditionally, Xen VMs are assigned a fixed amount of memory. It is not the optimal solution, as some VMs may require more memory than assigned initially, while others underutilize memory. Thus, there is a need for solution capable of shifting free memory from VM to another VM.
 
-The `tmem <https://oss.oracle.com/projects/tmem/>`__ project provides a “pseudo-RAM” that is assigned on per-need basis. However this solution has some disadvantages:
+The `tmem <https://web.archive.org/web/20210712161104/https://oss.oracle.com/projects/tmem/>`__ project provides a “pseudo-RAM” that is assigned on per-need basis. However this solution has some disadvantages:
 
 - It does not provide real RAM, just an interface to copy memory to/from fast, RAM-based storage. It is perfect for swap, good for file cache, but not ideal for many tasks.
 
@@ -21,7 +21,9 @@ Therefore, in Qubes another solution is used. There is the *qmemman* dom0 daemon
 
 Similarly, when there is need for Xen free memory (for instance, in order to create a new VM), traditionally the memory is obtained from dom0 only. When *qmemman* is running, it offers an interface to obtain memory from all domains.
 
-To sum up, *qmemman* pros and cons. Pros:
+To sum up, *qmemman* pros and cons.
+
+|checkmark| **Pros**
 
 - provides automatic balancing of memory across participating PV and HVM domains, based on their memory demand
 
@@ -31,7 +33,7 @@ To sum up, *qmemman* pros and cons. Pros:
 
 
 
-Cons:
+|redx| **Cons**
 
 - the algorithm to calculate the memory requirement for a domain is necessarily simple, and may not closely reflect reality
 
@@ -108,3 +110,6 @@ Notes
 
 
 Conventional means of viewing the memory available to Qubes will give incorrect values for ``dom0`` since commands such as ``free`` will only show the memory allocated for ``dom0``. Run the ``xl info`` command in ``dom0`` and read the ``total_memory`` field to see the total memory available to Qubes.
+
+.. |checkmark| image:: /attachment/doc/checkmark.png
+.. |redx| image:: /attachment/doc/red_x.png

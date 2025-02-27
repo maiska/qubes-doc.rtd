@@ -155,7 +155,7 @@ The `signature-checker <https://github.com/marmarek/signature-checker>`__ checks
 
 2. If the commit is signed, the key is downloaded from a GPG key server. If you can see the following error message, please check if you have uploaded the key to a key server.
 
-      policy/qubesos/code-signing — Unable to verify (no valid key found)
+      ``policy/qubesos/code-signing — Unable to verify (no valid key found)``
 
 
 
@@ -198,7 +198,7 @@ Unable To Verify
 ^^^^^^^^^^^^^^^^
 
 
-   policy/qubesos/code-signing — Unable to verify (no valid key found)
+   ``policy/qubesos/code-signing — Unable to verify (no valid key found)``
 
 This means that the `signature-checker <https://github.com/marmarek/signature-checker>`__ has found a signature for the commit but is not able to verify it using the any key available. This might be that you forgot to upload the key to a key server. Please upload it.
 

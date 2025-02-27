@@ -63,7 +63,7 @@ Windows ISO to USB
 ^^^^^^^^^^^^^^^^^^
 
 
-On Windows, you can use the `Rufus <https://rufus.akeo.ie/>`__ tool to write the ISO to a USB key. Be sure to select “Write in DD Image mode” *after* selecting the Qubes ISO and pressing “START” on the Rufus main window.
+On Windows, you can use the `Rufus <https://rufus.ie/>`__ tool to write the ISO to a USB key. Be sure to select “Write in DD Image mode” *after* selecting the Qubes ISO and pressing “START” on the Rufus main window.
 
 .. note::
       

@@ -101,9 +101,9 @@ Past Projects
 -------------
 
 
-You can view the project we had in 2019 in the `2019 GSoD archive <https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes>`__ and the `2019 writer’s report <https://refre.ch/report-qubesos/>`__.
+You can view the project we had in 2019 in the `2019 GSoD archive <https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes>`__ and the `2019 writer’s report <https://web.archive.org/web/20200928002746/https://refre.ch/report-qubesos/>`__.
 
-You can view the project we had in 2020 in the `2020 GSoD archive <https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0>`__ and the `2020 writer’s report <https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733>`__.
+You can view the project we had in 2020 in the `2020 GSoD archive <https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0>`__ and the `2020 writer’s report <https://web.archive.org/web/20210723170547/https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733>`__.
 
 You can view the results of the project we had in 2023 `here <https://www.youtube.com/playlist?list=PLjwSYc73nX6aHcpqub-6lzJbL0vhLleTB>`__.
 

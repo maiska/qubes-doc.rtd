@@ -53,10 +53,12 @@ On final release
 
 - build ISO and push to mirrors
 
+- push ``qubes-release`` package to ``current``
+
 - notify @Rudd-O about the new ISO for new torrent hosting
 
-- write blog post
+- write news post
 
-- announce on Twitter
+- announce
 
 

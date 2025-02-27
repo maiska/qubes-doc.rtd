@@ -18,7 +18,7 @@ Routing tables examples
 VM routing table is simple:
 
 .. list-table::  
-      :widths: 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+      :widths: 4 4 4 4 4 4 4 4 
       :align: center
       :header-rows: 1
 
@@ -30,8 +30,7 @@ VM routing table is simple:
         - Ref
         - Use
         - Iface
-        -  
-        - 0.0.0.0
+      * - 0.0.0.0
         - 0.0.0.0
         - 0.0.0.0
         - U
@@ -44,7 +43,7 @@ VM routing table is simple:
 Network driver domain routing table is a bit longer:
 
 .. list-table::  
-      :widths: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+      :widths: 1 1 1 1 1 1 1 1 
       :align: center
       :header-rows: 1
 
@@ -56,8 +55,7 @@ Network driver domain routing table is a bit longer:
         - Ref
         - Use
         - Iface
-        -  
-        - 10.137.0.16
+      * - 10.137.0.16
         - 0.0.0.0
         - 255.255.255.255
         - UH
@@ -65,8 +63,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - vif4.0
-        -  
-        - 10.137.0.7
+      * - 10.137.0.7
         - 0.0.0.0
         - 255.255.255.255
         - UH
@@ -74,8 +71,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - vif10.0
-        -  
-        - 10.137.0.9
+      * - 10.137.0.9
         - 0.0.0.0
         - 255.255.255.255
         - UH
@@ -83,8 +79,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - vif9.0
-        -  
-        - 10.137.0.8
+      * - 10.137.0.8
         - 0.0.0.0
         - 255.255.255.255
         - UH
@@ -92,8 +87,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - vif8.0
-        -  
-        - 10.137.0.12
+      * - 10.137.0.12
         - 0.0.0.0
         - 255.255.255.255
         - UH
@@ -101,8 +95,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - vif3.0
-        -  
-        - 192.168.0.0
+      * - 192.168.0.0
         - 0.0.0.0
         - 255.255.255.0
         - U
@@ -110,8 +103,7 @@ Network driver domain routing table is a bit longer:
         - 0
         - 0
         - eth0
-        -  
-        - 0.0.0.0
+      * - 0.0.0.0
         - 192.168.0.1
         - 0.0.0.0
         - UG

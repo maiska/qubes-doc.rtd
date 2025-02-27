@@ -77,14 +77,6 @@ You can specify the source and destination by name or by one of the reserved key
 
 Whenever a RPC request for an action is received, the domain checks the first matching line of the files in ``/etc/qubes/policy.d/`` and ``/run/qubes/policy.d/`` to determine access: whether to allow the request, what VM to redirect the execution to, and what user account the program should run under. Note that if the request is redirected (``target=`` parameter), policy action remains the same – even if there is another rule which would otherwise deny such request. If no policy rule is matched, the action is denied.
 
-In the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself – in which case it must have executable permission set (``chmod +x``):
-
-- ``/etc/qubes-rpc/RPC_ACTION_NAME`` when you make it in the template qube;
-
-- ``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an app qube.
-
-
-
 Files in ``/run/qubes/policy.d/`` are deleted when the system is rebooted. This is useful for temporary policy that contains the name or UUID of a disposable VM, which will not be meaningful after the system has rebooted. Such policy files can be created manually, but they are usually created automatically by a Qrexec call to dom0.
 
 Making an RPC call
@@ -116,6 +108,14 @@ It is also possible to call service without specific client program – in which
       $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
 
+
+Answering an RPC call
+^^^^^^^^^^^^^^^^^^^^^
+
+
+In other for a RPC call to be answered in the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself – in which case it must have executable permission set (``chmod +x``): - ``/etc/qubes-rpc/RPC_ACTION_NAME`` when you make it in the template qube; - ``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an app qube.
+
+The source VM name can then be accessed in the server process via ``QREXEC_REMOTE_DOMAIN`` environment variable. (Note the source VM has *no* control over the name provided in this variable–the name of the VM is provided by dom0, and so is trusted.)
 
 Specifying VMs: tags, types, targets, etc.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

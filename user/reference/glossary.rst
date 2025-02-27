@@ -132,7 +132,7 @@ Internally known as ``netvm``. The property of a `qube <#qube>`__ that specifies
 policies
 --------
 
-| In Qubes OS, “policies” govern interactions between qubes, powered by `Qubes’ qrexec system <https://www.qubes-os.org/doc/qrexec/>`__. A single policy is a rule applied to a qube or set of qubes, that governs how and when information or assets may be shared with other qubes.
+| In Qubes OS, “policies” govern interactions between qubes, powered by :doc:`Qubes’ qrexec system </developer/services/qrexec>`. A single policy is a rule applied to a qube or set of qubes, that governs how and when information or assets may be shared with other qubes.
 | An example is the rules governing how files can be copied between qubes.
 | Policy rules are grouped together in files under ``/etc/qubes/policy.d``
 | Policies are an important part of what makes Qubes OS special.

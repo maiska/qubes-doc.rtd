@@ -44,22 +44,11 @@ How to downgrade a specific package
 
 **WARNING:** Downgrading a package can expose your system to security vulnerabilities.
 
-1. Download an older version of the package:
+To downgrade a specific package in dom0:
 
-   .. code:: bash
+.. code:: bash
 
-         sudo qubes-dom0-update package-version
-
-
-   Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
-
-2. Downgrade the package:
-
-   .. code:: bash
-
-         sudo dnf downgrade package-version
-
-
+      sudo qubes-dom0-update --action=downgrade package-version
 
 
 
@@ -67,25 +56,11 @@ How to re-install a package
 ---------------------------
 
 
-You can re-install in a similar fashion to downgrading.
+To re-install a package in dom0:
 
-1. Download the package:
+.. code:: bash
 
-   .. code:: bash
-
-         sudo qubes-dom0-update package
-
-
-   Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
-
-2. Re-install the package:
-
-   .. code:: bash
-
-         sudo dnf reinstall package
-
-
-   Note that ``dnf`` will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form ``package-version``.
+      sudo qubes-dom0-update --action=reinstall package
 
 
 
