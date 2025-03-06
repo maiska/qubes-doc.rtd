@@ -47,7 +47,7 @@ Importing a Windows VM from an earlier version of Qubes
 -------------------------------------------------------
 
 
-- Importing from R3.2 or earlier will not work, because Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won’t boot.
+- Importing from R3.2 or earlier will not work, because Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won’t boot).
 
 - Importing from R4.0 should work, see :doc:`Migrate backups of Windows VMs created under Qubes R4.0 to R4.1 </user/templates/windows/migrate-to-4-1>`.
 
@@ -181,6 +181,12 @@ These parameters are set for the following reasons:
 - Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence. This is done by setting the qube’s kernel to an empty value.
 
 - After creating the new qube, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` won’t complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools’ installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
+
+  .. code:: bash
+
+        qvm-prefs WindowsNew qrexec_timeout 7200
+
+
 
 
 
