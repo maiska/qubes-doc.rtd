@@ -253,7 +253,7 @@ These parameters are set for the following reasons:
 
 .. warning::
       
-      **Caution:**       This temporary patch may cease to work if it so pleases Microsoft some time.
+      **Caution:**       This temporary patch may stop functioning at Microsoft’s discretion at some point in the future.
 
 - The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
 
@@ -380,7 +380,7 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 
 **Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM’s license data. Even if this could work sometimes, it would be a violation of the license terms.
 
-Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, vis the CLI command in a dom0 terminal:
+Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
 .. code:: bash
 
