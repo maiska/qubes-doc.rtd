@@ -137,7 +137,19 @@ Custom persist feature
 ----------------------
 
 
-Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by the disabling the ability to configure persistence from the VM itself. When enabled, the following happens: * ``/rw/config/rc.local`` is no longer executed * ``/rw/config/qubes-firewall-user-script`` is ignored * ``/rw/config/suspend-module-blacklist`` is ignored * User bind dirs defined in ``/rw/config/qubes-bind-dirs.d`` are no longer read * ``/home`` and ``/user/local`` are not persistent anymore unless explicitly configured.
+Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
+
+- ``/rw/config/rc.local`` is no longer executed
+
+- ``/rw/config/qubes-firewall-user-script`` is ignored
+
+- ``/rw/config/suspend-module-blacklist`` is ignored
+
+- User bind dirs defined in ``/rw/config/qubes-bind-dirs.d`` are no longer read
+
+- ``/home`` and ``/user/local`` are not persistent anymore unless explicitly configured.
+
+
 
 Bind dirs are obviously still supported but this must be configured either in the template (``/usr/lib/qubes-bind-dirs.d`` and ``/etc/qubes-bind-dirs.d``) or from dom0 using ``qvm-features``. The bind dirs declaration must be done this way: ``qvm-features <VMNAME> custom-persist.<ARBITRARY NAME> [PRE-CREATION SETTINGS]<PATH>``
 
