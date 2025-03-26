@@ -3,7 +3,9 @@ Xfce templates
 ==============
 
 
-If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes, you can install one of the available Xfce templates for :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, `CentOS <https://forum.qubes-os.org/t/19006>`__, or `Gentoo <https://forum.qubes-os.org/t/19007>`__.
+If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes, you can install one of the available Xfce templates for :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, `Gentoo <https://forum.qubes-os.org/t/19007>`__ or `CentOS* <https://forum.qubes-os.org/t/19006>`__.
+
+** The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
 
 Installation
 ------------
@@ -23,7 +25,7 @@ If your desired version is not found, it may still be in :doc:`testing </user/do
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-X-xfce
 
 
-If you would like to install a community distribution, like CentOS or Gentoo, try the install command by enabling the community repository:
+If you would like to install a community distribution such as Gentoo, try the install command by enabling the community repository:
 
 .. code:: bash
 

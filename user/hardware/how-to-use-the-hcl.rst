@@ -23,7 +23,7 @@ If using the list to make a purchasing decision, we recommend that you choose ha
 
 
 
-Also see :doc:`Certified Hardware </user/hardware/certified-hardware>`.
+Also see :doc:`Certified Hardware </user/hardware/certified-hardware/certified-hardware>`.
 
 Generating and Submitting New Reports
 -------------------------------------

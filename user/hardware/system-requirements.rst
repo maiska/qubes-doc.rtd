@@ -67,7 +67,7 @@ Qubes-certified hardware
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The following are *required* for :doc:`Qubes-certified hardware devices </user/hardware/certified-hardware>` but *merely recommended* for *non-certified* hardware (see the :ref:`hardware certification requirements <user/hardware/certified-hardware:hardware certification requirements>` for details).
+The following are *required* for :doc:`Qubes-certified hardware devices </user/hardware/certified-hardware/certified-hardware>` but *merely recommended* for *non-certified* hardware (see the :ref:`hardware certification requirements <user/hardware/certified-hardware/certified-hardware:hardware certification requirements>` for details).
 
 - Open-source boot firmware (e.g., `coreboot <https://www.coreboot.org/>`__)
 
@@ -83,7 +83,7 @@ Choosing Hardware
 
 We recommend consulting these resources when selecting hardware for Qubes OS:
 
-- :doc:`Certified hardware </user/hardware/certified-hardware>` — Qubes developer certified, officially recommended
+- :doc:`Certified hardware </user/hardware/certified-hardware/certified-hardware>` — Qubes developer certified, officially recommended
 
 - `Community-recommended hardware <https://forum.qubes-os.org/t/5560>`__ — list curated and maintained by the community, unofficially recommended
 

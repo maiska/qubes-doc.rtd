@@ -409,7 +409,7 @@ Is there any certified hardware for Qubes OS?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See :doc:`Certified Hardware </user/hardware/certified-hardware>`.
+See :doc:`Certified Hardware </user/hardware/certified-hardware/certified-hardware>`.
 
 How much disk space does each qube require?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -427,7 +427,7 @@ Can I install Qubes on a system without VT-x/AMD-V or VT-d/AMD-Vi/AMD IOMMU?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Please see the :doc:`system requirements </user/hardware/system-requirements>` for the latest information. If you are receiving an error message on install saying your “hardware lacks the features required to proceed”, check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs (in particular, sys-net) may not function correctly and there will be no security isolation. For more information, see :doc:`Qubes-certified hardware </user/hardware/certified-hardware>`.
+Please see the :doc:`system requirements </user/hardware/system-requirements>` for the latest information. If you are receiving an error message on install saying your “hardware lacks the features required to proceed”, check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs (in particular, sys-net) may not function correctly and there will be no security isolation. For more information, see :doc:`Qubes-certified hardware </user/hardware/certified-hardware/certified-hardware>`.
 
 Why is VT-x/AMD-V important?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

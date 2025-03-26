@@ -165,7 +165,7 @@ Set memory as appropriate and install the OS into this template in the same way 
 
 You can then create a new qube using the new template. If you use this Template as is, then any HVMs based on it will effectively be disposables. All file system changes will be wiped when the HVM is shut down.
 
-Please see `this page <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md>`__ for specific advice on installing and using Windows-based templates.
+Please see :ref:`this page <user/templates/windows/windows-qubes-4-1:windows as a template>` for specific advice on installing and using Windows-based templates.
 
 Cloning HVMs
 ------------
@@ -325,7 +325,7 @@ Converting VirtualBox VMs to Qubes HVMs
 
 You can convert any VirtualBox VM to a Qubes HVM using this method.
 
-For example, Microsoft provides `free 90-day evaluation VirtualBox VMs for browser testing <https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/>`__.
+For example, Microsoft provides `virtual machines containing an evaluation version of Windows <https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/>`__.
 
 About 60 GB of disk space is required for conversion. Use an external hard drive if needed. The final ``root.img`` size is 40 GB.
 
@@ -427,7 +427,7 @@ Further reading
 
 Other documents related to HVMs:
 
-- `Windows VMs <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm.md>`__
+- `Windows VMs <https://forum.qubes-os.org/search?q=windows%20hvm%20%23guides>`__
 
 - `Linux HVM Tips <https://forum.qubes-os.org/t/19008>`__
 

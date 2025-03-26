@@ -171,7 +171,7 @@ Compatible Hardware
 -------------------
 
 
-Make sure your hardware satisfies the :doc:`system requirements </user/hardware/system-requirements>`, as Qubes OS cannot run on every type of computer. You may also want to check out :doc:`Qubes-certified Hardware </user/hardware/certified-hardware>` and take a look at the `Hardware Compatibility List (HCL) <https://www.qubes-os.org/hcl/>`__.
+Make sure your hardware satisfies the :doc:`system requirements </user/hardware/system-requirements>`, as Qubes OS cannot run on every type of computer. You may also want to check out :doc:`Qubes-certified Hardware </user/hardware/certified-hardware/certified-hardware>` and take a look at the `Hardware Compatibility List (HCL) <https://www.qubes-os.org/hcl/>`__.
 
 Downloads
 ---------

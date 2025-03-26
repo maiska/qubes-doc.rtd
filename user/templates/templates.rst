@@ -61,15 +61,15 @@ By installing these templates, you are trusting not only the Qubes developers an
 
 - `Arch Linux <https://forum.qubes-os.org/t/19052>`__
 
-- `CentOS <https://forum.qubes-os.org/t/19006>`__
-
-- :doc:`CentOS Minimal </user/templates/minimal-templates>`
-
 - `Gentoo <https://forum.qubes-os.org/t/19007>`__
 
 - :doc:`Gentoo Minimal </user/templates/minimal-templates>`
 
+- :doc:`CentOS* <https://forum.qubes-os.org/t/19006>`
 
+
+
+** The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
 
 Windows
 -------

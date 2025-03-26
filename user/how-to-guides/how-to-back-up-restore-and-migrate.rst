@@ -101,6 +101,10 @@ Restoring from a backup
 
 
 
+In case that applications are not shown, i.e. “No applications found”, open the settings of the qube -> select ``Applications`` -> click ``Refresh applications``.
+
+When a restored application qube refreshes, the application lists will open the template qubes on which it is based. In that case the template qube should also be restored, if it is missing the default qube will be assigned. The updated list of the installed software can be seen on the left and adjusted accordingly to the user’s needs.
+
 **Note:** When restoring from a dom0 backup, a new directory will be created in the current dom0 home directory, and the contents from the backup will be placed inside this new directory. This is intentional, as it allows users to have explicit control over which files and settings get applied in dom0. If the contents from the dom0 backup were instead to overwrite the existing files in dom0’s home directory, unexpected and undesired configuration changes could occur. However, if you do wish to move all files from the dom0 backup out of the subdirectory into your current dom0 home directory (overwriting any existing files in the process), you may do so by following the instructions `here <https://stackoverflow.com/questions/20192070/how-to-move-all-files-including-hidden-files-into-parent-directory-via>`__. Just remember that this can cause unexpected and undesired configuration changes in dom0, depending on exactly which files you’re adding and replacing.
 
 Emergency backup recovery without qubes
