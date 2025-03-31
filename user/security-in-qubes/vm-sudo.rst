@@ -66,8 +66,9 @@ Details of the implementation are :doc:`here </developer/system/vm-sudo>`.
 Replacing passwordless root access
 ----------------------------------
 
-| Some users may wish to modify their system by enabling user/root isolation in qubes.
-| We do not support this in any packages, but users are free to remove the qubes-core-agent-passwordless-root package if they wish, using standard packaging tools.
+Some users may wish to modify their system by enabling user/root isolation in qubes.
+
+We do not support this in any packages, but users are free to remove the qubes-core-agent-passwordless-root package if they wish, using standard packaging tools.
 
 
 Root access can then be gained from dom0 by (e.g) ``qvm-run -u root QUBE qubes-run-terminal``, or ``qvm-console-dispvm QUBE``.
@@ -75,13 +76,15 @@ Root access can then be gained from dom0 by (e.g) ``qvm-run -u root QUBE qubes-r
 Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
 
-| An alternative approach is to enable user/root isolation by using a dom0 generated prompt.
-| A list of steps to do so is provided in the `Qubes community guide, Replacing passwordless root with a dom0 prompt <https://forum.qubes-os.org/t/replacing-passwordless-root-with-a-dom0-prompt/19074>`__ **without any guarantee of safety, accuracy, or completeness. Proceed at your own risk. Do not rely on this for extra security.**
+An alternative approach is to enable user/root isolation by using a dom0 generated prompt.
+
+A list of steps to do so is provided in the `Qubes community guide, Replacing passwordless root with a dom0 prompt <https://forum.qubes-os.org/t/replacing-passwordless-root-with-a-dom0-prompt/19074>`__ **without any guarantee of safety, accuracy, or completeness. Proceed at your own risk. Do not rely on this for extra security.**
 
 
 Dom0 passwordless root access
 -----------------------------
 
 There is also passwordless user->root access in dom0.
-| As stated in the comment in ``/etc/sudoers.d/qubes`` there is really no point in user/root isolation in dom0, because all user data (and the whole Qubes management interface) is already accessible to the user, so there is nothing more to be gained from the dom0 root account.
+
+As stated in the comment in ``/etc/sudoers.d/qubes`` there is really no point in user/root isolation in dom0, because all user data (and the whole Qubes management interface) is already accessible to the user, so there is nothing more to be gained from the dom0 root account.
 

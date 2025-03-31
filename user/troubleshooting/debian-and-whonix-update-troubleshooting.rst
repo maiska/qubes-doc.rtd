@@ -114,11 +114,11 @@ There should be none at the moment. If there was such a warning, it would look l
 
 Even though, ``apt-get`` will automatically ignore repositories with expired keys or signatures, you will not receive upgrades from that repository. Unless the issue is already known/documented, it should be reported so it can be further investigated.
 
-There are two possible reasons why this could happen, either there is an issue with the repository that the maintainers have to fix, or you are victim of a `Man-in-the-middle_attacks <https://www.whonix.org/wiki/Warning#Man-in-the-middle_attacks>`__. The latter would not be a big issue and might go away after a while automatically or try to `change your Tor circuit <https://www.whonix.org/wiki/Arm#Arm>`__
+There are two possible reasons why this could happen, either there is an issue with the repository that the maintainers have to fix, or you are victim of a `Man-in-the-middle_attacks <https://www.whonix.org/wiki/Warning#Man-in-the-middle_attacks>`__. The latter would not be a big issue and might go away after a while automatically or try to `change your Tor circuit <https://www.whonix.org/wiki/Arm#Arm>`__.
 
-In past various apt repositories were signed with expired key. If you want to see how the documentation looked at that point, please click on expand on the right.
+In past various apt repositories were signed with expired key: `The Tor Project’s apt repository key was expired <https://trac.torproject.org/projects/tor/ticket/12994>`__.
 
-`The Tor Project’s apt repository key was expired <https://trac.torproject.org/projects/tor/ticket/12994>`__. You saw the following warning.
+You saw the following warning:
 
 .. code:: bash
 

@@ -69,7 +69,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 
 
 
-** The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
+\* *The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
 
 Windows
 -------
@@ -276,13 +276,13 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - Qube Type
      - Inheritance :superscript:`1`
      - Persistence :superscript:`2`
-   * - template
+   * - :ref:`template <user/reference/glossary:template>`
      - N/A (templates cannot be based on templates)
      - everything
    * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
      - ``/etc/skel`` to ``/home``; ``/usr/local.orig`` to ``/usr/local``
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
-   * - disposable
+   * - :ref:`disposable <user/reference/glossary:disposable>`
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
      - nothing
    
