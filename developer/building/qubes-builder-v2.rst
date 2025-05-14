@@ -22,7 +22,10 @@ This is a simple setup using a docker executor. This is a good default choice; i
 1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an AppVM or a Standalone qube, with some steps different between the two.
 
 2. Installing dependencies
-   If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory, and you can install them easily in the following ways:
+
+   - If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory, and you can install them easily in the following ways:
+
+
 
    1. for Fedora, use:
 
@@ -47,11 +50,28 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
    If you have installed dependencies in the template, close it, and (re)start the development qube.
 
-3. Clone the qubes-builder v2 repository into a location of your choice: ``shell     git clone https://github.com/QubesOS/qubes-builderv2     cd qubes-builderv2/``
+3. Clone the qubes-builder v2 repository into a location of your choice:
 
-4. If you haven’t previously used docker in the current qube, you need to set up some permissions. In particular, the user has to be added to the ``docker`` group: ``shell    $ sudo usermod -aG docker user`` Next, **restart the qube**.
+   .. code:: bash
 
-5. Finally, you need to generate a docker image: ``shell    $ tools/generate-container-image.sh docker``
+         git clone https://github.com/QubesOS/qubes-builderv2
+         cd qubes-builderv2/
+
+
+4. If you haven’t previously used docker in the current qube, you need to set up some permissions. In particular, the user has to be added to the ``docker`` group:
+
+   .. code:: bash
+
+         $ sudo usermod -aG docker user
+
+   Next, **restart the qube**.
+
+5. Finally, you need to generate a docker image:
+
+   .. code:: bash
+
+         $ tools/generate-container-image.sh docker
+
    In an app qube, as ``/var/lib/docker`` is not persistent by default, you also need to use :doc:`bind-dirs </user/advanced-topics/bind-dirs>` to avoid repeating this step after reboot, adding the following to the ``/rw/config/qubes-bind-dirs.d/docker.conf`` file in this qube:
 
    .. code:: bash
@@ -70,31 +90,32 @@ To use Qubes OS Builder v2, you need to have a ``builder.yml`` configuration fil
 
 .. code:: bash
 
-:inline-0:`# include configuration relevant for the current release` :inline-1:`
-` :inline-2:`include` :inline-3:`:` :inline-1:`
-` :inline-4:`-` :inline-1:` ` :inline-5:`example-configs/qubes-os-r4.2.yml` :inline-1:`
+      # include configuration relevant for the current release
+      include:
+      - example-configs/qubes-os-r4.2.yml
+      
+      # which repository to use to fetch sources
+      use-qubes-repo:
+        version: 4.2
+        testing: true
+      
+      # each package built will have local build number appended to package release
+      # number. It makes it easier to update in testing environment
+      increment-devel-versions: true
+      
+      # reduce output
+      debug: false
+      
+      # this can be set to true if you do not want sources to be automatically
+      # fetched from git
+      skip-git-fetch: false
+      
+      # executor configuration
+      executor:
+        type: docker
+        options:
+          image: "qubes-builder-fedora:latest"
 
-` :inline-0:`# which repository to use to fetch sources` :inline-1:`
-` :inline-2:`use-qubes-repo` :inline-3:`:` :inline-1:`
-  ` :inline-2:`version` :inline-3:`:` :inline-1:` ` :inline-5:`4.2` :inline-1:`
-  ` :inline-2:`testing` :inline-3:`:` :inline-1:` ` :inline-5:`true` :inline-1:`
-
-` :inline-0:`# each package built will have local build number appended to package release` :inline-1:`
-` :inline-0:`# number. It makes it easier to update in testing environment` :inline-1:`
-` :inline-2:`increment-devel-versions` :inline-3:`:` :inline-1:` ` :inline-5:`true` :inline-1:`
-
-` :inline-0:`# reduce output` :inline-1:`
-` :inline-2:`debug` :inline-3:`:` :inline-1:` ` :inline-5:`false` :inline-1:`
-
-` :inline-0:`# this can be set to true if you do not want sources to be automatically` :inline-1:`
-` :inline-0:`# fetched from git` :inline-1:`
-` :inline-2:`skip-git-fetch` :inline-3:`:` :inline-1:` ` :inline-5:`false` :inline-1:`
-
-` :inline-0:`# executor configuration` :inline-1:`
-` :inline-2:`executor` :inline-3:`:` :inline-1:`
-  ` :inline-2:`type` :inline-3:`:` :inline-1:` ` :inline-5:`docker` :inline-1:`
-  ` :inline-2:`options` :inline-3:`:` :inline-1:`
-    ` :inline-2:`image` :inline-3:`:` :inline-1:` ` :inline-6:`"qubes-builder-fedora:latest"` 
 
 
 Using Builder v2
@@ -132,26 +153,3 @@ If you want to fetch the entire Qubes OS source use the following:
 
 
 **caution**: some repositories might have additional requirements. You can disable repositories that are not needed in the ``example-configs/*.yml`` file you are using by commenting them out. In particular, ``python-fido2``, ``lvm`` and ``windows``-related repositories have special requirements.
-
-
-.. role:: inline-0
-   :class: comment single
-
-.. role:: inline-1
-   :class: whitespace
-
-.. role:: inline-2
-   :class: name tag
-
-.. role:: inline-3
-   :class: punctuation
-
-.. role:: inline-4
-   :class: indicator punctuation
-
-.. role:: inline-5
-   :class: literal plain scalar
-
-.. role:: inline-6
-   :class: literal string
-

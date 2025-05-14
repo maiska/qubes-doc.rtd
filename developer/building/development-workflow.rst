@@ -36,7 +36,7 @@ Prepare fresh version of kernel sources, with Qubes-specific patches applied
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In qubes-builder/artifacts/sources/linux-kernel:
+In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: bash
 
@@ -63,7 +63,7 @@ Go to the kernel tree and update the version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In qubes-builder/artifacts/sources/linux-kernel:
+In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: bash
 
@@ -75,7 +75,7 @@ Changing the config
 ^^^^^^^^^^^^^^^^^^^
 
 
-In kernel-3.4.18/linux-3.4.18:
+In ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: bash
 
@@ -84,7 +84,7 @@ In kernel-3.4.18/linux-3.4.18:
 
 
 
-Now change the configuration. For example, in kernel-3.4.18/linux-3.4.18:
+Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: bash
 
@@ -150,7 +150,7 @@ Useful :doc:`QubesBuilder </developer/building/qubes-builder-v2>` commands
 
 1. ``./qb package diff`` - show uncommitted changes
 
-2. ``./qb repository check-release-status-for-component`` and ``./qb repository check-release-status-for-template``- show version of each component/template (based on git tags)
+2. ``./qb repository check-release-status-for-component`` and ``./qb repository check-release-status-for-template`` - show version of each component/template (based on git tags)
 
 3. ``./qb package sign`` - sign built packages
 

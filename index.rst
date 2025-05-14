@@ -288,7 +288,7 @@ Core documentation for Qubes developers and advanced users.
    :maxdepth: 1
    :caption: Developers - building
 
-   developer/building/qubes-builder
+   developer/building/qubes-builder-v2
    developer/building/qubes-builder-details
    developer/building/development-workflow
    developer/building/qubes-iso-building
