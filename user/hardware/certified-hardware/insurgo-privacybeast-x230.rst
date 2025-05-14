@@ -15,7 +15,7 @@ The `Insurgo PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-pri
 
 - `coreboot <https://www.coreboot.org/>`__ initialization for the x230 is binary-blob-free, including native graphic initialization. Built with the `Heads <https://github.com/osresearch/heads/>`__ payload, it delivers an :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>`-like solution built into the firmware. (Even though our :ref:`requirements <user/hardware/certified-hardware/certified-hardware:hardware certification requirements>` provide an exception for CPU-vendor-provided blobs for silicon and memory initialization, Insurgo exceeds our requirements by insisting that these be absent from its machines.)
 
-- `Intel ME <https://libreboot.org/faq.html#intelme>`__ is neutered through the AltMeDisable bit, while all modules other than ROMP and BUP, which are required to initialize main CPU, have been `deleted <https://github.com/osresearch/heads-wiki/blob/master/Clean-the-ME-firmware.md#how-to-disabledeactive-most-of-it>`__.
+- `Intel ME <https://libreboot.org/faq.html#intelme>`__ is neutered through the AltMeDisable bit, while all modules other than ROMP and BUP, which are required to initialize main CPU, have been `deleted <https://github.com/linuxboot/heads-wiki/blob/master/Installing-and-Configuring/Flashing-Guides/Clean-the-ME-firmware.md#how-to-disabledeactive-most-of-it>`__.
 
 - A re-ownership process that allows it to ship pre-installed with Qubes OS, including full-disk encryption already in place, but where the final disk encryption key is regenerated only when the machine is first powered on by the user, so that the OEM doesn’t know it.
 

@@ -20,7 +20,7 @@ How to test upcoming Qubes OS releases:
 
 - Try the `signed weekly builds <https://qubes.notset.fr/iso/>`__. (`Learn more <https://forum.qubes-os.org/t/16929>`__ and `track their status <https://github.com/fepitre/updates-status-iso/issues>`__.)
 
-- Use :doc:`qubes-builder </developer/building/qubes-builder>` to build the latest release yourself.
+- Use :doc:`qubes-builder </developer/building/qubes-builder-v2>` to build the latest release yourself.
 
 - (No support) Experiment with developer alpha ISOs found from time to time at `Qubes OpenQA <https://openqa.qubes-os.org/>`__.
 

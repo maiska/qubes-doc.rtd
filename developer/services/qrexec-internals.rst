@@ -346,4 +346,4 @@ There are two endpoints:
 
 
 
-See `qrexec-policy-agent.rst <https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-agent.rst>`__ for protocol details.
+See `qrexec-policy-agent.md <https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-agent.md>`__ for protocol details.

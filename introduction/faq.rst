@@ -763,7 +763,7 @@ How do I build Qubes from sources?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See :doc:`these instructions </developer/building/qubes-builder>`.
+See :doc:`these instructions </developer/building/qubes-builder-v2>`.
 
 How do I submit a patch?
 ^^^^^^^^^^^^^^^^^^^^^^^^

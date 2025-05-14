@@ -147,7 +147,9 @@ In that case, system uplink connection have native IPv6. But in some cases it ma
 
 
 
-Besides enabling IPv6 forwarding, standard Qubes firewall can be used to limit what network resources are available to each qube. Currently only ``qvm-firewall`` command support adding IPv6 rules, GUI firewall editor will have this ability later.
+Besides enabling IPv6 forwarding, the standard Qubes firewall can be used to limit what network resources are available to each qube. Currently only the ``qvm-firewall`` command supports adding IPv6 rules, the GUI firewall editor will have this ability later.
+
+**Note:** Setting or unsetting the ``ipv6`` feature only affects qubes-configured networking. It does not affect e.g. external interfaces. If you want to restrict IPv6 on these interfaces change the settings in Network Manager. Alternatively, disable IPv6 support using methods appropriate to the underlying template.
 
 Limitations
 ^^^^^^^^^^^

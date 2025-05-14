@@ -89,6 +89,12 @@ Unprivileged `domain <#domain>`__. Also known as **guest** domains, domUs are th
 
 
 
+firmware
+--------
+
+
+Software that runs outside the control of the operating system. Some firmware executes on the same CPU cores as Qubes OS does, but all computers have many additional processors that the operating system does not run on, and these computers also run firmware.
+
 HVM
 ---
 

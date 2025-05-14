@@ -5,28 +5,28 @@ Development workflow
 
 A workflow for developing Qubes OS+
 
-First things first, setup :doc:`QubesBuilder </developer/building/qubes-builder>`. This guide assumes you’re using qubes-builder to build Qubes.
+To begin, setup :doc:`QubesBuilder </developer/building/qubes-builder-v2>`. This guide assumes you’re using qubes-builder v2 to build Qubes.
 
 Repositories and committing Code
 --------------------------------
 
 
-Qubes is split into a bunch of git repos. These are all contained in the ``qubes-src`` directory under qubes-builder. Subdirectories there are separate components, stored in separate git repositories.
+Qubes source code is split into many git repos. These are all contained in the ``artifacts/sources`` directory under qubes-builder. Subdirectories there are separate components, stored in separate git repositories.
 
-The best way to write and contribute code is to create a git repo somewhere (e.g., github) for the repo you are interested in editing (e.g., ``qubes-manager``, ``core-agent-linux``, etc). To integrate your repo with the rest of Qubes, cd to the repo directory and add your repository as a remote in git
+The best way to write and contribute code is to create a git repo somewhere (e.g., GitHub) for the repo you are interested in editing (e.g., ``qubes-manager``, ``core-agent-linux``, etc). To integrate your repo with the rest of Qubes, cd to the repo directory and add your repository as a remote in git
 
 **Example:**
 
 .. code:: bash
 
-      $ cd qubes-builder/qubes-src/qubes-manager
-      $ git remote add abel git@github.com:abeluck/qubes-manager.git
+      $ cd qubes-builder/artifacts/sources/qubes-manager
+      $ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
 
 
 
-You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo on github.
+You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo.
 
-When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using ``git tag -s``). Finally, send a letter to the Qubes the :ref:`qubes-devel <introduction/support:qubes-devel>` mailing list describing the changes and including the link to your repository. You can also create pull request on github. Don’t forget to include your public PGP key you use to sign your tags.
+When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using ``git tag -s``). Finally, send a letter to the Qubes listserv describing the changes, and including a link to your repository. If you are using GitHub you can instead create a pull request. Don’t forget to include the public PGP key you use to sign your tags.
 
 Kernel-specific notes
 ^^^^^^^^^^^^^^^^^^^^^
@@ -36,7 +36,7 @@ Prepare fresh version of kernel sources, with Qubes-specific patches applied
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In qubes-builder/qubes-src/linux-kernel:
+In qubes-builder/artifacts/sources/linux-kernel:
 
 .. code:: bash
 
@@ -63,7 +63,7 @@ Go to the kernel tree and update the version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In qubes-builder/qubes-src/linux-kernel:
+In qubes-builder/artifacts/sources/linux-kernel:
 
 .. code:: bash
 
@@ -130,9 +130,7 @@ Building RPMs
 ^^^^^^^^^^^^^
 
 
-TODO: Is this step generic for all subsystems?
-
-Now it is a good moment to make sure you have changed kernel release name in rel file. For example, if you change it to ‘1debug201211116c’ the resulting RPMs will be named ‘kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm’. This will help distinguish between different versions of the same package.
+Now is a good moment to make sure you have changed the kernel release name in rel file. For example, if you change it to ‘1debug201211116c’ the resulting RPMs will be named ‘kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm’. This will help distinguish between different versions of the same package.
 
 You might want to take a moment here to review (git diff, git status), commit your changes locally.
 
@@ -140,34 +138,23 @@ To actually build RPMs, in qubes-builder:
 
 .. code:: bash
 
-      make linux-kernel
+      ./qb -c linux-kernel package fetch prep build
 
 
 
-RPMs will appear in qubes-src/linux-kernel/pkgs/fc20/x86_64:
+RPMs will appear in ``artifacts/repository/destination_name/package_name`` (for example ``artifacts/repository/host-fc37/linux-kernel-6.6.31-1.1/``
 
-.. code:: bash
-
-      -rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
-      -rw-rw-r-- 1 user user 43001450 Nov 17 05:36 kernel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
-      -rw-rw-r-- 1 user user  8940138 Nov 17 04:08 kernel-devel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
-      -rw-rw-r-- 1 user user  8937818 Nov 17 05:36 kernel-devel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
-      -rw-rw-r-- 1 user user 54490741 Nov 17 04:08 kernel-qubes-vm-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
-      -rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-qubes-vm-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
-
-
-
-Useful :doc:`QubesBuilder </developer/building/qubes-builder>` commands
+Useful :doc:`QubesBuilder </developer/building/qubes-builder-v2>` commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-1. ``make check`` - will check if all the code was committed into repository and if all repository are tagged with signed tag.
+1. ``./qb package diff`` - show uncommitted changes
 
-2. ``make show-vtags`` - show version of each component (based on git tags) - mostly useful just before building ISO. **Note:** this will not show version for components containing changes since last version tag.
+2. ``./qb repository check-release-status-for-component`` and ``./qb repository check-release-status-for-template``- show version of each component/template (based on git tags)
 
-3. ``make push`` - push change from **all** repositories to git server. You must set proper remotes (see above) for all repositories first.
+3. ``./qb package sign`` - sign built packages
 
-4. ``make prepare-merge`` - fetch changes from remote repositories (can be specified on commandline via GIT_SUBDIR or GIT_REMOTE vars), (optionally) verify tags and show the changes. This do not merge the changes - there are left for review as FETCH_HEAD ref. You can merge them using ``git merge FETCH_HEAD`` (in each repo directory). Or ``make do-merge`` to merge all of them.
+4. ``./qb package publish`` and ``./qb package upload`` - publish signed packages and upload published repository
 
 
 
@@ -323,11 +310,11 @@ You can create ``~/bin/add-remote`` script to ease adding remotes:
           exit $?
       fi
       
-      git remote add $1 git@github.com:$1/qubes-`basename $PWD`
+      git remote add $1 git@GitHub.com:$1/qubes-`basename $PWD`
 
 
 
-It should be executed from component top level directory. This script takes one argument - remote name. If it is ``tb``, then it creates qrexec-based git remote to ``testbuilder`` VM. Otherwise it creates remote pointing at github account of the same name. In any case it points at repository matching current directory name.
+It should be executed from component top level directory. This script takes one argument - remote name. If it is ``tb``, then it creates qrexec-based git remote to ``testbuilder`` VM. Otherwise it creates remote pointing at GitHub account of the same name. In any case it points at repository matching current directory name.
 
 Sending packages to different VM
 --------------------------------
@@ -341,7 +328,7 @@ RPM packages - yum repo
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In source VM, grab `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ repository (below is assumed you’ve made it in ``~/repo-yum-upload`` directory) and replace ``update_repo.sh`` script with:
+In source VM, grab `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ repository (below is assumed you’ve made it in ``~/repo-yum-upload`` directory) and replace ``update_repo.sh`` script with:
 
 .. code:: bash
 
@@ -358,7 +345,7 @@ In source VM, grab `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ re
 
 
 
-In target VM, setup actual yum repository (also based on `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
+In target VM, setup actual yum repository (also based on `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
 
 .. code:: bash
 
@@ -438,7 +425,7 @@ Deb packages - Apt repo
 
 Steps are mostly the same as in the case of yum repo. The only details that differ:
 
-- use `linux-deb <https://github.com/QubesOS/qubes-linux-deb>`__ instead of `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ as a base - both in source and target VM
+- use `linux-deb <https://GitHub.com/QubesOS/qubes-linux-deb>`__ instead of `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ as a base - both in source and target VM
 
 - use different ``update_repo.sh`` script in source VM (below)
 

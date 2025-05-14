@@ -39,7 +39,7 @@ Overview of Steps
 
 Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from prospective contributors who have already started to act like free and open source developers.
 
-Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren’t already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__ (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags `“help wanted” and “P: minor” <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22>`__ (although more significant things are also welcome, of course). Doing this will get you some practice with :doc:`qubes-builder </developer/building/qubes-builder>`, our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
+Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren’t already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__ (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags `“help wanted” and “P: minor” <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22>`__ (although more significant things are also welcome, of course). Doing this will get you some practice with :doc:`qubes-builder </developer/building/qubes-builder-v2>`, our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
 Contributor proposal guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,7 +451,7 @@ for more information and qubes-specific background.
 
 **Difficulty**: medium
 
-**Knowledge prerequisite**: qubes-builder :doc:`[1] </developer/building/qubes-builder>` :doc:`[2] </developer/building/qubes-builder-details>` `[3] <https://github.com/QubesOS/qubes-builder/tree/master/doc>`__, and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knowledge prerequisite**: qubes-builder :doc:`[1] </developer/building/qubes-builder-v2>` `[2] <https://github.com/QubesOS/qubes-builderv2>`__, and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
 **Size of the project**: 350 hours
 
