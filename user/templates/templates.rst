@@ -137,7 +137,7 @@ Network access
 --------------
 
 
-For information about how templates access the network, please see :ref:`Why don’t templates have network access? <user/how-to-guides/how-to-install-software:why don't templates have network access?>` and the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`.
+For information about how templates access the network, please see :ref:`Why don’t templates have network access? <user/how-to-guides/how-to-install-software:why don't templates have normal network access?>` and the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`.
 
 Updating
 --------

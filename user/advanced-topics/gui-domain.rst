@@ -134,8 +134,8 @@ A VNC server session is running on ``localhost:5900`` in ``sys-gui-vnc``. In ord
 
    **WARNING**: This setup raises multiple security issues: 1) Anyone who can reach the ``VNC`` server, can take over the control of the Qubes OS machine, 2) A second client can connect even if a connection is already active and potentially get disconnected, 3) You can get disconnected by some unrelated network issues. Generally, if this ``VNC`` server is exposed to open network, it must be protected with some other (cryptographic) layer like ``VPN``. The setup as is, is useful only for purely testing machine.
 
-Troubleshooting
----------------
+Known issues
+------------
 
 
 Application menu lacks qubes entries in a fresh GUI domain
@@ -144,8 +144,38 @@ Application menu lacks qubes entries in a fresh GUI domain
 
 See `QubesOS/qubes-issues#5804 <https://github.com/QubesOS/qubes-issues/issues/5804>`__
 
-Delete GUI domain
-^^^^^^^^^^^^^^^^^
+Cannot update dom0 from sys-gui
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+See `QubesOS/qubes-issues#8934 <https://github.com/QubesOS/qubes-issues/issues/8934>`__
+
+GUI of HVM qubes not visible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+See `QubesOS/qubes-issues#9385 <https://github.com/QubesOS/qubes-issues/issues/9385>`__
+
+Power saving/screensaver issues
+-------------------------------
+
+
+See `QubesOS/qubes-issues#9033 <https://github.com/QubesOS/qubes-issues/issues/9033>`__, `QubesOS/qubes-issues#9384 <https://github.com/QubesOS/qubes-issues/issues/9384>`__, `QubesOS/qubes-issues#7989 <https://github.com/QubesOS/qubes-issues/issues/7989>`__
+
+Qube startup order (sys-usb and sys-gui)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+See `QubesOS/qubes-issues#7954 <https://github.com/QubesOS/qubes-issues/issues/7954>`__
+
+Other GUI domain issues
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+see existing issues ``QubesOS/qubes-issues`` under `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22>`__ label.
+
+Reverting sys-gui
+-----------------
 
 
 The following commands have to be run in ``dom0``.
@@ -172,12 +202,6 @@ You are now able to delete the GUI domain, for example ``sys-gui-gpu``:
 
       qvm-remove -f sys-gui-gpu
 
-
-General issues
-^^^^^^^^^^^^^^
-
-
-For any general GUI domain issues, please take a loot at existing issues ``QubesOS/qubes-issues`` under `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22>`__ label.
 
 .. |sys-gui| image:: /attachment/posts/guivm-hybrid.png
    
