@@ -188,7 +188,7 @@ In this example, Network Manager on KDE, the network had the following values:
 
 
 
-.. figure:: /attachment/doc/Network%20Manager.png
+.. figure:: /attachment/doc/Network_Manager.png
    :alt: Image of Network Manager, annotated by numbers for reference below
 
    Image of Network Manager, annotated by numbers for reference below

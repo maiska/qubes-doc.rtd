@@ -759,6 +759,51 @@ And slightly more advanced one:
    destination_vm: sys-net
    destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /directory/for/backups
 
+Device Serialization
+--------------------
+
+Both device and assignment serialization is ASCII-encoded and contains space-separated key-value pairs. The format includes an ``=`` between the key and value, and the value is always enclosed in single quotes (``'``). Values may contain spaces or even single quotes, which are escaped with a backslash. If a value is not set (``None``), it is represented as ``'unknown'``. For boolean values, ``True`` is represented as ``'yes'``, and ``False`` as ``'no'``. The order of key-value pairs is irrelevant. Keys starting with ``_`` are considered extra properties and are saved in ``data`` or ``options`` for device or assignment respectively.
+
+Information about the serialization format of specific properties can be found below.
+
+Format:
+
+::
+
+   <ident> <property_1>='<value_1>' <property_2>='<value_2>' <property_3>='<value_3>'...
+
+Detailed serialization format for a device:
+
+-  ``ident='<ident>'``
+-  ``backend_domain='<backend_domain.name>'``
+-  ``devclass='<devclass>'``
+-  ``vendor='<vendor>'``
+-  ``product='<product>'``
+-  ``manufacturer='<manufacturer>'``
+-  ``name='<name>'``
+-  ``serial='<serial>'``
+-  ``self_identity='<self_identity>'``
+-  ``interfaces='<interface1><interface2>...'`` Each device interface is represented with a 7-character length. Each device has at least one interface. Since the length of the interface representation is known, they are serialized as a single string with each interface representation concatenated one after another. The order is irrelevant.
+-  ``parent_ident='<parent.ident>' parent_devclass='<parent.devclass>'``
+-  ``attachment='<attachment.name>'``
+-  ``_<key1>='<value1>' _<key2>='<value2>' ...`` (extra parameters)
+
+Detailed serialization format for an assignment:
+
+-  ``ident='<ident>'``
+-  ``backend_domain='<backend_domain.name>'``
+-  ``devclass='<devclass>'``
+-  ``frontend_domain='<frontend_domain.name>'``
+-  ``required='<yes/no>'`` (default ‘no’)
+-  ``attach_automatically='<yes/no>'`` (default ‘no’)
+-  ``_<key1>='<str(value1)>' _<key2>='<str(value2)>' ...`` (options)
+
+Example device serialization:
+
+::
+
+   1-1.1.1 manufacturer='unknown' self_identity='0000:0000::?******' serial='unknown' ident='1-1.1.1' product='Qubes' vendor='ITL' name='Some untrusted garbage' devclass='bus' backend_domain='vm' interfaces=' ******u03**01' _additional_info='' _date='06.12.23' parent_ident='1-1.1' parent_devclass='None'
+
 General notes
 =============
 
