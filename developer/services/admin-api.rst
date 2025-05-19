@@ -74,13 +74,13 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - `-`
      - `-`
-     - ``<class>``
+     - ``<class>\n``
      - 
    * - ``admin.vm.List``
      - ``dom0|<vm>``
      - `-`
      - `-`
-     - ``<name> class=<class> state=<state>``
+     - ``<name> class=<class> state=<state>\n``
      -
    * - ``admin.vm.Create.<class>``
      - ``dom0``
@@ -110,7 +110,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - `-`
      - `-`
-     - ``<property>``
+     - ``<property>\n``
      -
    * - ``admin.label.Create``
      - ``dom0``
@@ -140,7 +140,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - `-`
      - `-`
-     - ``<property>``
+     - ``<property>\n``
      -
    * - ``admin.property.Get``
      - ``dom0``
@@ -188,7 +188,7 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-` 
-     - ``<property>``
+     - ``<property>\n``
      -
    * - ``admin.vm.property.Get`` 
      - vm
@@ -200,9 +200,9 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<property-name> <full-value-as-in-property.Get>``
+     - ``<property-name> <full-value-as-in-property.Get>\n``
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
-   * - ``admin.vm.property.GetDefault``
+   * -  ``admin.vm.property.GetDefault``
      - vm
      - property
      - `-`
@@ -236,7 +236,7 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<feature>``
+     - ``<feature>\n``
      -
    * - ``admin.vm.feature.Get``
      - vm
@@ -284,7 +284,7 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<tag>``
+     - ``<tag>\n``
      - 
    * - ``admin.vm.tag.Get``
      - vm
@@ -308,12 +308,12 @@ it easy to set the policy using current mechanism.
      - vm
      - `-` 
      - `-`
-     - ``<rule>``
+     - ``<rule>\n``
      - rules syntax as in :doc:`firewall interface </developer/debugging/vm-interface>` (Firewall Rules in 4x) with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
    * - ``admin.vm.firewall.Set``
      - vm
      - `-`
-     - ``<rule>``
+     - ``<rule>\n``
      - `-`
      - set firewall rules, see ``admin.vm.firewall.Get`` for syntax
    * - ``admin.vm.firewall.Reload``
@@ -322,16 +322,10 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - force reload firewall without changing any rule
-   * - ``admin.vm.deviceclass.List``
-     - ``dom0``
-     - `-`
-     - `-`
-     - ``<class>``
-     -
    * - ``admin.vm.device.<class>.Attach``
      - vm
      - device
-     - options
+     - assignment-serialization
      - `-`
      -  ``device`` is in form ``<backend-name>+<device-ident>`` optional options given in ``key=value`` format, separated with spaces; options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
    * - ``admin.vm.device.<class>.Detach``
@@ -340,35 +334,65 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
-   * - ``admin.vm.device.<class>.Set.persistent``
+   * - ``admin.vm.device.<class>.Detach``
+     - vm
+     - device
+     - `-`
+     - `-`
+     - ``device`` is in form ``<backend-name>+<device-ident>``
+   * - ``admin.vm.device.<class>.Assign``
+     - vm
+     - device
+     - assignement-serialization
+     - `-`
+     - ``device`` is in form ``<backend-name>+<device-ident>`` ``assignment-serialization`` is specified in the section Device Serialization.
+   * - ``admin.vm.device.<class>.Unassign``
+     - vm
+     - device
+     - `-`
+     - `-`
+     - ``device`` is in form ``<backend-name>+<device-ident>`` 
+   * - ``admin.vm.device.<class>.Set.required``
      - vm
      - device
      - ``True|False``  
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
-   * - ``admin.vm.device.<class>.List``
-     - vm
+   * - ``admin.vm.deviceclass.List``
+     - `dom0`
      - `-`
      - `-`
-     - ``<device> <options>``
-     - options can include ``persistent=True`` for "persistently" attached devices (default is temporary)
+     - ``<deviceclass>\n``
+     -
    * - ``admin.vm.device.<class>.Available``
      - vm
      - device-ident
      - `-`
-     - ``<device-ident> <properties> description=<desc>``
-     - optional service argument may be used to get info about a single device, optional (device class specific) properties are in ``key=value`` form, ``description`` must be the last one and is the only one allowed to contain spaces
+     - ``<device-ident> <device-serialization>\n``
+     - optional service argument may be used to get info about a single device, ``device-serialization`` is specified in the section Device Serialization.
+   * - ``admin.vm.device.<class>.Assigned``
+     - vm
+     - device-ident
+     - `-`
+     - ``<device-ident> <assignment-serialization>\n``
+     - optional service argument may be used to get info about a single device, ``assignement-serialization`` is specified in the section Device Serialization.
+   * - ``admin.vm.device.<class>.Attached``
+     - vm
+     - device-ident
+     - `-`
+     - ``<device-ident> <assignment-serialization>\n``
+     - optional service argument may be used to get info about a single device, ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.pool.List``
      - ``dom0``
      - `-`
      - `-`
-     - ``<pool>``
+     - ``<pool>\n``
      -
    * - ``admin.pool.ListDrivers``
      - ``dom0``
      - `-`
      - `-`
-     - ``<pool-driver> <property> ...``
+     - ``<pool-driver> <property> ...\n``
      - Properties allowed in ``admin.pool.Add``
    * - ``admin.pool.Info``
      - ``dom0``
@@ -379,7 +403,7 @@ it easy to set the policy using current mechanism.
    * - ``admin.pool.Add``
      - ``dom0``
      - driver
-     - ``<property>=<value>``
+     - ``<property>=<value>\n``
      - `-`
      -
    * - ``admin.pool.Set.revisions_to_keep``
@@ -404,7 +428,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - pool
      - vid
-     - ``<property>=<value>``
+     - ``<property>=<value>\n``
      -
    * - ``admin.pool.volume.Set.revisions_to_keep``
      - ``dom0``
@@ -416,7 +440,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - pool
      - vid
-     - ``<snapshot>``
+     - ``<snapshot>\n``
      -
    * - ``admin.pool.volume.Snapshot``
      - ``dom0``
@@ -439,7 +463,7 @@ it easy to set the policy using current mechanism.
    * - ``admin.pool.volume.Import``
      - ``dom0``
      - pool
-     - ``<vid> <raw volume data>``
+     - ``<vid>\n<raw volume data>``
      - `-`
      -
    * - ``admin.pool.volume.CloneFrom``
@@ -458,13 +482,13 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<volume>``
+     - ``<volume>\n``
      - ``<volume>`` is per-VM volume name (``root``, ``private``, etc), ``<vid>`` is pool-unique volume id
    * - ``admin.vm.volume.Info``
      - vm
      - volume 
      - `-`
-     - ``<property>=<value>``
+     - ``<property>=<value>\n``
      -
    * - ``admin.vm.volume.Set.revisions_to_keep``
      - vm
@@ -505,7 +529,7 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.volume.ImportWithSize``
      - vm
      - volume
-     - ``<size_in_bytes> <raw volume data>``
+     - ``<size_in_bytes>\n<raw volume data>``
      - `-`
      - new version of ``admin.vm.volume.Import``, allows new volume to be different size
    * - ``admin.vm.volume.Clear``
@@ -664,9 +688,9 @@ Server will close the connection.
 Traceback may be empty, can be enabled server-side as part of debug
 mode. Delimiting zero-byte is always present.
 
-Fields are should substituted into ``%``-style format string, possibly
+Fields should be formatted to ``%``-style format string, possibly
 after client-side translation, to form final message to be displayed
-unto user. Server does not by itself support translation.
+to the user. Server does not by itself support translation.
 
 Tags
 ====
@@ -675,7 +699,7 @@ The tags provided can be used to write custom policies. They are not
 used in a default Qubes OS installation. However, they are created
 anyway.
 
--  ``created-by-<vm>`` — Created in an extension to qubesd at the moment
+-  ``created-by-<vm>`` — Created in an extension to `qubesd` at the moment
    of creation of the VM. Cannot be changed via API, which is also
    enforced by this extension.
 -  ``managed-by-<vm>`` — Can be used for the same purpose, but it is not
