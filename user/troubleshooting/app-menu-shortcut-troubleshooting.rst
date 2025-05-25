@@ -29,8 +29,7 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 
 .. code:: bash
 
-:inline-0:`$ `       qvm-sync-appmenus
-:inline-1:` `       <QUBE_NAME>
+      $ qvm-sync-appmenus <QUBE_NAME>
 
 
 
@@ -38,11 +37,8 @@ When using the *Refresh Applications* button in a qube’s settings, the command
 
 .. code:: bash
 
-:inline-0:`$ `       qvm-sync-appmenus
-:inline-1:` `       <APPVM_NAME>
-:inline-1:`
-` :inline-0:`$ `       qvm-sync-appmenus
-:inline-1:` `       <TEMPLATE_NAME>
+      $ qvm-sync-appmenus <APPVM_NAME>
+      $ qvm-sync-appmenus <TEMPLATE_NAME>
 
 
 
@@ -50,10 +46,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 .. code:: bash
 
-:inline-0:`$ `       qvm-appmenus
-:inline-1:` `       --set-whitelist
-:inline-1:` `       <FILE_PATH>
-:inline-1:` `       <QUBE_NAME>
+      $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
 
 
@@ -237,11 +230,3 @@ While this works well for standard applications, creating a menu entry for Windo
 
 .. |image2| image:: /attachment/doc/r4.0-dom0-appmenu-select.png
    
-
-
-.. role:: inline-0
-   :class: generic prompt
-
-.. role:: inline-1
-   :class: whitespace
-

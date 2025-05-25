@@ -123,7 +123,7 @@ Why don't templates have normal network access?
 -----------------------------------------------
 
 
-In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an `updates proxy <#updates-proxy>`__ which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for `installing software from default repositories <#installing-software-from-default-repositories>`__ and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
+In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an `updates-proxy <#updates-proxy>`__which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for `installing software from default repositories <#installing-software-from-default-repositories>`__ and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
 
 Advanced
 --------

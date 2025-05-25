@@ -50,6 +50,8 @@ GPU GUI domain (``sys-gui-gpu``)
 
 Here, we describe how to setup ``sys-gui-gpu`` which is a GUI domain with *GPU passthrough* in `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__.
 
+   **Note:** the purpose of ``sys-gui-gpu`` is to improve Qubes OS security by detaching the GPU from dom0, this is not intended to improve GPU related performance within qubes, and this will not improve performance.
+
 |sys-gui-gpu|
 
 In ``dom0``, enable the formula for ``sys-gui-gpu`` with pillar data:

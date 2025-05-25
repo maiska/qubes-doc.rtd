@@ -22,7 +22,7 @@ If you run ``df -h``, it only shows the information in the ``root`` line (which 
 
 If your system is able to boot, but cannot load a desktop environment, it is possible to login to dom0 terminal with Alt + Ctrl + F2.
 
-If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you’ll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of the empty file.
+If this does not work, check the size of ``/var/lib/qubes/qubes.xml``. If it is zero, you’ll need to use one of the file backup (stored in ``/var/lib/qubes/backup``), hopefully you have the current data there. Find the most recent one and place in ``/var/lib/qubes/qubes.xml`` instead of the empty file.
 
 In any case you’ll need some disk space to start the VM. Check ``df -h`` output if you have some. If not, here are some hints how to free some disk space:
 

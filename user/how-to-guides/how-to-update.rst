@@ -155,7 +155,7 @@ In dom0
 ^^^^^^^
 
 
-First, ensure that your :doc:`UpdateVM <>` contains the ``fwupd-qubes-vm`` package. This package is installed by default for qubes with ``qubes-vm-recommended`` packages.
+First, ensure that your UpdateVM contains the ``fwupd-qubes-vm`` package. This package is installed by default for qubes with ``qubes-vm-recommended`` packages.
 
 In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
@@ -203,7 +203,7 @@ In other qubes
 
 Devices that are attached to non-dom0 qubes can be updated via a graphical tool for ``fwupd``, or via the ``fwupdmgr`` commandline tool.
 
-To update the firmware of offline qubes, use the :doc:`Updates proxy </doc/how-to/install/software/>`.
+To update the firmware of offline qubes, use the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`.
 
 Computers without fwupd support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

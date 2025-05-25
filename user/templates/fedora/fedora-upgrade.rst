@@ -81,7 +81,8 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 
    This key was already checked when it was installed (notice that the “From” line refers to a location on your local disk), so you can safely say yes to this prompt.
-   **Note:** If you encounter no errors, proceed to step 4. If you do encounter errors, see the next two points first.
+
+   - **Note:** If you encounter no errors, proceed to step 4. If you do encounter errors, see the next two points first.
 
    - If ``dnf`` reports that you do not have enough free disk space to proceed with the upgrade process, create an empty file in dom0 to use as a cache and attach it to the template as a virtual disk.
 

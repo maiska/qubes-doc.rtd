@@ -166,7 +166,7 @@ Installation completes successfully but then boot loops or hangs on black screen
 --------------------------------------------------------------------------------
 
 
-There is a `common bug in UEFI implementation <https://xen.markmail.org/message/f6lx2ab4o2fch35r>`__ affecting mostly Lenovo systems, but probably some others too. While some systems need ``mapbs`` and/or ``noexitboot`` disabled to boot, others require them enabled at all times. Although these are enabled by default in the installer, they are disabled after the first stage of a successful install. You can re-enable them either as part of the install process:
+There is a `common bug in UEFI implementation <https://web.archive.org/web/20170815084755/https://xen.markmail.org/message/f6lx2ab4o2fch35r>`__ affecting mostly Lenovo systems, but probably some others too. While some systems need ``mapbs`` and/or ``noexitboot`` disabled to boot, others require them enabled at all times. Although these are enabled by default in the installer, they are disabled after the first stage of a successful install. You can re-enable them either as part of the install process:
 
 1. Perform installation normally, but don’t reboot the system at the end yet.
 
@@ -212,7 +212,7 @@ Installation completes successfully but then system crash/restarts on next boot
 -------------------------------------------------------------------------------
 
 
-Some Dell systems and probably others have `another bug in UEFI firmware <https://markmail.org/message/amw5336otwhdxi76>`__. These systems need ``efi=attr=uc`` enabled at all times. Although this is enabled by default in the installer, it is disabled after the first stage of a successful install. You can re-enable it either as part of the install process:
+Some Dell systems and probably others have `another bug in UEFI firmware <https://web.archive.org/web/20170901231026/https://markmail.org/message/amw5336otwhdxi76>`__. These systems need ``efi=attr=uc`` enabled at all times. Although this is enabled by default in the installer, it is disabled after the first stage of a successful install. You can re-enable it either as part of the install process:
 
 1. Perform installation normally, but don’t reboot the system at the end yet.
 
