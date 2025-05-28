@@ -36,7 +36,7 @@ Installing software from default repositories
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
    :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
-   The Applications tab in Qube Settings `The Applications tab in Qube Settings <>`__
+ 
 
 Installing software from other sources
 --------------------------------------
@@ -91,7 +91,7 @@ This method assumes that you are trying to follow instructions to install some p
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
    :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
-   The Applications tab in Qube Settings `The Applications tab in Qube Settings <>`__
+ 
 
 Troubleshooting
 ---------------
@@ -123,7 +123,7 @@ Why don't templates have normal network access?
 -----------------------------------------------
 
 
-In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an `updates-proxy <#updates-proxy>`__which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for `installing software from default repositories <#installing-software-from-default-repositories>`__ and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
+In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an `updates-proxy <#updates-proxy>`__ which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for `installing software from default repositories <#installing-software-from-default-repositories>`__ and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
 
 Advanced
 --------

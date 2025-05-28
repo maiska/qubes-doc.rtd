@@ -157,7 +157,7 @@ Debian 10 ("Buster")
 ^^^^^^^^^^^^^^^^^^^^
 
 
-Please see `Debian’s Buster upgrade instructions <https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html>`__.
+Please see `Debian’s Buster upgrade instructions <https://www.debian.org/releases/buster/amd64/release-notes.en.txt>`__.
 
 Debian 9 ("Stretch")
 ^^^^^^^^^^^^^^^^^^^^
@@ -183,13 +183,13 @@ Relevant discussions:
 
 
 
-Also see `Debian’s Stretch upgrade instructions <https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html>`__.
+Also see `Debian’s Stretch upgrade instructions <https://www.debian.org/releases/stretch/amd64/release-notes.en.txt>`__.
 
 Debian 8 ("Jessie")
 ^^^^^^^^^^^^^^^^^^^
 
 
-Please see `Debian’s Jessie upgrade instructions <https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html>`__.
+Please see `Debian’s Jessie upgrade instructions <https://www.debian.org/releases/jessie/amd64/release-notes.en.txt>`__.
 
 End-of-life (EOL) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
