@@ -5,13 +5,13 @@ NitroPC Pro
 
 .. warning::
       
-      **Note:** When configuring your NitroPC Pro 2 on the Nitrokey website, there is an option for a discrete graphics card (e.g., Nvidia GeForce RTX 4070 or 4090) in addition to integrated graphics (e.g., Intel UHD 770, which is always included because it is physically built into the CPU). NitroPC Pro 2 configurations that include discrete graphics cards are not Qubes-certified. The only NitroPC Pro 2 configurations that are Qubes-certified are those that contain only integrated graphics.
+      **Note:** When configuring your NitroPC Pro 2 on the Nitrokey website, there is an option for a discrete graphics card (e.g., Nvidia GeForce RTX 4070 or 4090) in addition to integrated graphics (e.g., Intel UHD 770, which is always included because it is physically built into the CPU). NitroPC Pro 2 configurations that include discrete graphics cards are *not* Qubes-certified. The only NitroPC Pro 2 configurations that are Qubes-certified are those that contain *only* integrated graphics.
 
 .. warning::
       
-      **Note:** Only the “Dasharo TianoCore UEFI without Measured Boot, without Nitrokey” firmware option is certified. The “HEADS with Measured Boot, requires Nitrokey!” firmware option is not certified.
+      **Note:** Only the “Dasharo TianoCore UEFI without Measured Boot, without Nitrokey” firmware option is certified. The “HEADS with Measured Boot, requires Nitrokey!” firmware option is *not* certified.
 
-The `NitroPC Pro <https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.
+The `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.
 
 |Photo of NitroPC Pro|
 
@@ -51,7 +51,7 @@ The NitroPC Pro also comes with a “Dasharo Entry Subscription,” which includ
 
 - Special firmware updates, including early access to updates enhancing privacy, security, performance, and compatibility
 
-- Early access to new firmware releases for `newly-supported desktop platforms <https://docs.dasharo.com/variants/overview/#desktop>`__ (please see the `roadmap <https://github.com/Dasharo/presentations/blob/main/dug2_dasharo_roadmap.md#dasharo-desktop-roadmap>`__)
+- Early access to new firmware releases for `newly-supported desktop platforms <https://docs.dasharo.com/variants/overview/#desktop>`__ (please see the `roadmap <https://github.com/Dasharo/presentations/blob/main/archive/dug_2/dug2_dasharo_roadmap.md#dasharo-desktop-roadmap>`__)
 
 - Access to the Dasharo Premier Support invite-only live chat channel on the Matrix network, allowing direct access to the Dasharo Team and fellow subscribers with personalized and priority assistance
 

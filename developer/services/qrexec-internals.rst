@@ -150,7 +150,7 @@ dom0: request execution of ``cmd`` in domX
 
   - (If ``local_program`` is set, ``qrexec-client`` executes it and uses that child’s stdin/stdout in place of its own when exchanging data with ``qrexec-agent`` later.)
 
-  - ``qrexec-client`` translates that request into a ``MSG_EXEC_CMDLINE`` message sent to ``qrexec-daemon``, with ``connect_domain`` set to 0 (connect to **dom0**) and `connect_port also set to 0 (allocate a port).
+  - ``qrexec-client`` translates that request into a ``MSG_EXEC_CMDLINE`` message sent to ``qrexec-daemon``, with ``connect_domain`` set to 0 (connect to **dom0**) and ``connect_port`` also set to 0 (allocate a port).
 
 
 

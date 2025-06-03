@@ -52,7 +52,9 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
 
 
-1. Shut down the VM.
+4. Shut down the VM.
+
+
 
 
 

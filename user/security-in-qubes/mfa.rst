@@ -7,7 +7,7 @@ Multi-factor authentication within particular qubes
 ---------------------------------------------------
 
 
-Most use cases for the hardware tokens can be achieved exactly as described by the manufacturer or other instructions found online. One usually just needs to attach the token (e.g. YubiKey) to the corresponding app qube to get the same result (see the documentation on how to use :doc:`USB devices </user/how-to-guides/how-to-use-usb-devices>` in Qubes OS accordingly). The recommended way for using CTAP in Qubes is described `here <https://www.qubes-os.org/doc/ctap-proxy/>`__.
+Most use cases for the hardware tokens can be achieved exactly as described by the manufacturer or other instructions found online. One usually just needs to attach the token (e.g. YubiKey) to the corresponding app qube to get the same result (see the documentation on how to use :doc:`USB devices </user/how-to-guides/how-to-use-usb-devices>` in Qubes OS accordingly). The recommended way for using CTAP in Qubes is described :doc:`here </user/security-in-qubes/ctap-proxy>`.
 
 Multi-factor login for Qubes OS
 -------------------------------
@@ -39,7 +39,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 
 
 
-3. Walk through the setup instructions 2 which will also generate your QR code for your auth app of choice:
+3. Walk through the setup instructions which will also generate your QR code for your auth app of choice:
 
    .. code:: bash
 
@@ -134,7 +134,7 @@ Login with a YubiKey / NitroKey3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO Alliance.
+The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor `(U2F) <https://en.wikipedia.org/wiki/Universal_2nd_Factor>`__ and FIDO2 protocols developed by the `FIDO Alliance <https://en.wikipedia.org/wiki/FIDO_Alliance>`__.
 
 You can use a YubiKey / NitroKey3 to enhance the user authentication in Qubes. The following instructions explain how to setup the YubiKey / NitroKey3 as an *additional* way to login.
 
@@ -212,7 +212,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
    - **YubiKey**
 
-     - Configure your YubiKey for challenge-response ``HMAC-SHA1`` mode. This can be done on any qube, e.g. a disposable (you need to `attach the YubiKey <https://www.qubes-os.org/doc/how-to-use-usb-devices/>`__ to this app qube though) or directly on the sys-usb vm. You need to (temporarily) install the package “yubikey-personalization-gui” and run it by typing ``yubikey-personalization-gui`` in the command line.
+     - Configure your YubiKey for challenge-response ``HMAC-SHA1`` mode. This can be done on any qube, e.g. a disposable (you need to :doc:`attach the YubiKey </user/how-to-guides/how-to-use-usb-devices>` to this app qube though) or directly on the sys-usb vm. You need to (temporarily) install the package “yubikey-personalization-gui” and run it by typing ``yubikey-personalization-gui`` in the command line.
 
        - In the program go to ``Challenge-Response``,
 

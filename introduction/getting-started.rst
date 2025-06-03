@@ -85,7 +85,7 @@ All aspects of Qubes OS can be controlled using command-line tools such as the t
 
 - Go to the App Menu, click on the Settings icon, choose Other from the drop-down menu, and select **Xfce Terminal Emulator** at the bottom.
 
-- Press ``Alt``+ ``F3`` and search for ``xfce terminal``.
+- Press ``Alt`` + ``F3`` and search for ``xfce terminal``.
 
 - Right-click on the desktop and select **Open Terminal Here**.
 

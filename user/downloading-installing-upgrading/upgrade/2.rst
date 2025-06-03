@@ -41,7 +41,9 @@ Note that dom0 in R2 is based on Fedora 20, in contrast to Fedora 18 in previous
 
 After this step you should have ``qubes-release-2-5`` in your Dom0. Important: if you happen to have ``qubes-release-2-6*`` then you should downgrade to ``qubes-release-2-5``! The ``qubes-release-2-6*`` packages have been uploaded to the testing repos and were kept there for a few hours, until we realized they bring incorrect repo definitions and so we removed them and also have changed the update procedure a bit (simplifying it).
 
-1. Upgrade dom0 to R2:
+3. Upgrade dom0 to R2:
+
+
 
 
 
@@ -54,7 +56,9 @@ After this step you should have ``qubes-release-2-5`` in your Dom0. Important: i
 
 
 
-1. If above step completed successfully you should have ``qubes-release-2-9`` or later. If not, repeat above step with additional ``--clean`` option.
+4. If above step completed successfully you should have ``qubes-release-2-9`` or later. If not, repeat above step with additional ``--clean`` option.
+
+
 
 
 
@@ -66,7 +70,9 @@ After this step you should have ``qubes-release-2-5`` in your Dom0. Important: i
 
 
 
-1. Reboot the system.
+5. Reboot the system.
+
+
 
 
 

@@ -7,7 +7,7 @@ Introduction
 ------------
 
 | This page explains use of the firewall in Qubes 4.2, using ``nftables``.
-| In Qubes 4.1, all firewall components used ``iptables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`..
+| In Qubes 4.1, all firewall components used ``iptables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`.
 
 
 Understanding firewalling in Qubes
@@ -381,7 +381,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 
 
-- **Note:** If you do not wish to limit the IP addresses connecting to the service, remove ``ip saddr 192.168.x.y/24`` from the rules
+- **Note:** If you do not wish to limit the IP addresses connecting to the service, remove ``ip saddr 192.168.x.y/24`` from the rules.
 
 - If you want to expose the service on multiple interfaces, repeat steps 2 and 3 above, for each interface. Alternatively, you can leave out the interface completely.
 

@@ -42,7 +42,7 @@ Core documentation for Qubes users.
    :caption: Choosing Your Hardware
 
    user/hardware/system-requirements
-   user/hardware/certified-hardware
+   user/hardware/certified-hardware/certified-hardware
    Community-recommended hardware <https://forum.qubes-os.org/t/5560>
    Hardware compatibility list (HCL) <https://www.qubes-os.org/hcl/>
    user/hardware/how-to-use-the-hcl

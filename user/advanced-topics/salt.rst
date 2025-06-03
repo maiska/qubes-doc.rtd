@@ -650,7 +650,13 @@ If the log does not contain useful information:
       $ salt-ssh "$target_vm" $salt_command
 
 
-Adjust $target_vm (VM_NAME) and $salt_command (state.apply). 6. Execute them, fix problems, repeat.
+Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
+
+6. Execute them, fix problems, repeat.
+
+
+
+
 
 Known Pitfalls
 --------------

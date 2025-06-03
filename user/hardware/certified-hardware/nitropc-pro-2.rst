@@ -5,11 +5,11 @@ NitroPC Pro 2
 
 .. warning::
       
-      **Note:** When configuring your NitroPC Pro 2 on the Nitrokey website, there is an option for a discrete graphics card (e.g., Nvidia GeForce RTX 4070 or 4090) in addition to integrated graphics (e.g., Intel UHD 770, which is always included because it is physically built into the CPU). NitroPC Pro 2 configurations that include discrete graphics cards are not Qubes-certified. The only NitroPC Pro 2 configurations that are Qubes-certified are those that contain only integrated graphics.
+      **Note:** When configuring your NitroPC Pro 2 on the Nitrokey website, there is an option for a discrete graphics card (e.g., Nvidia GeForce RTX 4070 or 4090) in addition to integrated graphics (e.g., Intel UHD 770, which is always included because it is physically built into the CPU). NitroPC Pro 2 configurations that include discrete graphics cards are *not* Qubes-certified. The only NitroPC Pro 2 configurations that are Qubes-certified are those that contain *only* integrated graphics.
 
 .. warning::
       
-      **Note:** Only the “Dasharo TianoCore UEFI without Measured Boot, without Nitrokey” firmware option is certified. The “HEADS with Measured Boot, requires Nitrokey!” firmware option is not certified.
+      **Note:** Only the “Dasharo TianoCore UEFI without Measured Boot, without Nitrokey” firmware option is certified. The “HEADS with Measured Boot, requires Nitrokey!” firmware option is *not* certified.
 
 The `NitroPC Pro 2 <https://shop.nitrokey.com/shop/nitropc-pro-2-523>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.
 

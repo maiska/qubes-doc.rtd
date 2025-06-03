@@ -113,7 +113,10 @@ Be sure to do steps described in this section after *all* your template and stan
 
 
 6. Reboot the system.
-   It may happen that the system hang during the reboot. Hard reset the system in such case, all the filesystems are unmounted at this stage.
+
+   - It may happen that the system hang during the reboot. Hard reset the system in such case, all the filesystems are unmounted at this stage.
+
+
 
 
 

@@ -7,7 +7,7 @@ Introduction
 ------------
 
 | This page explains use of the firewall in Qubes 4.1, using ``iptables``.
-| From Qubes 4.2, all firewall components use ``nftables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall/>`
+| From Qubes 4.2, all firewall components use ``nftables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall/>`.
 
 
 Understanding firewalling in Qubes
@@ -59,13 +59,9 @@ Reconnecting qubes after a NetVM reboot
 ---------------------------------------
 
 
-Normally Qubes doesn’t let the user stop a NetVM if there are other qubes running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.0 will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
+Normally Qubes doesn’t let the user stop a NetVM if there are other qubes running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.0 will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0: ``qvm-prefs <vm> netvm <netvm>``
 
-``qvm-prefs <vm> netvm <netvm>``
-
-Normally qubes do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
-
-``qvm-prefs sys-firewall netvm sys-net``
+Normally qubes do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation): ``qvm-prefs sys-firewall netvm sys-net``
 
 Network service qubes
 ---------------------
@@ -93,7 +89,7 @@ Thereby sys-firewall-1 is only needed if you have other client qubes connected t
 
 If you adopt this model, you should be aware that all traffic will arrive at the ``network service qube`` appearing to originate from the IP address of ``sys-firewall-2``.
 
-For the VPN service please also look at the `VPN documentation <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md>`__.
+For the VPN service please also look at the `VPN documentation <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>`__.
 
 Enabling networking between two qubes
 -------------------------------------

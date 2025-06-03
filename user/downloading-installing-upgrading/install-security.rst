@@ -39,7 +39,7 @@ Cons:
 
 - Rewritable. (If the drive is mounted to a compromised machine, the ISO could be maliciously altered after it has been written to the drive.)
 
-- Untrustworthy firmware. (Firmware can be malicious even if the drive is new. Plugging a drive with rewritable firmware into a compromised machine can also `compromise the drive <https://srlabs.de/badusb/>`__. Installing from a compromised drive could compromise even a brand new Qubes installation.)
+- Untrustworthy firmware. (Firmware can be malicious even if the drive is new. Plugging a drive with rewritable firmware into a compromised machine can also `compromise the drive <https://www.blackhat.com/us-14/briefings.html#badusb-on-accessories-that-turn-evil>`__. Installing from a compromised drive could compromise even a brand new Qubes installation.)
 
 
 

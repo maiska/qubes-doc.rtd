@@ -27,39 +27,39 @@ The current Qubes-certified models are listed below in reverse chronological ord
    * - Brand
      - Model
      - Certification details
-   * - NovaCustom
-     - V54 Series
-     - Certification details
-   * - Nitrokey
-     - NitroPad V56
-     - Certification details
-   * - NovaCustom
-     - V56 Series
-     - Certification details
-   * - Nitrokey
-     - NitroPC Pro 2
-     - Certification details
-   * - Star Labs
-     - StarBook
-     - Certification details
-   * - Nitrokey
-     - NitroPC Pro
-     - Certification details
-   * - NovaCustom
-     - NV41 Series
-     - Certification details
-   * - 3mdeb
-     - Dasharo FidelisGuard Z690
-     - Certification details
-   * - Nitrokey
-     - NitroPad T430
-     - Certification details
-   * - Nitrokey
-     - NitroPad X230
-     - Certification details
-   * - Insurgo
-     - PrivacyBeast X230
-     - Certification details
+   * - `NovaCustom <https://novacustom.com/>`__
+     - `V54 Series <https://novacustom.com/product/v54-series/>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v54-series/>`
+   * - `Nitrokey <https://www.nitrokey.com/>`__
+     - `NitroPad V56 <https://shop.nitrokey.com/shop/nitropad-v56-684>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/nitropad-v56/>`
+   * - `NovaCustom <https://novacustom.com/>`__
+     - `V56 Series <https://novacustom.com/product/v56-series/>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v54-series/>`
+   * - `Nitrokey <https://www.nitrokey.com/>`__
+     - `NitroPC Pro 2 <https://shop.nitrokey.com/shop/nitropc-pro-2-523>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/nitropc-pro-2/>`
+   * - `Star Labs <https://starlabs.systems/>`__
+     - `StarBook <https://starlabs.systems/pages/starbook>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/starlabs-starbook/>`
+   * - `Nitrokey <https://www.nitrokey.com/>`__
+     - `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/nitropc-pro/>`
+   * - `NovaCustom <https://novacustom.com/>`__
+     - `NV41 Series <https://novacustom.com/product/nv41-series/>`__
+     - :doc:`Certification details </user/hardware/certified-hardware/novacustom-nv41-series/>`
+   * - `3mdeb <https://3mdeb.com/>`__
+     - `Dasharo FidelisGuard Z690 <https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/>`__
+     - :doc:`Certification details </user/hardware/certified-hardware/dasharo-fidelisguard-z690/>`
+   * - `Nitrokey <https://www.nitrokey.com/>`__
+     - `NitroPad T430 <https://shop.nitrokey.com/shop/nitropad-t430-119>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/nitropad-t430/>`
+   * - `Nitrokey <https://www.nitrokey.com/>`__
+     - `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-t430-119>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/nitropad-x230/>`
+   * - `Insurgo <https://insurgo.ca/>`__
+     - `PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/>`__ 
+     - :doc:`Certification details </user/hardware/certified-hardware/insurgo-privacybeast-x230/>`
    
 
 
