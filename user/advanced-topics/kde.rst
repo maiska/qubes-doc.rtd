@@ -17,6 +17,32 @@ Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with 
       $ sudo qubes-dom0-update kde-settings-qubes
 
 
+You may notice some warnings and errors in the installation - it is safe to ignore these.
+
+After the installation is complete log out. At the top of the log in screen is a small icon with *X* on it - if you click on it you will see choices between Xfce and Plasma. Select the Plasma(X11) option, and log in - you will see that Plasma (the KDE desktop environment) loads.
+
+KDE is very customisable, and there is a range of widgets to use. If you want to use the Menu widget, then you must edit ``/etc/X11/xinit/xinitrc.d/55xfce-qubes.sh`` as follows:
+
+.. code:: bash
+
+      #!/usr/bin/sh
+      
+      # Use Qubes provided menu instead of default XFCE one
+      if [ "$XDG_SESSION_DESKTOP" = "KDE" ]; then
+      XDG_MENU_PREFIX="kf5-"
+      else
+      XDG_MENU_PREFIX="qubes-"
+      fi
+      export XDG_MENU_PREFIX
+
+
+
+This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under “Edit->Restore to System Menu”*
+
+Login manager
+^^^^^^^^^^^^^
+
+
 You can also change your default login manager (lightdm) to the new KDE default: sddm
 
 - first you need to edit the ``/etc/sddm.conf`` to make sure if the custom X parameter is set according to Qubes needs:

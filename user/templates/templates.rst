@@ -3,7 +3,9 @@ Templates
 =========
 
 
-In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Your software is installed in :ref:`templates <user/reference/glossary:template>`. Each template shares its root filesystem (i.e., all of its programs and system files) with all the qubes based on it. :ref:`App qubes <user/reference/glossary:app qube>` are where you run your software and store your data.
+In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :ref:`templates <user/reference/glossary:template>`. When using Qubes OS, you normally work in :ref:`app qubes <user/reference/glossary:app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this `below <#inheritance-and-persistence>`__.
+
+If you use a :ref:`Standalone <user/reference/glossary:standalone>`, the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
 The template system has significant benefits:
 
@@ -17,7 +19,7 @@ The template system has significant benefits:
 
 
 
-An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear after the app qube reboots (see `Inheritance and Persistence <#inheritance-and-persistence>`__). For this reason, we recommend installing most of your software in templates, not app qubes.
+An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear when the app qube shuts down (see `Inheritance and Persistence <#inheritance-and-persistence>`__). For this reason, we recommend installing most of your software in templates, not app qubes.
 
 The default template in Qubes is based on Fedora, but there are additional templates based on other Linux distributions. There are also templates available with or without certain software preinstalled. You may find it useful to have multiple templates installed in order to provide:
 
@@ -45,7 +47,11 @@ These are the official Qubes OS Project templates. We build and release updates 
 
 - :doc:`Debian Minimal </user/templates/minimal-templates>`
 
+- :doc:`Debian Xfce </user/templates/xfce-templates>`
 
+
+
+You can see the current supported versions :doc:`here <user/downloading-installing-upgrading/supported-releases:templates>`.
 
 Community
 ---------
@@ -93,7 +99,7 @@ Certain templates come preinstalled with Qubes OS. However, there may be times w
 
 
 
-You can use a command line tool - ``qvm-template`` - or a GUI - ``qvm-template-gui``.
+You can manage your templates using the ``Qubes Template Manager``, a GUI tool available from the Qube menu. You can also use a command line tool in dom0 - ``qvm-template``.
 
 At the command line in dom0, ``qvm-template list --available`` will show available templates. To install a template, use:
 
@@ -104,9 +110,8 @@ At the command line in dom0, ``qvm-template list --available`` will show availab
 
 
 You can also use ``qvm-template`` to upgrade or reinstall templates.
-Repo definitions are stored in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``.
-There are additional repos for testing releases and community templates. To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. E.g. :
 
+Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``. There are additional repos for testing releases and community templates. To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. E.g. :
 
 .. code:: bash
 

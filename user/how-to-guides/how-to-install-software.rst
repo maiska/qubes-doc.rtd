@@ -195,10 +195,10 @@ If you would like to enable the `RPM Fusion <https://rpmfusion.org/>`__ reposito
 
 .. code:: bash
 
-      sudo dnf config-manager --set-enabled rpmfusion-free
-      sudo dnf config-manager --set-enabled rpmfusion-free-updates
-      sudo dnf config-manager --set-enabled rpmfusion-nonfree
-      sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
+      sudo dnf config-manager setopt rpmfusion-free.enabled=1
+      sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+      sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+      sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
       sudo dnf upgrade --refresh
 
 

@@ -3,21 +3,21 @@ Debian templates
 ================
 
 
-The Debian :doc:`template </user/templates/templates>` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. This page is about the standard (or “full”) Debian template. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page. There is also a `Qubes page on the Debian Wiki <https://wiki.debian.org/Qubes>`__.
+The Debian :doc:`template </user/templates/templates>` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian 12 (“bookworm”). It is available in 3 versions - ``debian-12``, a standard template; ``debian-12-xfce``, a larger template with more installed applications, selected for :doc:`Xfce </user/templates/xfce-templates>`; ``debian-12-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
 Installing
 ----------
 
 
-To :ref:`install <user/templates/templates:installing>` a specific Debian template that is not currently installed in your system, use the following command in dom0:
+To :ref:`install <user/templates/templates:installing>` a specific Debian template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
 .. code:: bash
 
-      $ sudo qubes-dom0-update qubes-template-debian-XX
+      $ qvm-template install XX
 
 
 
-(Replace ``XX`` with the Debian version number of the template you wish to install.)
+(Replace ``XX`` with the name of the template you wish to install.)
 
 To reinstall a Debian template that is already installed in your system, see :doc:`How to Reinstall a template </user/how-to-guides/how-to-reinstall-a-template>`.
 
@@ -122,11 +122,7 @@ Unattended Upgrades
 ^^^^^^^^^^^^^^^^^^^
 
 
-Some users have noticed that on upgrading to Stretch, the ``unattended-upgrade`` package is installed.
-
-This package is pulled in as part of a Recommend chain, and can be purged.
-
-The lesson is that you should carefully look at what is being installed to your system, particularly if you run ``dist-upgrade``.
+Some users have noticed that on upgrading Debian templates, the ``unattended-upgrade`` package is installed. This package is pulled in as part of a Recommend chain, and can be purged. The lesson is that you should carefully look at what is being installed to your system, particularly if you run ``dist-upgrade``.
 
 Package installation errors in Qubes 4.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

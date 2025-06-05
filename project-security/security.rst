@@ -75,6 +75,4 @@ Members of the security team
 
 - `Simon Gaiser (aka HW42) <https://www.qubes-os.org/team/#simon-gaiser-aka-hw42>`__
 
-- `Joanna Rutkowska <https://www.qubes-os.org/team/#joanna-rutkowska>`__ (`emeritus, canaries only <https://www.qubes-os.org/news/2018/11/05/qubes-security-team-update/>`__)
-
 
