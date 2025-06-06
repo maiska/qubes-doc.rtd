@@ -280,6 +280,18 @@ it easy to set the policy using current mechanism.
      - value
      - `-`
      -
+   * - ``admin.vm.notes.Get``
+     - vm
+     - `-`
+     - `-`
+     - notes
+     -
+   * - ``admin.vm.notes.Set``
+     - vm
+     - `-`
+     - notes
+     - `-`
+     -
    * - ``admin.vm.tag.List``
      - vm
      - `-`

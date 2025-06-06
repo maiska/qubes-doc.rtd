@@ -51,7 +51,7 @@ These are the official Qubes OS Project templates. We build and release updates 
 
 
 
-You can see the current supported versions :doc:`here <user/downloading-installing-upgrading/supported-releases:templates>`.
+You can see the current supported versions :ref:`here <user/downloading-installing-upgrading/supported-releases:templates>`.
 
 Community
 ---------
