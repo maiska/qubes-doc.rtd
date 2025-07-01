@@ -3,6 +3,14 @@ Installation security
 =====================
 
 
+.. code:: bash
+
+      ---
+
+
+
+lang: en layout: doc permalink: /doc/install-security/ redirect_from: - /en/doc/install-security/ - /doc/InstallSecurity/ - /wiki/InstallSecurity/ ref: 149 title: Installation security —
+
 There are several security matters to consider before and during the Qubes installation process.
 
 Trusting your hardware
@@ -39,7 +47,7 @@ Cons:
 
 - Rewritable. (If the drive is mounted to a compromised machine, the ISO could be maliciously altered after it has been written to the drive.)
 
-- Untrustworthy firmware. (Firmware can be malicious even if the drive is new. Plugging a drive with rewritable firmware into a compromised machine can also `compromise the drive <https://www.blackhat.com/us-14/briefings.html#badusb-on-accessories-that-turn-evil>`__. Installing from a compromised drive could compromise even a brand new Qubes installation.)
+- Untrustworthy firmware. (Firmware can be malicious even if the drive is new. Plugging a drive with rewritable firmware into a compromised machine can also `compromise the drive <https://web.archive.org/web/20160304013434/https://srlabs.de/badusb/>`__. Installing from a compromised drive could compromise even a brand new Qubes installation.)
 
 
 
